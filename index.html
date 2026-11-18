@@ -166,52 +166,51 @@
         <p data-revela>Cuatro áreas que se mezclan entre sí. Casi ningún proyecto se queda en una sola.</p>
       </header>
 
-      <ol class="servicios__lista">
-        <li class="servicio" style="--c: var(--azul); --t: var(--crema)" data-revela> <!-- --c color del círculo, --t color del número -->
-          <span class="servicio__num" aria-hidden="true">01</span>
-          <div class="servicio__texto">
-            <h3>Estrategia y marca</h3>
-            <p>Antes del logo, la conversación: quién eres, qué quieres decir y a quién.</p>
+      <div class="servicios__cuerpo">
+        <!-- Visor: la foto grande de la izquierda, se queda fija mientras bajas y cambia con el área activa -->
+        <div class="visor" id="visor" aria-hidden="true">
+          <div class="visor__marco">
+            <!-- Fotos de ejemplo (Unsplash): cambiadlas por trabajos vuestros de cada área -->
+            <img class="visor__img activa" src="img/ejemplos/area-marca.webp" alt="" loading="lazy" width="600" height="750">
+            <img class="visor__img" src="img/ejemplos/area-imagen.webp" alt="" loading="lazy" width="600" height="750">
+            <img class="visor__img" src="img/ejemplos/area-web.webp" alt="" loading="lazy" width="600" height="750">
+            <img class="visor__img" src="img/ejemplos/area-voz.webp" alt="" loading="lazy" width="600" height="750">
           </div>
-          <ul class="servicio__tags">
-            <li>Estrategia de marca</li><li>Posicionamiento</li><li>Naming</li><li>Identidad visual</li><li>Universos gráficos</li><li>Branding y rebranding</li>
-          </ul>
-          <span class="servicio__flotante" aria-hidden="true"><small>01 / Área</small>Marca</span> <!-- tarjeta que sigue al ratón -->
-        </li>
-        <li class="servicio" style="--c: var(--coral); --t: var(--negro)" data-revela> <!-- --c color del círculo, --t color del número -->
-          <span class="servicio__num" aria-hidden="true">02</span>
-          <div class="servicio__texto">
-            <h3>Diseño y dirección de arte</h3>
-            <p>Le damos forma visual a las ideas, del cartel al catálogo y de la campaña al stand.</p>
-          </div>
-          <ul class="servicio__tags">
-            <li>Diseño gráfico</li><li>Dirección de arte</li><li>Diseño editorial</li><li>Campañas visuales</li><li>Material corporativo</li><li>Eventos</li><li>Creatividades digitales</li>
-          </ul>
-          <span class="servicio__flotante" aria-hidden="true"><small>02 / Área</small>Imagen</span>
-        </li>
-        <li class="servicio" style="--c: var(--amarillo); --t: var(--negro)" data-revela> <!-- --c color del círculo, --t color del número -->
-          <span class="servicio__num" aria-hidden="true">03</span>
-          <div class="servicio__texto">
-            <h3>Digital y web</h3>
-            <p>Webs y piezas digitales que se ven bien y, además, funcionan.</p>
-          </div>
-          <ul class="servicio__tags">
-            <li>Diseño web</li><li>Desarrollo web</li><li>Landing pages</li><li>Ecommerce</li><li>Experiencias digitales</li><li>Contenido digital</li>
-          </ul>
-          <span class="servicio__flotante" aria-hidden="true"><small>03 / Área</small>Web</span>
-        </li>
-        <li class="servicio" style="--c: var(--negro); --t: var(--crema)" data-revela> <!-- --c color del círculo, --t color del número -->
-          <span class="servicio__num" aria-hidden="true">04</span>
-          <div class="servicio__texto">
-            <h3>Comunicación y contenido</h3>
-            <p>Qué dices, cómo lo dices y dónde: campañas, redes y contenido con criterio.</p>
-          </div>
-          <ul class="servicio__tags">
-            <li>Estrategia de comunicación</li><li>Campañas</li><li>Redes sociales</li><li>Comunicación visual</li><li>Contenido para marcas</li>
-          </ul>
-          <span class="servicio__flotante" aria-hidden="true"><small>04 / Área</small>Voz</span>
-        </li>
-      </ol>
+          <span class="visor__bolita"><span id="visor-num">01</span></span>   <!-- bolita grande con el número, muerde la esquina -->
+          <p class="visor__pie etiqueta">Foto de ejemplo — <span id="visor-nombre">Estrategia y marca</span></p> <!-- pie de foto -->
+        </div>
+
+        <ol class="areas">
+          <li class="area activa" style="--c: var(--azul); --t: var(--crema)" data-revela> <!-- --c color del área, --t color del texto sobre ese color -->
+            <span class="area__num etiqueta">01</span>
+            <h3 class="area__titulo">Estrategia y <span class="sin-corte">marca<span class="bolita"></span></span></h3>
+            <p class="area__texto">Antes del logo, la conversación: quién eres, qué quieres decir y a quién.</p>
+            <p class="area__lista">Estrategia de marca · Posicionamiento · Naming · Identidad visual · Universos gráficos · Branding y rebranding</p>
+            <img class="area__foto" src="img/ejemplos/area-marca.webp" alt="" loading="lazy" width="600" height="750"> <!-- solo se ve en móvil -->
+          </li>
+          <li class="area" style="--c: var(--coral); --t: var(--negro)" data-revela>
+            <span class="area__num etiqueta">02</span>
+            <h3 class="area__titulo">Diseño y dirección de <span class="sin-corte">arte<span class="bolita"></span></span></h3>
+            <p class="area__texto">Le damos forma visual a las ideas, del cartel al catálogo y de la campaña al stand.</p>
+            <p class="area__lista">Diseño gráfico · Dirección de arte · Diseño editorial · Campañas visuales · Material corporativo · Eventos · Creatividades digitales</p>
+            <img class="area__foto" src="img/ejemplos/area-imagen.webp" alt="" loading="lazy" width="600" height="750">
+          </li>
+          <li class="area" style="--c: var(--amarillo); --t: var(--negro)" data-revela>
+            <span class="area__num etiqueta">03</span>
+            <h3 class="area__titulo">Digital y <span class="sin-corte">web<span class="bolita"></span></span></h3>
+            <p class="area__texto">Webs y piezas digitales que se ven bien y, además, funcionan.</p>
+            <p class="area__lista">Diseño web · Desarrollo web · Landing pages · Ecommerce · Experiencias digitales · Contenido digital</p>
+            <img class="area__foto" src="img/ejemplos/area-web.webp" alt="" loading="lazy" width="600" height="750">
+          </li>
+          <li class="area" style="--c: var(--negro); --t: var(--crema)" data-revela>
+            <span class="area__num etiqueta">04</span>
+            <h3 class="area__titulo">Comunicación y <span class="sin-corte">contenido<span class="bolita"></span></span></h3>
+            <p class="area__texto">Qué dices, cómo lo dices y dónde: campañas, redes y contenido con criterio.</p>
+            <p class="area__lista">Estrategia de comunicación · Campañas · Redes sociales · Comunicación visual · Contenido para marcas</p>
+            <img class="area__foto" src="img/ejemplos/area-voz.webp" alt="" loading="lazy" width="600" height="750">
+          </li>
+        </ol>
+      </div>
     </section>
 
     <!-- ================= 5. QUIÉNES SOMOS ================= -->

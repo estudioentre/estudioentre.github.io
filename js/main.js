@@ -202,17 +202,45 @@ window.addEventListener("scroll", () => {
 window.addEventListener("resize", alHacerScroll);               // recalcula si cambia la ventana
 alHacerScroll();                                                // y una vez al empezar
 
-// ---------- 9. Servicios: la tarjeta azul sigue al ratón dentro de su fila ----------
-if (conRaton) {
-  document.querySelectorAll(".servicio").forEach((fila) => {    // cada fila de servicio
-    const tarjeta = fila.querySelector(".servicio__flotante");  // su tarjeta flotante
-    if (!tarjeta) return;                                       // si no tiene, nada
-    fila.addEventListener("pointermove", (e) => {               // al mover el ratón por la fila…
-      const r = fila.getBoundingClientRect();                   // caja de la fila
-      tarjeta.style.setProperty("--fx", (e.clientX - r.left) + "px"); // posición horizontal dentro de la fila
-      tarjeta.style.setProperty("--fy", (e.clientY - r.top) + "px");  // posición vertical dentro de la fila
+// ---------- 9. Qué hacemos: el área activa cambia la foto, el color y el número del visor ----------
+const visor = document.getElementById("visor");                // la foto fija de la izquierda
+const areas = [...document.querySelectorAll(".area")];          // las 4 áreas
+if (visor && areas.length) {
+  const fotos = [...visor.querySelectorAll(".visor__img")];     // sus 4 fotos
+  const bolita = visor.querySelector(".visor__bolita");         // la bolita grande
+  const numero = document.getElementById("visor-num");          // el número dentro de la bolita
+  const nombre = document.getElementById("visor-nombre");       // el pie de foto
+  let actual = -1;                                              // qué área está activa (ninguna al principio)
+
+  function activar(i) {                                         // enciende el área número i
+    if (i === actual) return;                                   // si ya lo está, nada
+    actual = i;
+    areas.forEach((a, j) => a.classList.toggle("activa", j === i)); // enciende esa y apaga las demás
+    fotos.forEach((f, j) => f.classList.toggle("activa", j === i)); // muestra su foto
+    const estilo = getComputedStyle(areas[i]);                  // lee los colores del área
+    visor.style.setProperty("--c", estilo.getPropertyValue("--c")); // color de la bolita y del velo
+    visor.style.setProperty("--t", estilo.getPropertyValue("--t")); // color del número
+    numero.textContent = String(i + 1).padStart(2, "0");        // "01", "02"…
+    nombre.textContent = areas[i].querySelector(".area__titulo").textContent; // nombre del área en el pie
+    bolita.classList.remove("cambia");                          // reinicia el rebote…
+    void bolita.offsetWidth;                                    // (truco para que la animación vuelva a empezar)
+    bolita.classList.add("cambia");                             // …y lo lanza
+  }
+
+  function areaDelCentro() {                                    // ¿qué área está más cerca del centro de la pantalla?
+    const centro = window.innerHeight * 0.5;                    // mitad de la ventana
+    let mejor = 0, distancia = Infinity;                        // la más cercana hasta ahora
+    areas.forEach((a, i) => {
+      const r = a.getBoundingClientRect();                      // posición del área
+      const d = Math.abs(r.top + r.height / 2 - centro);        // distancia de su centro al centro de la pantalla
+      if (d < distancia) { distancia = d; mejor = i; }          // si está más cerca, es la nueva mejor
     });
-  });
+    activar(mejor);                                             // la enciende
+  }
+
+  window.addEventListener("scroll", () => requestAnimationFrame(areaDelCentro), { passive: true }); // al hacer scroll
+  areas.forEach((a, i) => a.addEventListener("pointerenter", () => activar(i))); // y al pasar el ratón por encima
+  activar(0);                                                   // al empezar, la primera
 }
 
 // ---------- 10. Cursor "Ver proyecto" ----------

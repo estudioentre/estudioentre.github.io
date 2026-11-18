@@ -449,42 +449,58 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .servicios__cabecera h2 { grid-column: 1 / 10; }
 .servicios__cabecera p { grid-column: 10 / 13; max-width: 26ch; }
 
-.servicio {
-  position: relative;
-  display: grid; grid-template-columns: minmax(5rem, 15vw) 1fr 1.15fr;
-  gap: var(--hueco); align-items: center;
-  padding: clamp(1.4rem, 2.6vw, 2.4rem) 0;
+.servicios__cuerpo {                         /* foto fija a la izquierda, áreas a la derecha */
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--hueco);
+  align-items: start;
+}
+
+/* El visor: foto grande que se queda fija mientras bajas */
+.visor {
+  grid-column: 1 / 6;
+  position: sticky; top: calc(var(--cabecera) + 2.5rem); /* se queda pegado arriba mientras recorres las áreas */
+}
+.visor__marco { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--crema-oscuro); }
+.visor__img {                                /* las 4 fotos, una encima de otra */
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transform: scale(1.08);       /* escondidas y algo ampliadas */
+  transition: opacity .7s var(--curva), transform 1.4s var(--curva);
+}
+.visor__img.activa { opacity: 1; transform: none; } /* la del área activa aparece y se asienta */
+.visor__marco::after {                       /* velo suave del color del área activa */
+  content: ""; position: absolute; inset: 0;
+  background-color: var(--c, var(--azul)); mix-blend-mode: multiply; opacity: .22;
+  transition: background-color .6s;
+}
+.visor__bolita {                             /* bolita grande con el número, mordiendo la esquina de arriba */
+  position: absolute; top: clamp(-2.5rem, -3vw, -1.5rem); right: clamp(-2.5rem, -3vw, -1.5rem); z-index: 1;
+  display: grid; place-items: center;
+  width: clamp(5rem, 9vw, 8.5rem); aspect-ratio: 1; border-radius: 50%;
+  background: var(--c, var(--azul)); color: var(--t, var(--crema));
+  font-family: var(--display); font-size: clamp(1.8rem, 3.2vw, 3rem); line-height: 1;
+  transition: background-color .6s, color .6s;
+}
+.visor__bolita.cambia { animation: rebote .7s var(--curva); } /* pequeño rebote al cambiar de área */
+.visor__pie { margin-top: .8rem; opacity: .6; font-size: .68rem; }
+
+/* Las áreas */
+.areas { grid-column: 7 / 13; }
+.area {
+  padding: clamp(2rem, 4vw, 3.5rem) 0;
   border-top: 1px solid var(--negro);
 }
-.servicio:last-child { border-bottom: 1px solid var(--negro); }
-.servicio__num {                             /* el número dentro de una bolita de color: color e identidad */
-  display: grid; place-items: center;
-  width: clamp(4.2rem, 8.5vw, 8.5rem); aspect-ratio: 1; border-radius: 50%;
-  background: var(--c); color: var(--t);    /* cada fila con su color (definido en el HTML) */
-  font-family: var(--display); font-size: clamp(1.8rem, 3.4vw, 3.4rem); line-height: 1;
-  transition: transform .6s var(--curva);
+.area:last-child { border-bottom: 1px solid var(--negro); }
+.area > * { opacity: .28; transition: opacity .5s var(--curva); } /* apagada… */
+.area.activa > * { opacity: 1; }             /* …y encendida cuando es la activa */
+.area__num { display: block; margin-bottom: .8rem; }
+.area__titulo {
+  font-size: clamp(2rem, 4vw, 4.2rem); font-weight: 600;
+  letter-spacing: -.035em; line-height: .95; margin-bottom: 1rem;
 }
-.servicio__texto h3 { font-size: clamp(1.5rem, 3vw, 2.9rem); font-weight: 600; letter-spacing: -.03em; line-height: 1; margin-bottom: .5rem; transition: transform .7s var(--curva); }
-.servicio__texto p { max-width: 36ch; opacity: .8; }
-.servicio__tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-.servicio__tags li { font-size: .85rem; padding: .3rem .75rem; border: 1px solid var(--linea); border-radius: 999px; }
-.servicio__flotante {                        /* tarjeta azul que aparece junto al ratón */
-  position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none;
-  width: clamp(8rem, 11vw, 10.5rem); aspect-ratio: 4 / 5;
-  display: flex; flex-direction: column; justify-content: space-between;
-  padding: .8rem; background: var(--c); color: var(--t); /* del color de su fila */
-  font-family: var(--display); text-transform: uppercase; font-size: clamp(2rem, 3.2vw, 2.9rem); line-height: .85;
-  opacity: 0; scale: .85;                   /* escondida */
-  transform: translate(calc(var(--fx, 60%) + 1.5rem), calc(var(--fy, 0px) - 50%)); /* posición junto al ratón (JavaScript) */
-  transition: opacity .3s, scale .45s var(--curva), transform .6s var(--curva); /* el retraso hace que siga al ratón con suavidad */
-}
-.servicio__flotante small { font-family: var(--sans); font-size: .62rem; font-weight: 600; letter-spacing: .08em; }
-@media (hover: hover) {                      /* solo en dispositivos con ratón */
-  .servicio:hover .servicio__texto h3 { transform: translateX(1.2rem); } /* el título se desliza */
-  .servicio:hover .servicio__num { transform: scale(1.08) rotate(-8deg); } /* la bolita se mueve un poco */
-  .servicio:hover .servicio__flotante { opacity: 1; scale: 1; }          /* aparece la tarjeta */
-}
-@media (hover: none) { .servicio__flotante { display: none; } }        /* en pantallas táctiles no hace falta */
+.area__titulo .bolita { background: var(--c); transform: scale(0); transition: transform .6s var(--curva); } /* su bolita de color… */
+.area.activa .area__titulo .bolita { transform: scale(1); }                                              /* …aparece al activarse */
+.area__texto { font-size: clamp(1.05rem, 1.3vw, 1.25rem); max-width: 38ch; margin-bottom: .9rem; }
+.area__lista { font-size: .88rem; max-width: 52ch; color: rgba(17, 17, 17, .65); } /* lo que incluye, en una línea corrida */
+.area__foto { display: none; }               /* la foto propia de cada área solo se usa en móvil */
 
 /* ---------- 10. Quiénes somos ---------- */
 .equipo__cabecera {                          /* título a la izquierda, texto a la derecha */
@@ -665,8 +681,12 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   .proyectos__cabecera h2, .proyectos__intro,
   .servicios__cabecera h2, .servicios__cabecera p,
   .proceso__cabecera h2, .proceso__cabecera p { grid-column: 1 / -1; }
-  .servicio { grid-template-columns: auto 1fr; }
-  .servicio__tags { grid-column: 1 / -1; }
+  .servicios__cuerpo { grid-template-columns: 1fr; }
+  .visor { display: none; }                  /* en móvil no hay foto fija… */
+  .areas { grid-column: 1; }
+  .area > * { opacity: 1; }                  /* …todas las áreas encendidas… */
+  .area__titulo .bolita { transform: scale(1); }
+  .area__foto { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-top: 1.4rem; } /* …y cada una con su foto */
   .equipo__cabecera h2, .equipo__texto { grid-column: 1 / -1; }
   .equipo__personas { grid-template-columns: 1fr 1fr; gap: .8rem; } /* en móvil, las dos fotos lado a lado e iguales */
   .equipo__union { display: none; }
@@ -697,5 +717,6 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   [data-revela], .portada .linea > span, .linea[data-revela] > span, .portada__visual { opacity: 1 !important; transform: none !important; }
   .paso__punto { transform: scale(1); }
   .estudio__texto .palabra { opacity: 1; }
+  .area > * { opacity: 1; }
   .estudio__texto .pastilla { background-size: 100% 100%; color: var(--crema); }
 }
