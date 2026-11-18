@@ -9,7 +9,7 @@ Web estática (HTML + CSS + JS, sin instalar nada).
 - **Fotos del equipo** → `index.html`, buscar `persona-1.webp` / `persona-2.webp`
 - **Fotos de «Qué hacemos»** → `img/ejemplos/area-*.webp` (una por área)
 - **Nombres, especialidad y bio** → `index.html`, buscar `[Nombre Apellido]`
-- **Email y redes** → somosestudioentre@gmail.com e Instagram @somosestudioentre ya puestos; falta el enlace de LinkedIn (buscar `LinkedIn ↗` con `href="#"`)
+- **Email y redes** → somosestudioentre@gmail.com e Instagram @somosestudioentre ya puestos y LinkedIn linkedin.com/company/estudio-entre ya puestos
 - **Colores** → `css/estilos.css`, arriba del todo (`--azul`, `--coral`…)
 
 ## Antes de publicar ✔
