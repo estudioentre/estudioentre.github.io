@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">                                                       <!-- tildes y eñes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">         <!-- adaptable al móvil -->
+  <title>ENTRE — Estudio creativo independiente</title>                         <!-- título de la pestaña y de Google -->
+  <meta name="description" content="ENTRE es un estudio creativo independiente formado por dos personas. Estrategia, diseño, web y comunicación para marcas con personalidad."> <!-- texto que sale en Google -->
+  <meta name="theme-color" content="#F4F0E8">                                   <!-- color de la barra del navegador en el móvil -->
+  <!-- <link rel="canonical" href="https://TU-DOMINIO/">  ← activar cuando haya dominio -->
+
+  <!-- Al compartir el enlace en redes / WhatsApp -->
+  <meta property="og:type" content="website">                                   <!-- tipo de contenido -->
+  <meta property="og:title" content="ENTRE — Estudio creativo independiente">   <!-- título al compartir -->
+  <meta property="og:description" content="Las ideas suceden entre. Estrategia, diseño, web y comunicación."> <!-- descripción al compartir -->
+  <meta property="og:locale" content="es_ES">                                    <!-- idioma -->
+  <!-- <meta property="og:image" content="https://TU-DOMINIO/img/compartir.jpg"> ← imagen 1200×630 cuando la tengáis -->
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">                 <!-- icono de la pestaña -->
+
+  <!-- Tipografías: Instrument Sans (variable, para casi todo) + Anton (condensada, solo para golpes de escala) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/estilos.css">                                <!-- todos los estilos -->
+
+  <!-- Datos estructurados: le explican a Google qué es esto -->
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "Organization", "name": "ENTRE", "description": "Estudio creativo independiente: estrategia, diseño, web y comunicación." }
+  </script>
+</head>
+
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>                   <!-- atajo para quien navega con teclado -->
+
+  <!-- Símbolo del logo (se reutiliza) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="marca" viewBox="0 0 32 20">
+      <circle cx="10" cy="10" r="10" fill="#3449C8"/>                           <!-- círculo azul -->
+      <circle cx="22" cy="10" r="10" fill="#EF765F"/>                           <!-- círculo coral -->
+      <path d="M16 2A10 10 0 0 1 16 18A10 10 0 0 1 16 2Z" fill="#111111"/>     <!-- la lente negra en medio -->
+    </symbol>
+  </svg>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="cabecera" id="cabecera">
+    <a class="logo" href="#inicio" aria-label="ENTRE, volver al inicio">          <!-- logo: lleva arriba -->
+      <svg class="logo__marca" aria-hidden="true"><use href="#marca"/></svg>     <!-- los dos círculos -->
+      <span class="logo__texto">entre</span>                                     <!-- el nombre -->
+    </a>
+    <span class="cabecera__nota etiqueta">Estudio creativo</span>               <!-- etiqueta pequeña al lado del logo -->
+
+    <nav class="nav" aria-label="Principal">                                    <!-- menú de escritorio -->
+      <ul>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#estudio">Estudio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <a class="boton boton--negro cabecera__cta" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a> <!-- llamada a la acción -->
+
+    <button class="menu-boton" id="menu-boton" aria-expanded="false" aria-controls="menu-movil"> <!-- botón del menú en móvil -->
+      <span class="sr-only">Abrir menú</span>                                     <!-- texto para lectores de pantalla -->
+      <span class="menu-boton__raya"></span><span class="menu-boton__raya"></span> <!-- las dos rayas que se convierten en X -->
+    </button>
+  </header>
+
+  <!-- Menú a pantalla completa (móvil y tablet) -->
+  <div class="menu-movil" id="menu-movil" inert>
+    <nav aria-label="Menú móvil">
+      <ol>
+        <li style="--i:0"><a href="#proyectos"><span class="etiqueta">01</span>Proyectos</a></li>
+        <li style="--i:1"><a href="#estudio"><span class="etiqueta">02</span>Estudio</a></li>
+        <li style="--i:2"><a href="#servicios"><span class="etiqueta">03</span>Servicios</a></li>
+        <li style="--i:3"><a href="#contacto"><span class="etiqueta">04</span>Contacto</a></li>
+      </ol>
+    </nav>
+    <p class="menu-movil__pie etiqueta">hola@tuestudio.com · Instagram · LinkedIn</p> <!-- placeholder de contacto -->
+  </div>
+
+  <main id="contenido">
+
+    <!-- ================= 1. PORTADA ================= -->
+    <section class="portada" id="inicio">
+      <h1 class="portada__titulo">
+        <span class="sr-only">Las ideas suceden entre.</span>                   <!-- lo que lee Google y los lectores de pantalla -->
+        <span class="linea" aria-hidden="true"><span style="--i:0" data-letras>Las ideas</span></span> <!-- línea 1 -->
+        <span class="linea" aria-hidden="true"><span style="--i:1" data-letras>suceden</span></span>   <!-- línea 2 -->
+        <span class="linea linea--display" aria-hidden="true"><span style="--i:2"><span class="sin-corte">entre<span class="bolita"></span></span></span></span> <!-- línea 3, en Anton; el punto es una bolita como las del logo -->
+      </h1>
+
+      <figure class="portada__visual">                                           <!-- una sola pieza visual, rectángulo 4:5 -->
+        <div class="portada__marco" data-paralaje="-0.04">                        <!-- se desplaza un poco con el scroll -->
+          <!-- Foto de ejemplo (Unsplash). Para cambiarla, sustituye el archivo o la ruta del src -->
+          <img src="img/ejemplos/portada.webp" alt="Retrato editorial de una mujer con un pañuelo azul sobre fondo azul" width="1400" height="1867" fetchpriority="high"> <!-- fetchpriority: es la primera imagen, que cargue antes -->
+        </div>
+        <span class="portada__chapa etiqueta">Estudio creativo<br>independiente</span> <!-- etiqueta que muerde el borde -->
+        <figcaption class="etiqueta">Fig. 01 — Foto de ejemplo · Unsplash</figcaption> <!-- pie de foto -->
+      </figure>
+
+      <div class="portada__pie">                                                  <!-- textos pequeños de abajo -->
+        <div class="portada__intro" data-revela>
+          <p>Somos <strong>ENTRE</strong>, un estudio creativo independiente formado por dos personas. Unimos estrategia, comunicación y diseño para crear marcas y proyectos con personalidad.</p>
+          <a class="enlace-flecha" href="#proyectos">Ver proyectos <span aria-hidden="true">↘</span></a>
+        </div>
+        <ol class="portada__indice etiqueta" data-revela>                         <!-- índice de lo que hacemos -->
+          <li><a href="#servicios"><span>01</span> Estrategia y marca</a></li>
+          <li><a href="#servicios"><span>02</span> Diseño y dirección de arte</a></li>
+          <li><a href="#servicios"><span>03</span> Digital y web</a></li>
+          <li><a href="#servicios"><span>04</span> Comunicación y contenido</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Una sola cinta fina con datos del estudio -->
+    <div class="cinta" aria-hidden="true">
+      <div class="cinta__pista">
+        <span>Estudio creativo independiente <i></i> Dos personas <i></i> Estrategia <i></i> Marca <i></i> Dirección de arte <i></i> Digital y web <i></i> Comunicación <i></i> Ideas con personalidad <i></i></span> <!-- cada <i> es una bolita de color -->
+        <span>Estudio creativo independiente <i></i> Dos personas <i></i> Estrategia <i></i> Marca <i></i> Dirección de arte <i></i> Digital y web <i></i> Comunicación <i></i> Ideas con personalidad <i></i></span>
+      </div>
+    </div>
+
+    <!-- ================= 2. EL ESTUDIO ================= -->
+    <section class="estudio seccion" id="estudio" aria-labelledby="titulo-estudio">
+      <header class="seccion__cabecera" data-revela>
+        <span class="etiqueta">(01)</span>
+        <h2 class="etiqueta" id="titulo-estudio">El estudio</h2>
+      </header>
+
+      <p class="estudio__texto" data-revela>
+        Somos un estudio creativo independiente. Nos movemos <span class="pastilla">entre</span> la estrategia, la comunicación y el diseño para dar forma a ideas que tengan algo que decir. <!-- "entre" siempre va dentro de una pastilla -->
+      </p>
+
+      <div class="estudio__columnas">
+        <p data-revela>Pensamos antes de diseñar, y diseñamos pensando en dónde va a vivir cada cosa: una marca, una campaña, una web o un cartel en la calle.</p>
+        <p data-revela>Somos dos. Quien te escucha el primer día es quien revisa el último archivo, así que nada se pierde por el camino.</p>
+      </div>
+
+      <div class="partida" id="partida" aria-hidden="true">                       <!-- "EN [pastilla] TRE": la palabra se abre al hacer scroll -->
+        <span>En</span>
+        <span class="partida__hueco"><span class="partida__nota">aquí pasa todo</span></span> <!-- la pastilla amarilla que crece -->
+        <span>tre</span>
+      </div>
+    </section>
+
+    <!-- ================= 3. PROYECTOS ================= -->
+    <section class="proyectos seccion" id="proyectos" aria-labelledby="titulo-proyectos">
+      <header class="proyectos__cabecera">
+        <h2 class="titulo-grande" id="titulo-proyectos" style="--c: var(--azul)" data-revela><span class="sin-corte">Proyectos<span class="bolita"></span></span><sup class="etiqueta">(06)</sup></h2> <!-- --c: color de la bolita -->
+        <div class="proyectos__intro" data-revela>
+          <p>Marcas, campañas, webs y piezas gráficas. Cada proyecto es distinto, así que cada uno se ve distinto.</p>
+          <p class="aviso etiqueta">Contenido de ejemplo — sustituir por proyectos reales</p> <!-- recordatorio visible -->
+        </div>
+      </header>
+
+      <div class="proyectos__lista" id="lista-proyectos"></div>                   <!-- aquí JavaScript pinta las tarjetas desde js/proyectos.js -->
+      <noscript><p>Activa JavaScript para ver los proyectos.</p></noscript>
+    </section>
+
+    <!-- ================= 4. SERVICIOS ================= -->
+    <section class="servicios seccion" id="servicios" aria-labelledby="titulo-servicios">
+      <header class="servicios__cabecera">
+        <h2 class="titulo-grande" id="titulo-servicios" style="--c: var(--coral)" data-revela>Qué <span class="sin-corte">hacemos<span class="bolita"></span></span></h2>
+        <p data-revela>Cuatro áreas que se mezclan entre sí. Casi ningún proyecto se queda en una sola.</p>
+      </header>
+
+      <ol class="servicios__lista">
+        <li class="servicio" style="--c: var(--azul); --t: var(--crema)" data-revela> <!-- --c color del círculo, --t color del número -->
+          <span class="servicio__num" aria-hidden="true">01</span>
+          <div class="servicio__texto">
+            <h3>Estrategia y marca</h3>
+            <p>Antes del logo, la conversación: quién eres, qué quieres decir y a quién.</p>
+          </div>
+          <ul class="servicio__tags">
+            <li>Estrategia de marca</li><li>Posicionamiento</li><li>Naming</li><li>Identidad visual</li><li>Universos gráficos</li><li>Branding y rebranding</li>
+          </ul>
+          <span class="servicio__flotante" aria-hidden="true"><small>01 / Área</small>Marca</span> <!-- tarjeta que sigue al ratón -->
+        </li>
+        <li class="servicio" style="--c: var(--coral); --t: var(--negro)" data-revela> <!-- --c color del círculo, --t color del número -->
+          <span class="servicio__num" aria-hidden="true">02</span>
+          <div class="servicio__texto">
+            <h3>Diseño y dirección de arte</h3>
+            <p>Le damos forma visual a las ideas, del cartel al catálogo y de la campaña al stand.</p>
+          </div>
+          <ul class="servicio__tags">
+            <li>Diseño gráfico</li><li>Dirección de arte</li><li>Diseño editorial</li><li>Campañas visuales</li><li>Material corporativo</li><li>Eventos</li><li>Creatividades digitales</li>
+          </ul>
+          <span class="servicio__flotante" aria-hidden="true"><small>02 / Área</small>Imagen</span>
+        </li>
+        <li class="servicio" style="--c: var(--amarillo); --t: var(--negro)" data-revela> <!-- --c color del círculo, --t color del número -->
+          <span class="servicio__num" aria-hidden="true">03</span>
+          <div class="servicio__texto">
+            <h3>Digital y web</h3>
+            <p>Webs y piezas digitales que se ven bien y, además, funcionan.</p>
+          </div>
+          <ul class="servicio__tags">
+            <li>Diseño web</li><li>Desarrollo web</li><li>Landing pages</li><li>Ecommerce</li><li>Experiencias digitales</li><li>Contenido digital</li>
+          </ul>
+          <span class="servicio__flotante" aria-hidden="true"><small>03 / Área</small>Web</span>
+        </li>
+        <li class="servicio" style="--c: var(--negro); --t: var(--crema)" data-revela> <!-- --c color del círculo, --t color del número -->
+          <span class="servicio__num" aria-hidden="true">04</span>
+          <div class="servicio__texto">
+            <h3>Comunicación y contenido</h3>
+            <p>Qué dices, cómo lo dices y dónde: campañas, redes y contenido con criterio.</p>
+          </div>
+          <ul class="servicio__tags">
+            <li>Estrategia de comunicación</li><li>Campañas</li><li>Redes sociales</li><li>Comunicación visual</li><li>Contenido para marcas</li>
+          </ul>
+          <span class="servicio__flotante" aria-hidden="true"><small>04 / Área</small>Voz</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ================= 5. QUIÉNES SOMOS ================= -->
+    <section class="equipo seccion" id="nosotras" aria-labelledby="titulo-equipo">
+      <header class="seccion__cabecera" data-revela>
+        <span class="etiqueta">(02)</span>
+        <span class="etiqueta">Quiénes somos</span>
+      </header>
+
+      <div class="equipo__cabecera">
+        <h2 class="titulo-grande" id="titulo-equipo" style="--c: var(--azul)" data-revela>Dos <span class="sin-corte">miradas<span class="bolita"></span></span></h2>
+        <p class="equipo__texto" data-revela>Perfiles complementarios y una misma manera de entender la creatividad. Unimos estrategia, comunicación y diseño para mirar cada proyecto desde dos lados, y nos implicamos en todo el proceso: de la primera idea al resultado final.</p>
+      </div>
+
+      <div class="equipo__personas">                                               <!-- dos retratos del mismo tamaño: mismo peso -->
+        <article class="persona" style="--c: var(--azul)" data-revela>
+          <div class="persona__foto">                                              <!-- retrato 4:5 -->
+            <img src="img/ejemplos/persona-1.webp" alt="Foto de ejemplo: retrato en blanco y negro" loading="lazy" width="1000" height="1250"> <!-- foto de ejemplo: cambiar por la vuestra -->
+            <span class="foto-ejemplo etiqueta">Foto de ejemplo</span>
+          </div>
+          <h3 class="persona__nombre"><span class="bolita"></span>[Nombre Apellido]</h3> <!-- la bolita azul es "su" círculo del logo -->
+          <p class="persona__rol etiqueta">[Especialidad]</p>
+          <p class="persona__bio">[Bio breve: dos o tres líneas sobre tu recorrido y lo que más te gusta hacer dentro del estudio.]</p>
+        </article>
+
+        <div class="equipo__union" aria-hidden="true">                            <!-- en medio: el logo, lo que las une -->
+          <svg viewBox="0 0 32 20"><use href="#marca"/></svg>
+        </div>
+
+        <article class="persona" style="--c: var(--coral)" data-revela>
+          <div class="persona__foto">                                              <!-- retrato 4:5, mismo tamaño -->
+            <img src="img/ejemplos/persona-2.webp" alt="Foto de ejemplo: retrato en blanco y negro sobre fondo gris" loading="lazy" width="1000" height="1333"> <!-- foto de ejemplo: cambiar por la vuestra -->
+            <span class="foto-ejemplo etiqueta">Foto de ejemplo</span>
+          </div>
+          <h3 class="persona__nombre"><span class="bolita"></span>[Nombre Apellido]</h3> <!-- y la coral, la suya -->
+          <p class="persona__rol etiqueta">[Especialidad]</p>
+          <p class="persona__bio">[Bio breve: dos o tres líneas sobre tu recorrido y lo que más te gusta hacer dentro del estudio.]</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= 6. CÓMO TRABAJAMOS ================= -->
+    <section class="proceso seccion" id="proceso" aria-labelledby="titulo-proceso">
+      <header class="proceso__cabecera">
+        <h2 class="titulo-grande" id="titulo-proceso" style="--c: var(--amarillo)" data-revela>Cómo <span class="sin-corte">trabajamos<span class="bolita"></span></span></h2>
+        <p data-revela>Sin fórmulas mágicas. Cuatro pasos que se repiten las veces que haga falta.</p>
+      </header>
+
+      <ol class="pasos" id="pasos">                                                <!-- una línea horizontal con cuatro bolitas -->
+        <li class="paso" style="--c: var(--coral); --i:0" data-revela>
+          <span class="paso__punto" aria-hidden="true"></span>                       <!-- la bolita sobre la línea -->
+          <span class="paso__num etiqueta">Paso 01</span>
+          <h3>Escuchamos</h3>
+          <p>Nos sentamos contigo a entender el proyecto: qué necesitas, para quién es y qué tiene que conseguir.</p>
+        </li>
+        <li class="paso" style="--c: var(--amarillo); --i:1" data-revela>
+          <span class="paso__punto" aria-hidden="true"></span>
+          <span class="paso__num etiqueta">Paso 02</span>
+          <h3>Pensamos</h3>
+          <p>Buscamos el enfoque. Probamos caminos, descartamos muchos y nos quedamos con el que tiene sentido.</p>
+        </li>
+        <li class="paso" style="--c: var(--crema); --i:2" data-revela>
+          <span class="paso__punto" aria-hidden="true"></span>
+          <span class="paso__num etiqueta">Paso 03</span>
+          <h3>Creamos</h3>
+          <p>Desarrollamos la identidad, el diseño y las piezas. Aquí es donde las ideas empiezan a verse.</p>
+        </li>
+        <li class="paso" style="--c: var(--negro); --i:3" data-revela>
+          <span class="paso__punto" aria-hidden="true"></span>
+          <span class="paso__num etiqueta">Paso 04</span>
+          <h3>Damos forma</h3>
+          <p>Lo llevamos a cada soporte (pantalla, papel, redes, espacio) y nos aseguramos de que funcione en todos.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ================= 7. CONTACTO ================= -->
+    <section class="contacto seccion" id="contacto" aria-labelledby="titulo-contacto">
+      <div class="contacto__texto">
+        <p class="etiqueta contacto__previo" data-revela>(03) — Contacto</p>
+        <h2 class="titulo-grande contacto__titulo" id="titulo-contacto" data-revela>¿Tienes una idea <span class="pastilla">entre</span> manos?</h2>
+        <p class="contacto__intro" data-revela>Cuéntanos qué tienes entre manos: una marca nueva, una web, una campaña o una idea a medio hacer. Todo empieza con una conversación.</p>
+        <a class="contacto__email" href="mailto:hola@tuestudio.com" data-revela>hola@tuestudio.com <span aria-hidden="true">↗</span></a> <!-- placeholder: cambiar por el email real -->
+        <ul class="contacto__redes etiqueta" data-revela>                         <!-- redes (placeholders) -->
+          <li><a href="#" rel="noopener">Instagram ↗</a></li>
+          <li><a href="#" rel="noopener">LinkedIn ↗</a></li>
+        </ul>
+      </div>
+
+      <a class="contacto__marca" id="marca-contacto" href="mailto:hola@tuestudio.com?subject=Hola%20ENTRE" aria-label="Escríbenos un email"> <!-- el logo en grande: los dos círculos se acercan al bajar -->
+        <span class="circulo circulo--azul"></span>                              <!-- una mirada -->
+        <span class="circulo circulo--coral"><span class="circulo__texto">Escríbenos ↗</span></span> <!-- la otra, que también es el botón -->
+      </a>
+    </section>
+  </main>
+
+  <!-- ================= PIE ================= -->
+  <footer class="pie">
+    <p class="pie__marca" aria-hidden="true"><span class="sin-corte">entre<span class="bolita"></span></span></p> <!-- el nombre gigante con su bolita -->
+    <div class="pie__fila etiqueta">
+      <span>© <span id="anio">2026</span> ENTRE · Estudio creativo independiente</span>
+      <span>Hecho entre dos</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>       <!-- círculo que sigue al ratón sobre los proyectos -->
+
+  <script src="js/proyectos.js"></script>                                       <!-- datos de los proyectos -->
+  <script src="js/main.js"></script>                                            <!-- interacciones -->
+</body>
+</html>
