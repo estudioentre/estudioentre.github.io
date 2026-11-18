@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mapa de la web para Google. Dirección actual: GitHub Pages. Si compráis dominio, cambiad taniadeazevedo.github.io/entre-web por él.
+<!-- Mapa de la web para Google. Dirección actual: GitHub Pages. Si compráis dominio, cambiad estudioentre.github.io por él.
      Si añadís proyectos, copiad una línea <url> y cambiad el ?p= -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://taniadeazevedo.github.io/entre-web/</loc></url>
-  <url><loc>https://taniadeazevedo.github.io/entre-web/proyecto.html?p=proyecto-01</loc></url>
-  <url><loc>https://taniadeazevedo.github.io/entre-web/proyecto.html?p=proyecto-02</loc></url>
-  <url><loc>https://taniadeazevedo.github.io/entre-web/proyecto.html?p=proyecto-03</loc></url>
-  <url><loc>https://taniadeazevedo.github.io/entre-web/proyecto.html?p=proyecto-04</loc></url>
-  <url><loc>https://taniadeazevedo.github.io/entre-web/proyecto.html?p=proyecto-05</loc></url>
-  <url><loc>https://taniadeazevedo.github.io/entre-web/proyecto.html?p=proyecto-06</loc></url>
+  <url><loc>https://estudioentre.github.io/</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-01</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-02</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-03</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-04</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-05</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-06</loc></url>
 </urlset>

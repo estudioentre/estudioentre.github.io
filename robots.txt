@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Mapa de la web (GitHub Pages; cambiar si compráis dominio)
-Sitemap: https://taniadeazevedo.github.io/entre-web/sitemap.xml
+Sitemap: https://estudioentre.github.io/sitemap.xml
