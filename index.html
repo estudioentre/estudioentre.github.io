@@ -114,11 +114,11 @@
       </div>
     </section>
 
-    <!-- Una sola cinta fina con datos del estudio -->
-    <div class="cinta" aria-hidden="true">
+    <!-- Cinta: se mueve sola, acelera con el scroll y cambia de sentido al subir (js/main.js, punto 11) -->
+    <div class="cinta" id="cinta" aria-hidden="true">
       <div class="cinta__pista">
-        <span>Estudio creativo independiente <i></i> Dos personas <i></i> Estrategia <i></i> Marca <i></i> Dirección de arte <i></i> Digital y web <i></i> Comunicación <i></i> Ideas con personalidad <i></i></span> <!-- cada <i> es una bolita de color -->
-        <span>Estudio creativo independiente <i></i> Dos personas <i></i> Estrategia <i></i> Marca <i></i> Dirección de arte <i></i> Digital y web <i></i> Comunicación <i></i> Ideas con personalidad <i></i></span>
+        <span class="cinta__grupo"><span class="cinta__item">Estudio creativo independiente</span><i></i><span class="cinta__item">Estrategia</span><i></i><span class="cinta__item">Marca</span><i></i><span class="cinta__item">Dirección de arte</span><i></i><span class="cinta__item">Digital y web</span><i></i><span class="cinta__item">Comunicación</span><i></i><span class="cinta__item">Ideas con personalidad</span><i></i></span>
+        <span class="cinta__grupo"><span class="cinta__item">Estudio creativo independiente</span><i></i><span class="cinta__item">Estrategia</span><i></i><span class="cinta__item">Marca</span><i></i><span class="cinta__item">Dirección de arte</span><i></i><span class="cinta__item">Digital y web</span><i></i><span class="cinta__item">Comunicación</span><i></i><span class="cinta__item">Ideas con personalidad</span><i></i></span> <!-- copia para que el bucle no se corte -->
       </div>
     </div>
 
@@ -129,7 +129,7 @@
         <h2 class="etiqueta" id="titulo-estudio">El estudio</h2>
       </header>
 
-      <p class="estudio__texto" data-revela>
+      <p class="estudio__texto" id="texto-estudio"> <!-- JavaScript separa las palabras y las enciende al bajar -->
         Somos un estudio creativo independiente. Nos movemos <span class="pastilla">entre</span> la estrategia, la comunicación y el diseño para dar forma a ideas que tengan algo que decir. <!-- "entre" siempre va dentro de una pastilla -->
       </p>
 

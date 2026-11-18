@@ -269,18 +269,26 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .cinta {
   border-block: 1px solid var(--negro);      /* dos líneas finas arriba y abajo */
   overflow: hidden; white-space: nowrap;
-  padding: .8rem 0; margin: clamp(1rem, 3vw, 2.5rem) 0;
-  font-size: .8rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+  padding: clamp(.9rem, 1.6vw, 1.4rem) 0; margin: clamp(1rem, 3vw, 2.5rem) 0;
+  font-size: clamp(1.5rem, 3.4vw, 3.2rem);   /* grande: ahora tiene presencia */
+  font-weight: 600; letter-spacing: -.03em; line-height: 1;
 }
-.cinta__pista { display: inline-flex; animation: desplazar 70s linear infinite; } /* muy lenta: se lee sin esfuerzo */
-.cinta__pista > span { padding-right: 1.5rem; }
-.cinta i {                                   /* separadores: bolitas de colores */
-  display: inline-block; width: .6em; height: .6em; border-radius: 50%;
-  background: var(--azul); margin: 0 1.3rem; vertical-align: -.02em;
+.cinta__pista { display: inline-flex; will-change: transform; } /* la mueve JavaScript (se acelera con el scroll) */
+.cinta__grupo { display: inline-flex; align-items: center; }
+.cinta__item {                               /* cada palabra: al pasar el ratón se mete en una pastilla */
+  padding: .12em .38em .16em; border-radius: 999px;
+  transition: background .35s var(--curva), color .35s;
+}
+.cinta__item:nth-of-type(3n+1):hover { background: var(--azul); color: var(--crema); }   /* pastilla azul… */
+.cinta__item:nth-of-type(3n+2):hover { background: var(--coral); color: var(--negro); }  /* …coral… */
+.cinta__item:nth-of-type(3n):hover { background: var(--amarillo); color: var(--negro); } /* …o amarilla */
+.cinta i {                                   /* separadores: bolitas de colores que giran con el movimiento */
+  display: inline-block; flex: none; width: .5em; height: .5em; border-radius: 50%;
+  background: var(--azul); margin: 0 .55em;
+  transform: scale(var(--late, 1));          /* laten más fuerte cuanto más rápido va la cinta (JavaScript) */
 }
 .cinta i:nth-of-type(3n+2) { background: var(--coral); }     /* una de cada tres, coral */
 .cinta i:nth-of-type(3n) { background: var(--amarillo); }    /* y otra, amarilla */
-.cinta:hover .cinta__pista { animation-play-state: paused; } /* se para al pasar el ratón */
 
 /* ---------- 7. El estudio ---------- */
 .estudio__texto {
@@ -288,7 +296,14 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   font-weight: 500; line-height: 1.08; letter-spacing: -.03em;
   max-width: 19em;
 }
-.estudio__texto .pastilla { font-size: .92em; } /* un solo recurso: "entre" en su pastilla azul */
+.estudio__texto .palabra { opacity: var(--luz, .15); transition: opacity .25s; } /* cada palabra empieza apagada; --luz la pone JavaScript */
+.estudio__texto .pastilla {                  /* "entre": la pastilla se rellena de azul al encenderse */
+  font-size: .92em; color: var(--negro);
+  background: linear-gradient(var(--azul), var(--azul)) no-repeat left / 0% 100%; /* fondo azul con ancho 0 */
+  box-shadow: inset 0 0 0 1.5px var(--azul);   /* mientras, solo el contorno */
+  transition: background-size .8s var(--curva), color .5s .2s, transform .6s var(--curva);
+}
+.estudio__texto .pastilla.encendida { background-size: 100% 100%; color: var(--crema); transform: rotate(-3deg) scale(1.04); } /* se rellena, se pone en crema y da un pequeño giro */
 
 .estudio__columnas {                         /* dos textos pequeños desplazados a la derecha */
   display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--hueco);
@@ -681,4 +696,6 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   [data-revela], .portada .linea > span, .linea[data-revela] > span, .portada__visual { opacity: 1 !important; transform: none !important; }
   .paso__punto { transform: scale(1); }
+  .estudio__texto .palabra { opacity: 1; }
+  .estudio__texto .pastilla { background-size: 100% 100%; color: var(--crema); }
 }

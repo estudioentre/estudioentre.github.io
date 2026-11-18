@@ -117,6 +117,42 @@ if (letras.length && conRaton && !menosMovimiento) {            // solo con rat�
   });
 }
 
+// ---------- 7b. Texto del estudio: separar las palabras para encenderlas una a una ----------
+const textoEstudio = document.getElementById("texto-estudio");  // el párrafo grande
+const palabras = [];                                            // aquí guardamos cada palabra
+if (textoEstudio) {
+  [...textoEstudio.childNodes].forEach((nodo) => {              // recorre lo que hay dentro del párrafo
+    if (nodo.nodeType === Node.TEXT_NODE) {                     // si es texto normal…
+      const trozos = nodo.textContent.split(/(\s+)/);           // …lo corta en palabras, guardando los espacios
+      const fragmento = document.createDocumentFragment();      // contenedor temporal
+      trozos.forEach((t) => {
+        if (!t) return;                                         // trozo vacío: nada
+        if (/^\s+$/.test(t)) { fragmento.append(" "); return; } // espacio: se queda como espacio
+        const span = document.createElement("span");            // palabra: en su <span>
+        span.className = "palabra";
+        span.textContent = t;
+        fragmento.append(span);
+        palabras.push(span);                                    // la guardamos en orden
+      });
+      nodo.replaceWith(fragmento);                              // cambia el texto por las palabras separadas
+    } else if (nodo.nodeType === Node.ELEMENT_NODE) {           // si es un elemento (la pastilla "entre")…
+      nodo.classList.add("palabra");                            // …cuenta como una palabra más
+      palabras.push(nodo);
+    }
+  });
+}
+function encenderPalabras(alto) {                               // se llama desde el bucle de scroll
+  if (!palabras.length) return;                                 // si no hay palabras, nada
+  const r = textoEstudio.getBoundingClientRect();               // dónde está el párrafo
+  const avance = limitar((alto * 0.85 - r.top) / (alto * 0.55), 0, 1); // 0 al asomar, 1 cuando ya está arriba
+  const total = palabras.length + 3;                            // +3: así las últimas también llegan a encenderse del todo
+  palabras.forEach((p, i) => {
+    const luz = menosMovimiento ? 1 : limitar(avance * total - i, 0, 1); // cada palabra se enciende un poco después de la anterior
+    p.style.setProperty("--luz", (0.15 + luz * 0.85).toFixed(2)); // de 0,15 (apagada) a 1 (encendida)
+    if (p.classList.contains("pastilla")) p.classList.toggle("encendida", luz > 0.9); // la pastilla se rellena al encenderse
+  });
+}
+
 // ---------- 8. Todo lo que depende del scroll, en un solo bucle ----------
 const capasParalaje = [...document.querySelectorAll("[data-paralaje]")]; // elementos que se mueven a otra velocidad
 const partida = document.getElementById("partida");             // "EN — TRE"
@@ -128,6 +164,7 @@ function alHacerScroll() {
   const alto = window.innerHeight;                              // alto de la ventana
   if (cabecera) actualizarCabecera();                           // cabecera
   marcarSeccion();                                              // enlace activo del menú
+  encenderPalabras(alto);                                       // texto del estudio, palabra a palabra
 
   if (!menosMovimiento) {
     capasParalaje.forEach((el) => {                             // paralaje: se desplazan un poco
@@ -197,4 +234,32 @@ if (cursor && conRaton) {
     });
     el.addEventListener("pointerleave", () => cursor.classList.remove("activo")); // al salir, lo esconde
   });
+}
+
+// ---------- 11. Cinta: se mueve sola, acelera con el scroll y cambia de sentido al subir ----------
+const cinta = document.getElementById("cinta");                // la cinta
+if (cinta && !menosMovimiento) {
+  const pista = cinta.querySelector(".cinta__pista");           // lo que se desplaza
+  const grupo = cinta.querySelector(".cinta__grupo");           // una de las dos copias (para saber cuánto mide)
+  let x = 0;                                                    // posición horizontal actual
+  let sentido = 1;                                              // 1 = hacia la izquierda (bajando), -1 = hacia la derecha (subiendo)
+  let impulso = 0;                                              // velocidad extra que da el scroll
+  let ultimoScroll = window.scrollY;                            // para calcular cuánto se ha movido el scroll
+  let encima = false;                                           // ¿está el ratón encima? (entonces va más lenta)
+  cinta.addEventListener("pointerenter", () => { encima = true; });   // ratón dentro
+  cinta.addEventListener("pointerleave", () => { encima = false; });  // ratón fuera
+  (function mover() {
+    const delta = window.scrollY - ultimoScroll;                // cuánto se ha hecho scroll desde el último fotograma
+    ultimoScroll = window.scrollY;                              // lo guarda para la próxima vez
+    if (delta !== 0) sentido = delta > 0 ? 1 : -1;              // bajar → izquierda; subir → derecha
+    impulso += (Math.min(Math.abs(delta), 80) - impulso) * 0.12; // el impulso sigue al scroll con suavidad
+    const velocidad = (encima ? 0.25 : 0.7) + impulso * 0.35;   // velocidad base (más lenta con el ratón encima) + impulso
+    x -= velocidad * sentido;                                   // avanza
+    const ancho = grupo.offsetWidth;                            // lo que mide una copia
+    if (x <= -ancho) x += ancho;                                // si ya ha pasado una copia entera, vuelve atrás sin que se note
+    if (x > 0) x -= ancho;                                      // lo mismo en el otro sentido
+    pista.style.transform = `translate3d(${x.toFixed(2)}px, 0, 0)`; // mueve la cinta
+    cinta.style.setProperty("--late", (1 + Math.min(impulso / 60, 0.5)).toFixed(3)); // las bolitas crecen con la velocidad
+    requestAnimationFrame(mover);                               // y repite en el siguiente fotograma
+  })();
 }
