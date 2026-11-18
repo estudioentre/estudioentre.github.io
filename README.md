@@ -14,8 +14,8 @@ Web estática (HTML + CSS + JS, sin instalar nada).
 
 ## Antes de publicar ✔
 - [ ] Rellenar los `[corchetes]` de `aviso-legal.html` y `privacidad.html` (plantillas: mejor que las revise una gestoría)
-- [ ] Cambiar `TU-DOMINIO` por el dominio real en `index.html` (imagen para compartir), `robots.txt` y `sitemap.xml`
-- [ ] Activar la línea `canonical` de `index.html`
+- [x] Dirección puesta: `https://taniadeazevedo.github.io/entre-web/` (si compráis dominio, cambiarla en `index.html`, `robots.txt` y `sitemap.xml`)
+- [x] `canonical` activado
 - [ ] Cambiar las fotos de ejemplo por las vuestras y quitar los avisos «Foto de ejemplo» / «Ejemplo»
 
 ## Archivos

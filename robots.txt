@@ -2,5 +2,5 @@
 User-agent: *
 Allow: /
 
-# Mapa de la web (cambiar TU-DOMINIO por el dominio real al publicar)
-Sitemap: https://TU-DOMINIO/sitemap.xml
+# Mapa de la web (GitHub Pages; cambiar si compráis dominio)
+Sitemap: https://taniadeazevedo.github.io/entre-web/sitemap.xml
