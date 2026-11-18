@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">                                                       <!-- tildes y eñes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">         <!-- adaptable al móvil -->
+  <title>Aviso legal — ENTRE</title>
+  <meta name="description" content="Aviso legal de ENTRE, estudio creativo independiente.">
+  <meta name="robots" content="noindex">                                         <!-- las páginas legales no hace falta que salgan en Google -->
+  <meta name="theme-color" content="#F4F0E8">                                   <!-- color de la barra del navegador en el móvil -->
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">                 <!-- icono de la pestaña -->
+  <link rel="apple-touch-icon" href="img/icono-180.png">                        <!-- icono al guardar la web en el móvil -->
+  <link rel="preload" href="fuentes/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin> <!-- la tipografía principal se pide cuanto antes -->
+  <link rel="stylesheet" href="css/estilos.css">                                <!-- estilos (las tipografías están dentro, alojadas en la web) -->
+</head>
+
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>                   <!-- atajo para quien navega con teclado -->
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">     <!-- símbolo del logo -->
+    <symbol id="marca" viewBox="0 0 32 20">
+      <circle cx="10" cy="10" r="10" fill="#3449C8"/>
+      <circle cx="22" cy="10" r="10" fill="#EF765F"/>
+      <path d="M16 2A10 10 0 0 1 16 18A10 10 0 0 1 16 2Z" fill="#111111"/>
+    </symbol>
+  </svg>
+
+  <!-- Cabecera (los enlaces vuelven a las secciones de la portada) -->
+  <header class="cabecera" id="cabecera">
+    <a class="logo" href="./" aria-label="ENTRE, ir a la portada">
+      <svg class="logo__marca" aria-hidden="true"><use href="#marca"/></svg>
+      <span class="logo__texto">entre</span>
+    </a>
+    <span class="cabecera__nota etiqueta">Estudio creativo</span>
+    <nav class="nav" aria-label="Principal">
+      <ul>
+        <li><a href="./#proyectos">Proyectos</a></li>
+        <li><a href="./#estudio">Estudio</a></li>
+        <li><a href="./#servicios">Servicios</a></li>
+        <li><a href="./#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="boton boton--negro cabecera__cta" href="./#contacto">Hablemos <span aria-hidden="true">↗</span></a>
+    <button class="menu-boton" id="menu-boton" aria-expanded="false" aria-controls="menu-movil">
+      <span class="sr-only">Abrir menú</span>
+      <span class="menu-boton__raya"></span><span class="menu-boton__raya"></span>
+    </button>
+  </header>
+
+  <div class="menu-movil" id="menu-movil" inert>
+    <nav aria-label="Menú móvil">
+      <ol>
+        <li style="--i:0"><a href="./#proyectos"><span class="etiqueta">01</span>Proyectos</a></li>
+        <li style="--i:1"><a href="./#estudio"><span class="etiqueta">02</span>Estudio</a></li>
+        <li style="--i:2"><a href="./#servicios"><span class="etiqueta">03</span>Servicios</a></li>
+        <li style="--i:3"><a href="./#contacto"><span class="etiqueta">04</span>Contacto</a></li>
+      </ol>
+    </nav>
+    <p class="menu-movil__pie etiqueta">hola@tuestudio.com · Instagram · LinkedIn</p>
+  </div>
+
+  <!-- PLANTILLA ORIENTATIVA: rellenad los [corchetes] y, si podéis, que la revise una gestoría o abogado -->
+  <main id="contenido" class="legal">
+    <a class="enlace-flecha legal__volver" href="./"><span aria-hidden="true">←</span> Volver a la portada</a>
+    <h1 class="titulo-grande" style="--c: var(--azul)">Aviso <span class="sin-corte">legal<span class="bolita"></span></span></h1>
+    <p class="legal__fecha etiqueta">Última actualización: [fecha]</p>
+
+    <section>
+      <h2>1. Quiénes somos</h2>
+      <p>En cumplimiento de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), estos son los datos de la persona o empresa responsable de esta web:</p>
+      <dl class="legal__datos">
+        <div><dt>Titular</dt><dd>[Nombre y apellidos o razón social]</dd></div>
+        <div><dt>NIF / CIF</dt><dd>[NIF]</dd></div>
+        <div><dt>Domicilio</dt><dd>[Dirección completa]</dd></div>
+        <div><dt>Email</dt><dd>[hola@tuestudio.com]</dd></div>
+        <div><dt>Datos registrales</dt><dd>[Solo si sois sociedad: Registro Mercantil, tomo, folio, hoja. Si no, borrad esta línea]</dd></div>
+      </dl>
+    </section>
+
+    <section>
+      <h2>2. Para qué sirve esta web</h2>
+      <p>Esta web presenta ENTRE, un estudio creativo independiente, y los servicios que ofrece: estrategia y marca, diseño y dirección de arte, digital y web, y comunicación y contenido. Usarla implica aceptar este aviso legal.</p>
+    </section>
+
+    <section>
+      <h2>3. Propiedad intelectual</h2>
+      <p>Los textos, diseños, logotipos y proyectos que aparecen en esta web son de ENTRE o de sus clientes, que han autorizado su publicación. No se pueden copiar, reproducir ni usar con fines comerciales sin permiso por escrito.</p>
+      <p>Las fotografías marcadas como «de ejemplo» proceden de Unsplash y se usan bajo su licencia. [Borrad este párrafo cuando estén todas las fotos propias.]</p>
+    </section>
+
+    <section>
+      <h2>4. Responsabilidad</h2>
+      <p>Cuidamos que la información de esta web sea correcta y esté al día, pero no podemos garantizar que no haya errores ni que la web esté disponible en todo momento. Los enlaces a otras webs se ofrecen por comodidad; no somos responsables de su contenido.</p>
+    </section>
+
+    <section>
+      <h2>5. Ley aplicable</h2>
+      <p>Este aviso legal se rige por la legislación española. Para cualquier conflicto, las partes se someten a los juzgados y tribunales de [ciudad], salvo que la ley disponga otra cosa.</p>
+    </section>
+  </main>
+
+  <!-- ================= PIE ================= -->
+  <footer class="pie">
+    <div class="pie__arriba">
+      <nav class="pie__nav" aria-label="Pie">                                  <!-- el menú, otra vez, al final -->
+        <a href="./#proyectos">Proyectos</a><a href="./#estudio">Estudio</a><a href="./#servicios">Servicios</a><a href="./#contacto">Contacto</a>
+      </nav>
+      <div class="pie__contacto">                                                <!-- contacto (placeholders) -->
+        <a href="mailto:hola@tuestudio.com">hola@tuestudio.com</a>
+        <a href="#" rel="noopener">Instagram ↗</a>
+        <a href="#" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <p class="pie__marca" aria-hidden="true"><span class="sin-corte">entre<span class="bolita"></span></span></p> <!-- el nombre gigante -->
+    <div class="pie__fila etiqueta">
+      <span>© <span id="anio">2026</span> ENTRE · Estudio creativo independiente</span>
+      <span><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a></span> <!-- páginas legales -->
+      <a href="#contenido">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>                                            <!-- interacciones comunes (menú, cabecera…) -->
+</body>
+</html>

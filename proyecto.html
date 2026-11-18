@@ -5,19 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">         <!-- adaptable al móvil -->
   <title>Proyecto — ENTRE</title>                                               <!-- lo cambia JavaScript con el nombre del proyecto -->
   <meta name="description" content="Caso de estudio de ENTRE, estudio creativo independiente."> <!-- también lo actualiza JavaScript -->
-  <meta name="theme-color" content="#F4F0E8">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilos.css">
+  <meta name="theme-color" content="#F4F0E8">                                   <!-- color de la barra del navegador en el móvil -->
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">                 <!-- icono de la pestaña -->
+  <link rel="apple-touch-icon" href="img/icono-180.png">                        <!-- icono al guardar la web en el móvil -->
+  <link rel="preload" href="fuentes/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin> <!-- la tipografía principal se pide cuanto antes -->
+  <link rel="stylesheet" href="css/estilos.css">                                <!-- estilos (las tipografías están dentro, alojadas en la web) -->
 </head>
 
 <body>
-  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>                   <!-- atajo para quien navega con teclado -->
 
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">     <!-- mismos símbolos que en la portada -->
-    <symbol id="lente" viewBox="12 2 8 16"><path d="M16 2A10 10 0 0 1 16 18A10 10 0 0 1 16 2Z"/></symbol>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">     <!-- símbolo del logo -->
     <symbol id="marca" viewBox="0 0 32 20">
       <circle cx="10" cy="10" r="10" fill="#3449C8"/>
       <circle cx="22" cy="10" r="10" fill="#EF765F"/>
@@ -59,11 +57,12 @@
     <p class="menu-movil__pie etiqueta">hola@tuestudio.com · Instagram · LinkedIn</p>
   </div>
 
-  <main id="contenido" class="caso">
+  <main id="contenido" class="caso">                                            <!-- --c (color del proyecto) lo pone js/caso.js -->
     <a class="enlace-flecha caso__volver" href="./#proyectos"><span aria-hidden="true">←</span> Todos los proyectos</a> <!-- volver al listado -->
 
     <header class="caso__cabecera">
-      <h1 class="titulo-grande" id="caso-titulo" data-revela>Proyecto</h1>   <!-- nombre del proyecto -->
+      <p class="caso__previo etiqueta" data-revela>Caso de estudio · Nº <span id="caso-numero">01</span> <span class="caso__ejemplo" id="caso-ejemplo">Ejemplo</span></p> <!-- antetítulo -->
+      <h1 class="titulo-grande" id="caso-titulo" data-revela>Proyecto</h1>   <!-- nombre del proyecto (con su bolita) -->
       <p class="resumen" id="caso-resumen" data-revela></p>                    <!-- resumen -->
     </header>
 
@@ -71,22 +70,28 @@
       <div><dt>Categoría</dt><dd id="caso-categoria">—</dd></div>
       <div><dt>Año</dt><dd id="caso-anio">—</dd></div>
       <div><dt>Cliente</dt><dd>[Cliente]</dd></div>
-      <div><dt>Equipo</dt><dd>ENTRE</dd></div>
+      <div><dt>Qué hicimos</dt><dd id="caso-servicios">—</dd></div>
     </dl>
 
-    <div class="caso__principal" id="caso-visual" data-revela></div>           <!-- imagen principal -->
+    <figure class="caso__principal" data-revela>                                <!-- imagen principal -->
+      <div class="caso__marco" id="caso-visual"></div>
+      <figcaption class="etiqueta" id="caso-pie"></figcaption>                  <!-- pie de foto -->
+    </figure>
 
     <section class="caso__bloques" aria-label="El proyecto">                     <!-- la historia en tres partes -->
       <div class="caso__bloque" data-revela>
-        <h2 class="etiqueta">01 — El punto de partida</h2>
+        <span class="caso__num">01</span>                                       <!-- número en una bolita del color del proyecto -->
+        <h2>El punto de partida</h2>
         <p>[Qué pasaba antes: la situación, el encargo y lo que había que resolver.]</p>
       </div>
       <div class="caso__bloque" data-revela>
-        <h2 class="etiqueta">02 — La idea</h2>
+        <span class="caso__num">02</span>
+        <h2>La idea</h2>
         <p>[El enfoque: por qué este camino y no otro. Una o dos frases que expliquen el concepto.]</p>
       </div>
       <div class="caso__bloque" data-revela>
-        <h2 class="etiqueta">03 — El resultado</h2>
+        <span class="caso__num">03</span>
+        <h2>El resultado</h2>
         <p>[Qué se hizo y dónde vive: piezas, soportes y, si los hay, resultados reales.]</p>
       </div>
     </section>
@@ -94,16 +99,30 @@
     <div class="caso__galeria" id="caso-galeria"></div>                        <!-- dos imágenes más (rellenas por JavaScript) -->
 
     <a class="caso__siguiente" id="caso-siguiente" href="./#proyectos">        <!-- siguiente proyecto -->
-      <span class="etiqueta">Siguiente proyecto</span>
-      <span class="titulo-grande" id="caso-siguiente-titulo">Proyectos</span>
+      <span class="caso__siguiente-texto">
+        <span class="etiqueta">Siguiente proyecto</span>
+        <span class="titulo-grande" id="caso-siguiente-titulo">Proyectos</span>
+      </span>
+      <span class="caso__siguiente-foto" id="caso-siguiente-foto" aria-hidden="true"></span> <!-- su foto en un círculo -->
     </a>
   </main>
 
+  <!-- ================= PIE ================= -->
   <footer class="pie">
-    <p class="pie__marca" aria-hidden="true"><span class="sin-corte">entre<span class="bolita"></span></span></p>
+    <div class="pie__arriba">
+      <nav class="pie__nav" aria-label="Pie">                                  <!-- el menú, otra vez, al final -->
+        <a href="./#proyectos">Proyectos</a><a href="./#estudio">Estudio</a><a href="./#servicios">Servicios</a><a href="./#contacto">Contacto</a>
+      </nav>
+      <div class="pie__contacto">                                                <!-- contacto (placeholders) -->
+        <a href="mailto:hola@tuestudio.com">hola@tuestudio.com</a>
+        <a href="#" rel="noopener">Instagram ↗</a>
+        <a href="#" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <p class="pie__marca" aria-hidden="true"><span class="sin-corte">entre<span class="bolita"></span></span></p> <!-- el nombre gigante -->
     <div class="pie__fila etiqueta">
       <span>© <span id="anio">2026</span> ENTRE · Estudio creativo independiente</span>
-      <a href="mailto:hola@tuestudio.com">hola@tuestudio.com</a>
+      <span><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a></span> <!-- páginas legales -->
       <a href="#contenido">Volver arriba ↑</a>
     </div>
   </footer>

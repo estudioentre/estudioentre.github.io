@@ -13,15 +13,16 @@
   <meta property="og:title" content="ENTRE — Estudio creativo independiente">   <!-- título al compartir -->
   <meta property="og:description" content="Las ideas suceden entre. Estrategia, diseño, web y comunicación."> <!-- descripción al compartir -->
   <meta property="og:locale" content="es_ES">                                    <!-- idioma -->
-  <!-- <meta property="og:image" content="https://TU-DOMINIO/img/compartir.jpg"> ← imagen 1200×630 cuando la tengáis -->
+  <!-- Al publicar, cambiad TU-DOMINIO por el dominio real (WhatsApp y LinkedIn necesitan la dirección completa) -->
+  <meta property="og:image" content="https://TU-DOMINIO/img/compartir.png">   <!-- imagen al compartir (1200×630) -->
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">                       <!-- en X/Twitter, la imagen en grande -->
 
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">                 <!-- icono de la pestaña -->
 
-  <!-- Tipografías: Instrument Sans (variable, para casi todo) + Anton (condensada, solo para golpes de escala) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
-
+  <link rel="apple-touch-icon" href="img/icono-180.png">                        <!-- icono al guardar la web en el móvil -->
+  <link rel="preload" href="fuentes/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin> <!-- la tipografía principal se pide cuanto antes (está en la propia web, no en Google) -->
   <link rel="stylesheet" href="css/estilos.css">                                <!-- todos los estilos -->
 
   <!-- Datos estructurados: le explican a Google qué es esto -->
@@ -195,7 +196,7 @@
             <p class="area__lista">Diseño gráfico · Dirección de arte · Diseño editorial · Campañas visuales · Material corporativo · Eventos · Creatividades digitales</p>
             <img class="area__foto" src="img/ejemplos/area-imagen.webp" alt="" loading="lazy" width="600" height="750">
           </li>
-          <li class="area" style="--c: var(--amarillo); --t: var(--negro)" data-revela>
+          <li class="area" style="--c: var(--amarillo); --t: var(--negro); --c-bolita: #D4A935" data-revela> <!-- --c-bolita: amarillo algo más oscuro para que la bolita se vea sobre el crema -->
             <span class="area__num etiqueta">03</span>
             <h3 class="area__titulo">Digital y <span class="sin-corte">web<span class="bolita"></span></span></h3>
             <p class="area__texto">Webs y piezas digitales que se ven bien y, además, funcionan.</p>
@@ -309,10 +310,20 @@
 
   <!-- ================= PIE ================= -->
   <footer class="pie">
+    <div class="pie__arriba">
+      <nav class="pie__nav" aria-label="Pie">                                  <!-- el menú, otra vez, al final -->
+        <a href="#proyectos">Proyectos</a><a href="#estudio">Estudio</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a>
+      </nav>
+      <div class="pie__contacto">                                                <!-- contacto (placeholders) -->
+        <a href="mailto:hola@tuestudio.com">hola@tuestudio.com</a>
+        <a href="#" rel="noopener">Instagram ↗</a>
+        <a href="#" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
     <p class="pie__marca" aria-hidden="true"><span class="sin-corte">entre<span class="bolita"></span></span></p> <!-- el nombre gigante con su bolita -->
     <div class="pie__fila etiqueta">
       <span>© <span id="anio">2026</span> ENTRE · Estudio creativo independiente</span>
-      <span>Hecho entre dos</span>
+      <span><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a></span> <!-- páginas legales -->
       <a href="#inicio">Volver arriba ↑</a>
     </div>
   </footer>

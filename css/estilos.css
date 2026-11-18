@@ -9,6 +9,16 @@
    el bloque oscuro de "Cómo trabajamos".
    ============================================================= */
 
+/* ---------- 0. Tipografías (alojadas en la propia web, carpeta fuentes/) ----------
+   Así no se conecta a Google al cargar la página: más privacidad (RGPD) y sin depender de nadie.
+   Licencia: SIL Open Font License, libre para webs comerciales.
+   Cada familia va en dos archivos: "latin" (español, inglés…) y "latin-ext" (otros acentos); el navegador
+   solo descarga el que necesita gracias a unicode-range. */
+@font-face { font-family: "Instrument Sans"; src: url("../fuentes/instrument-sans-latin.woff2") format("woff2"); font-weight: 400 700; font-stretch: 75% 100%; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } /* variable: peso 400–700 y ancho 75–100 */
+@font-face { font-family: "Instrument Sans"; src: url("../fuentes/instrument-sans-latin-ext.woff2") format("woff2"); font-weight: 400 700; font-stretch: 75% 100%; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Anton"; src: url("../fuentes/anton-latin.woff2") format("woff2"); font-weight: 400; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } /* condensada, un solo peso */
+@font-face { font-family: "Anton"; src: url("../fuentes/anton-latin-ext.woff2") format("woff2"); font-weight: 400; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
 /* ---------- 1. Variables ---------- */
 :root {
   --crema: #F4F0E8;                 /* fondo principal: aire */
@@ -489,14 +499,14 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   border-top: 1px solid var(--negro);
 }
 .area:last-child { border-bottom: 1px solid var(--negro); }
-.area > * { opacity: .28; transition: opacity .5s var(--curva); } /* apagada… */
+.area > * { opacity: .4; transition: opacity .5s var(--curva); } /* apagada… */
 .area.activa > * { opacity: 1; }             /* …y encendida cuando es la activa */
 .area__num { display: block; margin-bottom: .8rem; }
 .area__titulo {
   font-size: clamp(2rem, 4vw, 4.2rem); font-weight: 600;
   letter-spacing: -.035em; line-height: .95; margin-bottom: 1rem;
 }
-.area__titulo .bolita { background: var(--c); transform: scale(0); transition: transform .6s var(--curva); } /* su bolita de color… */
+.area__titulo .bolita { background: var(--c-bolita, var(--c)); transform: scale(0); transition: transform .6s var(--curva); } /* su bolita de color… */
 .area.activa .area__titulo .bolita { transform: scale(1); }                                              /* …aparece al activarse */
 .area__texto { font-size: clamp(1.05rem, 1.3vw, 1.25rem); max-width: 38ch; margin-bottom: .9rem; }
 .area__lista { font-size: .88rem; max-width: 52ch; color: rgba(17, 17, 17, .65); } /* lo que incluye, en una línea corrida */
@@ -602,13 +612,23 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 
 /* ---------- 13. Pie (oscuro) ---------- */
 .pie { background: var(--negro); color: var(--crema); padding: clamp(3rem, 6vw, 5rem) var(--margen) 1.5rem; overflow: hidden; }
+.pie__arriba {                               /* menú a la izquierda, contacto a la derecha */
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem 3rem;
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.pie__nav { display: flex; flex-wrap: wrap; gap: .4rem clamp(1.2rem, 3vw, 2.8rem); }
+.pie__nav a {                                /* enlaces grandes */
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem); font-weight: 600; letter-spacing: -.03em;
+  transition: color .25s;
+}
+.pie__contacto { display: flex; flex-direction: column; align-items: flex-end; gap: .3rem; }
+.pie__nav a:hover, .pie__contacto a:hover, .pie__fila a:hover { color: var(--coral); }
 .pie__marca {                                /* "entre●" gigante de borde a borde */
   font-size: clamp(6rem, 31vw, 34rem); font-weight: 700; letter-spacing: -.06em;
   line-height: .78; margin-left: -.04em; white-space: nowrap;
 }
 .pie__marca .bolita { width: .17em; height: .17em; margin-left: .03em; }
 .pie__fila { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .8rem 2rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(244, 240, 232, .25); }
-.pie__fila a:hover { color: var(--coral); }
 
 /* ---------- 14. Cursor de los proyectos ---------- */
 .cursor {
@@ -625,32 +645,77 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 @media (hover: none) { .cursor { display: none; } } /* en pantallas táctiles no hace falta */
 
 /* ---------- 15. Caso de estudio (proyecto.html) ---------- */
-.caso { padding: calc(var(--cabecera) + 3rem) var(--margen) 0; }
+.caso { padding: calc(var(--cabecera) + 3rem) var(--margen) 0; }   /* --c y --t (color del proyecto) los pone js/caso.js */
 .caso__volver { margin-bottom: 2.5rem; }
 .caso__cabecera { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--hueco); align-items: end; }
+.caso__previo { grid-column: 1 / -1; display: flex; align-items: center; gap: .8rem; margin-bottom: .5rem; opacity: .75; }
+.caso__ejemplo { padding: .25rem .6rem; border: 1px dashed currentColor; border-radius: 999px; } /* pastilla "Ejemplo" */
+.caso__ejemplo[hidden] { display: none; }
 .caso__cabecera h1 { grid-column: 1 / 10; }
 .caso__cabecera .resumen { grid-column: 10 / 13; max-width: 30ch; }
 .caso__meta {                                /* fila de datos: categoría, año, cliente… */
   display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--hueco);
-  margin: clamp(2rem, 4vw, 3.5rem) 0; padding: 1.2rem 0; border-block: 1px solid var(--linea);
+  margin: clamp(2rem, 4vw, 3.5rem) 0; padding: 1.2rem 0; border-block: 1px solid var(--negro);
 }
 .caso__meta dt { opacity: .55; margin-bottom: .3rem; }
 .caso__meta dd { font-weight: 500; }
-.caso__principal { position: relative; aspect-ratio: 16 / 8; overflow: hidden; background: var(--crema-oscuro); }
-.caso__principal img, .caso__galeria img { width: 100%; height: 100%; object-fit: cover; }
+.caso__marco { position: relative; aspect-ratio: 16 / 8; overflow: hidden; background: var(--crema-oscuro); } /* imagen principal a lo ancho */
+.caso__marco img, .caso__galeria img { width: 100%; height: 100%; object-fit: cover; }
+.caso__principal figcaption { margin-top: .8rem; opacity: .6; font-size: .68rem; text-align: right; }
+
 .caso__bloques { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--hueco); padding-block: clamp(4rem, 9vw, 8rem); }
-.caso__bloque { grid-column: span 4; }
-.caso__bloque h2 { margin-bottom: 1rem; }
-.caso__bloque p { max-width: 34ch; }
+.caso__bloque { grid-column: span 4; padding-right: 1rem; }
+.caso__num {                                 /* número en una bolita del color del proyecto */
+  display: grid; place-items: center; margin-bottom: 1.4rem;
+  width: clamp(3.2rem, 5vw, 4.5rem); aspect-ratio: 1; border-radius: 50%;
+  background: var(--c); color: var(--t);
+  font-family: var(--display); font-size: clamp(1.2rem, 1.8vw, 1.6rem); line-height: 1;
+}
+.caso__bloque h2 { font-size: clamp(1.5rem, 2.4vw, 2.2rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.05; margin-bottom: .8rem; }
+.caso__bloque p { max-width: 34ch; opacity: .85; }
 .caso__bloque:nth-child(2) { margin-top: 4rem; }  /* desplazados en escalera */
 .caso__bloque:nth-child(3) { margin-top: 8rem; }
+
 .caso__galeria { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--hueco); }
-.caso__galeria > div { position: relative; overflow: hidden; }
+.caso__galeria > div { position: relative; overflow: hidden; background: var(--crema-oscuro); }
 .caso__galeria > div:nth-child(1) { grid-column: 1 / 6; aspect-ratio: 4 / 5; }
 .caso__galeria > div:nth-child(2) { grid-column: 7 / 13; aspect-ratio: 1; margin-top: 8rem; }
-.caso__siguiente { display: block; margin-top: clamp(5rem, 10vw, 9rem); padding-block: clamp(3rem, 6vw, 5rem); border-top: 1px solid var(--negro); }
-.caso__siguiente .titulo-grande { transition: color .3s, transform .6s var(--curva); display: inline-block; }
-.caso__siguiente:hover .titulo-grande { color: var(--coral); transform: translateX(1.5rem); }
+
+.caso__siguiente {                           /* siguiente proyecto: nombre grande y su foto en un círculo */
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  margin-top: clamp(5rem, 10vw, 9rem); padding-block: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--negro);
+}
+.caso__siguiente-texto { display: flex; flex-direction: column; gap: 1rem; }
+.caso__siguiente .titulo-grande { font-size: clamp(2.6rem, 8vw, 8.5rem); transition: transform .7s var(--curva); }
+.caso__siguiente:hover .titulo-grande { transform: translateX(1.2rem); }  /* el nombre se desliza */
+.caso__siguiente-foto {
+  position: relative; flex: none; overflow: hidden;
+  width: clamp(7rem, 18vw, 16rem); aspect-ratio: 1; border-radius: 50%; /* la foto, en una bolita */
+  transition: transform .8s var(--curva);
+}
+.caso__siguiente-foto img { width: 100%; height: 100%; object-fit: cover; }
+.caso__siguiente-num { display: grid; place-items: center; height: 100%; font-family: var(--display); font-size: clamp(2.4rem, 6vw, 5.5rem); } /* número cuando el siguiente no tiene foto */
+.caso__siguiente:hover .caso__siguiente-foto { transform: rotate(-8deg) scale(1.06); } /* y la bolita gira un poco */
+
+/* ---------- 15b. Páginas legales (aviso-legal.html y privacidad.html) ---------- */
+.legal { padding: calc(var(--cabecera) + 3rem) var(--margen) clamp(5rem, 10vw, 8rem); }
+.legal__volver { margin-bottom: 2.5rem; }
+.legal h1 { font-size: clamp(2.8rem, 8vw, 8rem); margin-bottom: 1rem; }
+.legal__fecha { opacity: .6; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.legal section {                             /* cada apartado: título a la izquierda, texto a la derecha */
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--hueco);
+  padding: 1.6rem 0; border-top: 1px solid var(--linea);
+}
+.legal h2 { grid-column: 1 / 5; font-size: clamp(1.2rem, 1.8vw, 1.6rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
+.legal section > p, .legal__datos { grid-column: 5 / 12; max-width: 62ch; }
+.legal section > p + p { margin-top: .8rem; }
+.legal__datos div { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: .45rem 0; border-bottom: 1px solid var(--linea); } /* ficha de datos */
+.legal__datos dt { font-weight: 600; }
+@media (max-width: 899px) {
+  .legal h2, .legal section > p, .legal__datos { grid-column: 1 / -1; }
+  .legal__datos div { grid-template-columns: 1fr; gap: .1rem; }
+}
 
 /* ---------- 16. Animaciones ---------- */
 [data-revela] { opacity: 0; transform: translateY(2rem); transition: opacity .9s var(--curva), transform .9s var(--curva); } /* escondido hasta que entra en pantalla */
@@ -702,7 +767,9 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   .caso__meta { grid-template-columns: 1fr 1fr; }
   .caso__bloque { grid-column: 1 / -1; margin-top: 0 !important; }
   .caso__galeria > div:nth-child(1), .caso__galeria > div:nth-child(2) { grid-column: 1 / -1; margin-top: 0; }
-  .caso__principal { aspect-ratio: 4 / 3; }
+  .caso__marco { aspect-ratio: 4 / 3; }
+  .pie__contacto { align-items: flex-start; }
+  .caso__siguiente { flex-direction: column-reverse; align-items: flex-start; } /* en móvil, la foto encima del nombre */
 }
 @media (max-width: 560px) {
   .portada__indice { display: none; }        /* en móvil sobra: los servicios están más abajo */

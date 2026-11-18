@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mapa de la web para Google. Al publicar: cambiar TU-DOMINIO por el dominio real.
+     Si añadís proyectos, copiad una línea <url> y cambiad el ?p= -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://TU-DOMINIO/</loc></url>
+  <url><loc>https://TU-DOMINIO/proyecto.html?p=proyecto-01</loc></url>
+  <url><loc>https://TU-DOMINIO/proyecto.html?p=proyecto-02</loc></url>
+  <url><loc>https://TU-DOMINIO/proyecto.html?p=proyecto-03</loc></url>
+  <url><loc>https://TU-DOMINIO/proyecto.html?p=proyecto-04</loc></url>
+  <url><loc>https://TU-DOMINIO/proyecto.html?p=proyecto-05</loc></url>
+  <url><loc>https://TU-DOMINIO/proyecto.html?p=proyecto-06</loc></url>
+</urlset>
