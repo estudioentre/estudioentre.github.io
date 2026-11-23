@@ -43,8 +43,8 @@ const TODOS_LOS_PROYECTOS = [
       { cifra: "100 → 10 %", texto: "de materiales impresos, con más de 2.000 descargas del programa online" },
     ],
     maqueta: "revista", fondo: "azul",
-    imagen: "img/proyectos/ohm-principal.webp",          // foto principal, del portfolio de Tania
-    alt: "Grupo de visitantes ante el gran cartel de Open House Madrid en un vestíbulo",
+    imagen: "img/proyectos/ohm-portada.webp",            // foto principal, del portfolio de Tania
+    alt: "Tres chicas con camisetas y bolsas de Open House Madrid en una azotea bajo el cielo de Madrid",
     galeria: [                                           // imágenes del caso de estudio
       { imagen: "img/proyectos/ohm-banderola.webp", alt: "Banderola de Open House Madrid junto a la Puerta de Alcalá" },
       { imagen: "img/proyectos/ohm-programa.webp", alt: "Manos sosteniendo varios programas del festival" },
