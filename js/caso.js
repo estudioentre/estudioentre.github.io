@@ -45,7 +45,18 @@ document.getElementById("caso-pie").textContent = proyecto.credito;  // crédito
 
 // Los textos del caso
 document.getElementById("caso-partida").textContent = proyecto.partida;       // punto de partida
-document.getElementById("caso-desarrollo").textContent = proyecto.desarrollo; // desarrollo
+document.getElementById("caso-desarrollo").innerHTML = proyecto.etapas        // ¿el desarrollo va por etapas?
+  ? `<div class="caso__etapas">${proyecto.etapas.map((e) => `<article><strong>${e.fecha}</strong><h3>${e.titulo}</h3><p>${e.texto}</p></article>`).join("")}</div>
+     <ul class="caso__aplicaciones">${proyecto.aplicaciones.map((a) => `<li>${a}</li>`).join("")}</ul>` // sí: etapas + dónde se aplicó
+  : `<p class="caso__texto">${proyecto.desarrollo}</p>`;                       // no: un párrafo
+
+// Fotos a todo el ancho dentro del relato (solo si el proyecto las tiene)
+[["caso-foto-idea", proyecto.fotoIdea], ["caso-foto-cierre", proyecto.fotoCierre]].forEach(([id, foto]) => {
+  if (!foto) return;                                                 // sin foto, el hueco sigue oculto
+  const hueco = document.getElementById(id);                         // el hueco
+  hueco.hidden = false;                                              // lo enseña
+  hueco.innerHTML = `<img src="${foto.imagen}" alt="${foto.alt}" loading="lazy" decoding="async">`; // y pone la imagen
+});
 
 // La idea: la primera frase va enorme (su punto es una bolita) y el resto, pequeño
 const finFrase = proyecto.idea.indexOf(". ");                        // dónde acaba la primera frase

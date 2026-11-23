@@ -13,6 +13,8 @@
 //   resumen    → la necesidad del cliente, en una frase
 //   servicios  → las etiquetas del proyecto
 //   partida, idea, desarrollo → textos del caso de estudio
+//   etapas, aplicaciones → opcional, sustituyen al texto de desarrollo
+//   fotoIdea, fotoCierre  → opcional, imágenes a todo el ancho dentro del relato
 //   resultado  → un texto o, si hay datos, una lista [ { cifra: "316", texto: "pantallas…" } ]
 //   maqueta    → cubierta mientras no haya imagen: "revista", "cartel" o "indice"
 //   fondo      → color de esa cubierta: "azul", "crema" o "negro"
@@ -32,12 +34,16 @@ const TODOS_LOS_PROYECTOS = [
     credito: "Proyecto desarrollado en ASG Agencia",     // crédito obligatorio de este caso
     resumen: "Una identidad que evoluciona cada año.",
     servicios: "Identidad · Campaña · Web · Rebranding",
-    partida: "Un festival que abre cada año edificios y estudios de Madrid al público, de forma gratuita. El logo ya existía: el reto era dar a cada edición un sistema gráfico propio, a partir de su lema y su programa, sin perder la coherencia de la marca. Y en 2025, con el décimo aniversario, reforzar su personalidad y unificar todas sus aplicaciones.",
-    idea: "Una puerta entreabierta. La identidad tenía que invitar a entrar, igual que el festival invita a descubrir la ciudad desde dentro.",
-    desarrollo: "De 2021 a 2024, una identidad para cada edición que evoluciona sin romper con la anterior. En 2025, un rebranding con una retícula flexible y modular que ordena toda la comunicación, animada con código para el aniversario. Lo aplicamos a campañas, redes, newsletters, señalética urbana, pantallas, publicaciones, merchandising, la web y el manual de marca.",
+    partida: "Un festival que abre cada año, gratis, los edificios y estudios de Madrid. El logo ya existía: el reto era dar a cada edición su propio sistema gráfico sin perder la coherencia de la marca y, en el décimo aniversario, reforzar su personalidad.",
+    idea: "Una puerta entreabierta. Una identidad que invita a entrar, igual que el festival invita a descubrir la ciudad desde dentro.",
+    etapas: [                                            // el desarrollo, por etapas
+      { fecha: "2021–2024", titulo: "Una identidad por edición", texto: "Cada año, un sistema gráfico a partir del lema y el programa, que evoluciona sin romper con el anterior." },
+      { fecha: "2025", titulo: "Rebranding del décimo aniversario", texto: "Una retícula flexible y modular que ordena toda la comunicación, animada con código." },
+    ],
+    aplicaciones: ["Campañas", "Redes", "Newsletters", "Señalética urbana", "Pantallas", "Publicaciones", "Merchandising", "Web", "Manual de marca"], // dónde vive la marca
     resultado: [                                         // cada dato: la cifra grande y su explicación
       { cifra: "+50.000", texto: "visitantes en 73 edificios, 37 estudios, 12 rutas y 10 itinerarios" },
-      { cifra: "2,6 M", texto: "de visitas a la web, con 11 minutos de media por visita" },
+      { cifra: "2,6 M", texto: "visitas a la web, con 11 minutos de media" },
       { cifra: "+20.700", texto: "suscriptores a la newsletter, con un 64 % de apertura" },
       { cifra: "316", texto: "pantallas de la ciudad con la campaña" },
       { cifra: "100 → 10 %", texto: "de materiales impresos, con más de 2.000 descargas del programa online" },
@@ -50,13 +56,13 @@ const TODOS_LOS_PROYECTOS = [
       { imagen: "img/proyectos/ohm-programa.webp", alt: "Manos sosteniendo varios programas del festival" },
       { imagen: "img/proyectos/ohm-exposicion.webp", alt: "Punto de información del festival con carteles y expositores" },
       { imagen: "img/proyectos/ohm-senaletica.webp", alt: "Visitantes con bolsas del festival junto a la señalética en el suelo" },
-      { imagen: "img/proyectos/ohm-visita.webp", alt: "Grupo de visitantes con una guía del festival ante la entrada de un edificio histórico" },
       { imagen: "img/proyectos/ohm-paseo.webp", alt: "Voluntaria con camiseta y bolsa de Open House Madrid caminando por la ciudad" },
       { imagen: "img/proyectos/ohm-prensa.webp", alt: "Página de periódico con la campaña de Open House Madrid" },
       { imagen: "img/proyectos/ohm-skyline.webp", alt: "Equipo del festival de espaldas mirando las torres de Madrid desde una azotea" },
       { imagen: "img/proyectos/ohm-balcon.webp", alt: "Persona con camiseta del festival asomada a una terraza sobre la Puerta del Sol" },
-      { imagen: "img/proyectos/ohm-presentacion.webp", alt: "Presentación del festival en un auditorio con una gran pantalla" },
     ],
+    fotoIdea: { imagen: "img/proyectos/ohm-visita.webp", alt: "Grupo de visitantes con una guía del festival ante la entrada de un edificio histórico" }, // a todo el ancho, tras La idea
+    fotoCierre: { imagen: "img/proyectos/ohm-presentacion.webp", alt: "Presentación del festival en un auditorio con una gran pantalla" },                  // a todo el ancho, antes del resultado
     autoria: [                                           // quién hizo qué
       { nombre: "Tania de Azevedo", rol: "Dirección de arte, diseño gráfico y diseño de interfaz y web" },
       { nombre: "Rebeca González", rol: "Estrategia de marca, marketing y comunicación del festival" },

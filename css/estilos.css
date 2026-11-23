@@ -476,11 +476,6 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   transition: opacity .7s var(--curva), transform 1.4s var(--curva);
 }
 .visor__img.activa { opacity: 1; transform: none; } /* la del área activa aparece y se asienta */
-.visor__marco::after {                       /* velo suave del color del área activa */
-  content: ""; position: absolute; inset: 0;
-  background-color: var(--c, var(--azul)); mix-blend-mode: multiply; opacity: .22;
-  transition: background-color .6s;
-}
 .visor__bolita {                             /* bolita grande con el número, mordiendo la esquina de arriba */
   position: absolute; top: clamp(-2.5rem, -3vw, -1.5rem); right: clamp(-2.5rem, -3vw, -1.5rem); z-index: 1;
   display: grid; place-items: center;
@@ -668,10 +663,10 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso__marco img, .caso__galeria img { width: 100%; height: 100%; object-fit: cover; }
 .caso__principal figcaption { margin-top: .8rem; opacity: .6; font-size: .68rem; text-align: right; }
 
-.caso__historia { padding-block: clamp(3rem, 6vw, 5rem) clamp(4rem, 8vw, 7rem); } /* los cuatro apartados */
+.caso__historia { padding-top: clamp(2rem, 4vw, 3rem); } /* los cuatro apartados */
 .caso__fila {                                /* rótulo a la izquierda, contenido a la derecha */
   display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.2rem var(--hueco);
-  padding-block: clamp(2.5rem, 5vw, 4.5rem); border-top: 1px solid var(--negro);
+  padding-block: clamp(3rem, 6vw, 5.5rem);
 }
 .caso__rotulo {                              /* número en bolita + nombre del apartado */
   grid-column: 1 / 5; display: flex; align-items: center; gap: .8rem; align-self: start;
@@ -699,14 +694,40 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 }
 .caso__idea-frase .bolita { background: var(--t); }
 .caso__idea-resto { margin: clamp(1.5rem, 3vw, 2.5rem) 0 0 auto; max-width: 30em; font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.35; }
-.caso__idea + .caso__fila { border-top: 0; } /* sin línea justo después del bloque de color */
-.caso__fila[hidden] { display: none; }
 .caso__autoria { grid-column: 5 / 13; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem var(--hueco); } /* las dos, lado a lado */
 .caso__autoria dt { font-size: clamp(1.15rem, 1.65vw, 1.55rem); font-weight: 600; letter-spacing: -.02em; margin-bottom: .3rem; }
 .caso__autoria dd { max-width: 30ch; opacity: .8; }
-.caso__fila--resultado .caso__rotulo { grid-column: 1 / -1; }
-.caso__resultado { grid-column: 1 / -1; }
-.caso__resultado > .caso__texto { margin-left: calc((100% + var(--hueco)) / 3); } /* la frase, alineada con los otros textos */
+.caso__ancha { margin-inline: calc(var(--margen) * -1); aspect-ratio: 21 / 9; overflow: hidden; background: var(--crema-oscuro); } /* foto a sangre */
+.caso__ancha[hidden] { display: none; }
+.caso__ancha img { width: 100%; height: 100%; object-fit: cover; }
+.caso__desarrollo { grid-column: 5 / 13; }
+.caso__desarrollo > .caso__texto { max-width: 40em; }
+.caso__etapas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 3rem); }
+.caso__etapas article { padding-top: 1rem; border-top: 1px solid var(--negro); }
+.caso__etapas strong { display: block; margin-bottom: 1.4rem; font-family: var(--display); font-weight: 400; font-size: clamp(2.4rem, 4.6vw, 4.6rem); line-height: 1; } /* la fecha, grande */
+.caso__etapas h3 { font-size: clamp(1.2rem, 1.7vw, 1.6rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.1; margin-bottom: .6rem; }
+.caso__etapas p { max-width: 32ch; opacity: .8; }
+.caso__aplicaciones {                        /* dónde vive la marca: una línea limpia */
+  display: flex; flex-wrap: wrap; gap: .45rem 1.3rem; margin-top: clamp(2rem, 3.5vw, 3rem);
+  font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+}
+.caso__aplicaciones li { display: inline-flex; align-items: center; gap: .5rem; }
+.caso__aplicaciones li::before { content: ""; width: .5em; height: .5em; border-radius: 50%; background: var(--c); } /* bolita del color del proyecto */
+.caso__cierre {                              /* Resultado: bloque oscuro a todo el ancho */
+  margin-inline: calc(var(--margen) * -1);
+  padding: clamp(3.5rem, 7vw, 6.5rem) var(--margen);
+  background: var(--negro); color: var(--crema);
+}
+.caso__cierre .caso__num { background: var(--crema); color: var(--negro); }
+.caso__cierre .caso__texto { margin-top: 2rem; max-width: 24em; font-size: clamp(1.7rem, 3.4vw, 3.4rem); font-weight: 500; line-height: 1.08; letter-spacing: -.03em; } /* conceptuales: una frase grande */
+.caso__cierre .caso__cifras { margin-top: clamp(2rem, 4vw, 3.5rem); }
+.caso__cierre .caso__cifras li { border-color: rgba(244, 240, 232, .3); }
+.caso__creditos {                            /* quién hizo qué: fila discreta */
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem var(--hueco);
+  padding-block: clamp(2rem, 4vw, 3rem);
+}
+.caso__creditos[hidden] { display: none; }
+.caso__creditos h2 { grid-column: 1 / 5; }
 .caso__cifras { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(2rem, 3.5vw, 3rem) var(--hueco); margin-top: 1rem; }
 .caso__cifras li { grid-column: span 2; padding-top: 1rem; border-top: 1px solid var(--linea); } /* tres arriba… */
 .caso__cifras li:nth-child(n+4) { grid-column: span 3; }  /* …y dos abajo */
@@ -717,17 +738,17 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso__cifras span { display: block; max-width: 30ch; font-size: .98rem; line-height: 1.35; opacity: .8; }
 
 .caso__galeria:empty { display: none; }     /* sin imágenes propias, no ocupa sitio */
+.caso__galeria:not(:empty) { padding-bottom: clamp(3rem, 6vw, 5.5rem); }
 .caso__galeria { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(1rem, 3vw, 3rem) var(--hueco); }
 .caso__galeria > div { position: relative; overflow: hidden; background: var(--crema-oscuro); }
-.caso__galeria > div:nth-child(5n+1) { grid-column: 1 / 6; aspect-ratio: 4 / 5; }              /* el ritmo se repite cada cinco imágenes: vertical… */
-.caso__galeria > div:nth-child(5n+2) { grid-column: 7 / 13; aspect-ratio: 1; margin-top: 8rem; } /* …cuadrada más abajo… */
-.caso__galeria > div:nth-child(5n+3) { grid-column: 1 / 8; aspect-ratio: 3 / 2; }               /* …apaisada… */
-.caso__galeria > div:nth-child(5n+4) { grid-column: 8 / 13; aspect-ratio: 1; margin-top: 5rem; } /* …cuadrada… */
-.caso__galeria > div:nth-child(5n)   { grid-column: 1 / -1; aspect-ratio: 16 / 8; }             /* …y una a todo el ancho */
+.caso__galeria > div:nth-child(4n+1) { grid-column: 1 / 6; aspect-ratio: 4 / 5; }              /* el ritmo se repite cada cuatro: vertical… */
+.caso__galeria > div:nth-child(4n+2) { grid-column: 7 / 13; aspect-ratio: 1; margin-top: 8rem; } /* …cuadrada más abajo… */
+.caso__galeria > div:nth-child(4n+3) { grid-column: 1 / 8; aspect-ratio: 3 / 2; }               /* …apaisada… */
+.caso__galeria > div:nth-child(4n)   { grid-column: 8 / 13; aspect-ratio: 1; margin-top: 5rem; } /* …y cuadrada */
 
 .caso__siguiente {                           /* siguiente proyecto: nombre grande y su foto en un círculo */
   display: flex; align-items: center; justify-content: space-between; gap: 2rem;
-  margin-top: clamp(5rem, 10vw, 9rem); padding-block: clamp(3rem, 6vw, 5rem);
+  margin-top: 0; padding-block: clamp(3rem, 6vw, 5rem);
   border-top: 1px solid var(--negro);
 }
 .caso__siguiente-texto { display: flex; flex-direction: column; gap: 1rem; }
@@ -795,7 +816,7 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   .areas { grid-column: 1; }
   .area > * { opacity: 1; }                  /* …todas las áreas encendidas… */
   .area__titulo .bolita { transform: scale(1); }
-  .area__foto { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-top: 1.4rem; } /* …y cada una con su foto */
+  .area__foto { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; margin-top: 1.4rem; } /* …y cada una con su foto */
   .equipo__cabecera h2, .equipo__texto { grid-column: 1 / -1; }
   .equipo__personas { grid-template-columns: 1fr; gap: 2.5rem; }     /* en móvil, un perfil debajo de otro */
   .persona { grid-template-columns: 7.5rem 1fr; grid-template-rows: 1fr auto auto; } /* foto pequeña con nombre al lado */
@@ -813,9 +834,10 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   .contacto__marca { margin-top: 3rem; }
   .caso__cabecera h1, .caso__cabecera .resumen { grid-column: 1 / -1; }
   .caso__meta { grid-template-columns: 1fr 1fr; }
-  .caso__rotulo, .caso__texto, .caso__autoria { grid-column: 1 / -1; }
+  .caso__rotulo, .caso__texto, .caso__autoria, .caso__desarrollo, .caso__creditos h2 { grid-column: 1 / -1; }
+  .caso__etapas { grid-template-columns: 1fr; }
+  .caso__ancha { aspect-ratio: 4 / 3; }
   .caso__autoria { grid-template-columns: 1fr; }
-  .caso__resultado > .caso__texto { margin-left: 0; }
   .caso__cifras { grid-template-columns: 1fr; }
   .caso__cifras li, .caso__cifras li:nth-child(n+4) { grid-column: 1; }
   .caso__galeria > div:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }

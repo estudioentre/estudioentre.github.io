@@ -27,4 +27,4 @@ Web estática (HTML + CSS + JS, sin instalar nada).
 
 Fotos: mejor en `.webp`, ~1600 px de ancho, en `img/`.
 
-**Fotos de ejemplo** → `img/ejemplos/` (Unsplash, licencia libre). Son provisionales.
+**Fotos de «Qué hacemos»** → `img/ejemplos/area-*.webp` (generadas con IA, se pueden cambiar por trabajos reales).
