@@ -31,7 +31,8 @@ function conBolita(texto) {
 
 // Textos
 document.getElementById("caso-numero").textContent = String(posicion + 1).padStart(2, "0"); // "01", "02"…
-document.getElementById("caso-ejemplo").hidden = !proyecto.ejemplo;  // la pastilla "Ejemplo" solo en proyectos de muestra
+document.getElementById("caso-ejemplo").hidden = !proyecto.conceptual; // la pastilla "Proyecto conceptual" solo en autoencargos
+document.getElementById("caso-cliente").textContent = proyecto.cliente;      // cliente
 document.getElementById("caso-titulo").innerHTML = conBolita(proyecto.titulo); // nombre con su bolita
 document.getElementById("caso-resumen").textContent = proyecto.resumen;      // resumen
 document.getElementById("caso-categoria").textContent = proyecto.categoria;  // categoría
@@ -40,16 +41,36 @@ document.getElementById("caso-servicios").textContent = proyecto.servicios;  // 
 
 // Imagen principal (foto o cubierta tipográfica) y su pie
 document.getElementById("caso-visual").innerHTML = pintarVisual(proyecto);
-document.getElementById("caso-pie").textContent = proyecto.imagen
-  ? `Fig. 01 — ${proyecto.ejemplo ? "Foto de ejemplo · Unsplash" : proyecto.alt}` // con foto: aviso de ejemplo o su descripción
-  : "Fig. 01 — Cubierta provisional";                               // sin foto: cubierta tipográfica
+document.getElementById("caso-pie").textContent = proyecto.credito;  // crédito, si lo hay
 
-// Galería: mientras no haya fotos propias, dos de otros proyectos para ver cómo queda la composición
-const otros = PROYECTOS.filter((p) => p.id !== proyecto.id);        // todos menos este
-const galeria = [otros[posicion % otros.length], otros[(posicion + 2) % otros.length]]; // dos distintos
-document.getElementById("caso-galeria").innerHTML = galeria
-  .map((p) => `<div data-revela>${pintarVisual(p)}</div>`)          // cada uno en su hueco
-  .join("");                                                         // juntos
+// Los textos del caso
+document.getElementById("caso-partida").textContent = proyecto.partida;       // punto de partida
+document.getElementById("caso-desarrollo").textContent = proyecto.desarrollo; // desarrollo
+
+// La idea: la primera frase va enorme (su punto es una bolita) y el resto, pequeño
+const finFrase = proyecto.idea.indexOf(". ");                        // dónde acaba la primera frase
+const fraseIdea = proyecto.idea.slice(0, finFrase);                  // la frase, sin el punto
+document.getElementById("caso-idea-frase").innerHTML = conBolita(fraseIdea); // con su bolita
+document.getElementById("caso-idea-resto").textContent = proyecto.idea.slice(finFrase + 2); // lo que queda
+
+// Resultado: si hay datos, cifras grandes; si no, una frase
+const cajaResultado = document.getElementById("caso-resultado");     // el hueco del resultado
+cajaResultado.innerHTML = Array.isArray(proyecto.resultado)          // ¿es una lista de datos?
+  ? `<ul class="caso__cifras">${proyecto.resultado.map((dato) => `<li><strong>${dato.cifra}</strong><span>${dato.texto}</span></li>`).join("")}</ul>` // sí: cifra + explicación
+  : `<p class="caso__texto">${proyecto.resultado}</p>`;              // no: un párrafo
+
+// Quién hizo qué: solo aparece si el proyecto lo indica
+if (proyecto.autoria) {
+  document.getElementById("caso-autoria-fila").hidden = false;       // enseña el bloque
+  document.getElementById("caso-autoria").innerHTML = proyecto.autoria
+    .map((persona) => `<div><dt>${persona.nombre}</dt><dd>${persona.rol}</dd></div>`) // nombre y papel
+    .join("");                                                       // juntos
+}
+
+// Galería: solo aparece cuando el proyecto tiene imágenes propias
+document.getElementById("caso-galeria").innerHTML = proyecto.galeria
+  .map((foto) => `<div data-revela><img src="${foto.imagen}" alt="${foto.alt}" loading="lazy" decoding="async"></div>`) // cada imagen en su hueco
+  .join("");                                                         // juntas
 
 // Enlace al siguiente proyecto: su nombre con bolita y su foto en un círculo
 document.getElementById("caso-siguiente").href = `proyecto.html?p=${siguiente.id}`; // dirección

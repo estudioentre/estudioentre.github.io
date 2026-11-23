@@ -3,10 +3,8 @@
      Si añadís proyectos, copiad una línea <url> y cambiad el ?p= -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://estudioentre.github.io/</loc></url>
-  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-01</loc></url>
-  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-02</loc></url>
-  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-03</loc></url>
-  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-04</loc></url>
-  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-05</loc></url>
-  <url><loc>https://estudioentre.github.io/proyecto.html?p=proyecto-06</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=open-house-madrid</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=merengue</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=baja-voz</loc></url>
+  <url><loc>https://estudioentre.github.io/proyecto.html?p=pinturas-tirso</loc></url>
 </urlset>

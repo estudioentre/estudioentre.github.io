@@ -263,7 +263,7 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   border: 1px solid var(--negro);
 }
 .portada__visual figcaption { margin-top: .8rem; opacity: .6; font-size: .68rem; text-align: right; } /* pie de foto */
-.portada__chapa { left: calc(100% - min(100%, calc((100svh - 12rem) * .8)) - 1.6rem); } /* la chapa muerde el borde izquierdo de la foto, esté donde esté */
+.portada__chapa { top: auto; bottom: 16%; left: calc(100% - min(100%, calc((100svh - 12rem) * .8)) - 1.6rem); } /* la chapa muerde el borde izquierdo de la foto, esté donde esté */
 
 .portada__pie {                              /* fila de textos pequeños */
   grid-column: 1 / 8; grid-row: 2;
@@ -519,12 +519,17 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 }
 .equipo__cabecera h2 { grid-column: 1 / 8; }
 .equipo__texto { grid-column: 8 / 13; max-width: 36ch; }
-.equipo__personas {                          /* dos columnas iguales y el logo en medio */
+.equipo__personas {                          /* dos perfiles iguales y el logo en medio */
   display: grid; grid-template-columns: 1fr auto 1fr;
-  gap: clamp(1rem, 3vw, 3rem); align-items: start;
+  gap: clamp(1rem, 3vw, 3rem); align-items: center;
+}
+.persona {                                   /* foto contenida a la izquierda y texto a la derecha */
+  display: grid; grid-template-columns: minmax(9rem, 40%) 1fr;
+  grid-template-rows: auto auto 1fr; column-gap: clamp(1rem, 2vw, 1.8rem);
 }
 .persona__foto {
-  position: relative; overflow: hidden; margin-bottom: 1.2rem;
+  grid-row: 1 / span 3;                      /* ocupa el alto de los tres textos */
+  position: relative; overflow: hidden; align-self: start;
   aspect-ratio: 4 / 5;                       /* las dos iguales: mismo peso visual */
   background: var(--crema-oscuro);
 }
@@ -537,9 +542,9 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .persona__nombre { font-size: clamp(1.5rem, 2.4vw, 2.2rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.05; display: flex; align-items: center; gap: .4em; }
 .persona__nombre .bolita { width: .55em; height: .55em; margin: 0; flex: none; } /* su círculo del logo, delante del nombre */
 .persona__rol { margin: .4rem 0 .8rem; opacity: .6; }
-.persona__bio { max-width: 38ch; opacity: .8; }
+.persona__bio { max-width: 38ch; opacity: .8; font-size: .95rem; line-height: 1.45; }
 .equipo__union {                             /* el logo en medio, a media altura de las fotos */
-  align-self: center; margin-top: -6rem;
+  align-self: center;
   display: flex; flex-direction: column; align-items: center; gap: .8rem;
 }
 .equipo__union svg { width: clamp(3.5rem, 6vw, 6rem); height: auto; transition: transform .8s var(--curva); }
@@ -648,8 +653,8 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso { padding: calc(var(--cabecera) + 3rem) var(--margen) 0; }   /* --c y --t (color del proyecto) los pone js/caso.js */
 .caso__volver { margin-bottom: 2.5rem; }
 .caso__cabecera { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--hueco); align-items: end; }
-.caso__previo { grid-column: 1 / -1; display: flex; align-items: center; gap: .8rem; margin-bottom: .5rem; opacity: .75; }
-.caso__ejemplo { padding: .25rem .6rem; border: 1px dashed currentColor; border-radius: 999px; } /* pastilla "Ejemplo" */
+.caso__previo { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .8rem; margin-bottom: .5rem; opacity: .75; }
+.caso__ejemplo { white-space: nowrap; padding: .25rem .6rem; border: 1px dashed currentColor; border-radius: 999px; } /* pastilla "Ejemplo" */
 .caso__ejemplo[hidden] { display: none; }
 .caso__cabecera h1 { grid-column: 1 / 10; }
 .caso__cabecera .resumen { grid-column: 10 / 13; max-width: 30ch; }
@@ -663,23 +668,62 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso__marco img, .caso__galeria img { width: 100%; height: 100%; object-fit: cover; }
 .caso__principal figcaption { margin-top: .8rem; opacity: .6; font-size: .68rem; text-align: right; }
 
-.caso__bloques { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--hueco); padding-block: clamp(4rem, 9vw, 8rem); }
-.caso__bloque { grid-column: span 4; padding-right: 1rem; }
-.caso__num {                                 /* número en una bolita del color del proyecto */
-  display: grid; place-items: center; margin-bottom: 1.4rem;
-  width: clamp(3.2rem, 5vw, 4.5rem); aspect-ratio: 1; border-radius: 50%;
-  background: var(--c); color: var(--t);
-  font-family: var(--display); font-size: clamp(1.2rem, 1.8vw, 1.6rem); line-height: 1;
+.caso__historia { padding-block: clamp(3rem, 6vw, 5rem) clamp(4rem, 8vw, 7rem); } /* los cuatro apartados */
+.caso__fila {                                /* rótulo a la izquierda, contenido a la derecha */
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.2rem var(--hueco);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem); border-top: 1px solid var(--negro);
 }
-.caso__bloque h2 { font-size: clamp(1.5rem, 2.4vw, 2.2rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.05; margin-bottom: .8rem; }
-.caso__bloque p { max-width: 34ch; opacity: .85; }
-.caso__bloque:nth-child(2) { margin-top: 4rem; }  /* desplazados en escalera */
-.caso__bloque:nth-child(3) { margin-top: 8rem; }
+.caso__rotulo {                              /* número en bolita + nombre del apartado */
+  grid-column: 1 / 5; display: flex; align-items: center; gap: .8rem; align-self: start;
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.1;
+}
+.caso__num {
+  flex: none; display: grid; place-items: center;
+  width: 2.6rem; aspect-ratio: 1; border-radius: 50%;
+  background: var(--c); color: var(--t);
+  font-family: var(--display); font-size: 1rem; font-weight: 400; letter-spacing: 0; line-height: 1;
+}
+.caso__texto {                               /* texto grande y cómodo de leer */
+  grid-column: 5 / 12; max-width: 40em;
+  font-size: clamp(1.15rem, 1.65vw, 1.55rem); line-height: 1.35; letter-spacing: -.015em;
+}
+.caso__idea {                                /* La idea: bloque de color a todo el ancho */
+  margin-inline: calc(var(--margen) * -1);
+  padding: clamp(3rem, 7vw, 6.5rem) var(--margen);
+  background: var(--c); color: var(--t);
+}
+.caso__idea .caso__num { background: var(--t); color: var(--c); } /* la bolita, invertida */
+.caso__idea-frase {
+  margin-top: clamp(2rem, 4vw, 3.5rem); max-width: 13em;
+  font-size: clamp(2.8rem, 8vw, 8.5rem); font-weight: 600; line-height: .92; letter-spacing: -.04em;
+}
+.caso__idea-frase .bolita { background: var(--t); }
+.caso__idea-resto { margin: clamp(1.5rem, 3vw, 2.5rem) 0 0 auto; max-width: 30em; font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.35; }
+.caso__idea + .caso__fila { border-top: 0; } /* sin línea justo después del bloque de color */
+.caso__fila[hidden] { display: none; }
+.caso__autoria { grid-column: 5 / 13; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem var(--hueco); } /* las dos, lado a lado */
+.caso__autoria dt { font-size: clamp(1.15rem, 1.65vw, 1.55rem); font-weight: 600; letter-spacing: -.02em; margin-bottom: .3rem; }
+.caso__autoria dd { max-width: 30ch; opacity: .8; }
+.caso__fila--resultado .caso__rotulo { grid-column: 1 / -1; }
+.caso__resultado { grid-column: 1 / -1; }
+.caso__resultado > .caso__texto { margin-left: calc((100% + var(--hueco)) / 3); } /* la frase, alineada con los otros textos */
+.caso__cifras { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(2rem, 3.5vw, 3rem) var(--hueco); margin-top: 1rem; }
+.caso__cifras li { grid-column: span 2; padding-top: 1rem; border-top: 1px solid var(--linea); } /* tres arriba… */
+.caso__cifras li:nth-child(n+4) { grid-column: span 3; }  /* …y dos abajo */
+.caso__cifras strong {                       /* la cifra, enorme */
+  display: block; margin-bottom: .6rem; white-space: nowrap;
+  font-family: var(--display); font-weight: 400; font-size: clamp(3rem, 6.4vw, 6.5rem); line-height: 1;
+}
+.caso__cifras span { display: block; max-width: 30ch; font-size: .98rem; line-height: 1.35; opacity: .8; }
 
-.caso__galeria { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--hueco); }
+.caso__galeria:empty { display: none; }     /* sin imágenes propias, no ocupa sitio */
+.caso__galeria { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(1rem, 3vw, 3rem) var(--hueco); }
 .caso__galeria > div { position: relative; overflow: hidden; background: var(--crema-oscuro); }
-.caso__galeria > div:nth-child(1) { grid-column: 1 / 6; aspect-ratio: 4 / 5; }
-.caso__galeria > div:nth-child(2) { grid-column: 7 / 13; aspect-ratio: 1; margin-top: 8rem; }
+.caso__galeria > div:nth-child(5n+1) { grid-column: 1 / 6; aspect-ratio: 4 / 5; }              /* el ritmo se repite cada cinco imágenes: vertical… */
+.caso__galeria > div:nth-child(5n+2) { grid-column: 7 / 13; aspect-ratio: 1; margin-top: 8rem; } /* …cuadrada más abajo… */
+.caso__galeria > div:nth-child(5n+3) { grid-column: 1 / 8; aspect-ratio: 3 / 2; }               /* …apaisada… */
+.caso__galeria > div:nth-child(5n+4) { grid-column: 8 / 13; aspect-ratio: 1; margin-top: 5rem; } /* …cuadrada… */
+.caso__galeria > div:nth-child(5n)   { grid-column: 1 / -1; aspect-ratio: 16 / 8; }             /* …y una a todo el ancho */
 
 .caso__siguiente {                           /* siguiente proyecto: nombre grande y su foto en un círculo */
   display: flex; align-items: center; justify-content: space-between; gap: 2rem;
@@ -753,10 +797,14 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   .area__titulo .bolita { transform: scale(1); }
   .area__foto { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-top: 1.4rem; } /* …y cada una con su foto */
   .equipo__cabecera h2, .equipo__texto { grid-column: 1 / -1; }
-  .equipo__personas { grid-template-columns: 1fr 1fr; gap: .8rem; } /* en móvil, las dos fotos lado a lado e iguales */
+  .equipo__personas { grid-template-columns: 1fr; gap: 2.5rem; }     /* en móvil, un perfil debajo de otro */
+  .persona { grid-template-columns: 7.5rem 1fr; grid-template-rows: 1fr auto auto; } /* foto pequeña con nombre al lado */
+  .persona__foto { grid-row: 1 / span 3; grid-column: 1; }
+  .persona__nombre { grid-row: 2; grid-column: 2; }
+  .persona__rol { grid-row: 3; grid-column: 2; margin-bottom: 0; }
+  .persona__bio { grid-column: 1 / -1; grid-row: 4; margin-top: 1rem; max-width: none; }
   .equipo__union { display: none; }
   .persona__nombre { font-size: 1.15rem; }
-  .persona__bio { font-size: .9rem; }
   .pasos { grid-template-columns: 1fr; gap: 3rem; padding-left: 3.5rem; } /* la línea pasa a ser vertical */
   .pasos::before, .pasos::after { left: 1.25rem; right: auto; top: 0; bottom: 0; width: 1px; height: auto; }
   .pasos::after { transform: scaleY(var(--avance, 0)); transform-origin: top; }
@@ -765,8 +813,12 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   .contacto__marca { margin-top: 3rem; }
   .caso__cabecera h1, .caso__cabecera .resumen { grid-column: 1 / -1; }
   .caso__meta { grid-template-columns: 1fr 1fr; }
-  .caso__bloque { grid-column: 1 / -1; margin-top: 0 !important; }
-  .caso__galeria > div:nth-child(1), .caso__galeria > div:nth-child(2) { grid-column: 1 / -1; margin-top: 0; }
+  .caso__rotulo, .caso__texto, .caso__autoria { grid-column: 1 / -1; }
+  .caso__autoria { grid-template-columns: 1fr; }
+  .caso__resultado > .caso__texto { margin-left: 0; }
+  .caso__cifras { grid-template-columns: 1fr; }
+  .caso__cifras li, .caso__cifras li:nth-child(n+4) { grid-column: 1; }
+  .caso__galeria > div:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
   .caso__marco { aspect-ratio: 4 / 3; }
   .pie__contacto { align-items: flex-start; }
   .caso__siguiente { flex-direction: column-reverse; align-items: flex-start; } /* en móvil, la foto encima del nombre */

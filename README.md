@@ -2,7 +2,7 @@
 
 Web estática (HTML + CSS + JS, sin instalar nada).
 
-**Ver en local** → vista previa «entre» (puerto 5570) o abrir `index.html` en el navegador.
+**Ver en local** → vista previa «entre» (puerto 5572) o abrir `index.html` en el navegador.
 
 ## Qué cambiar
 - **Proyectos** → `js/proyectos.js` (copiar un bloque `{ … }`; `imagen` sustituye a la cubierta; `ejemplo: false` quita la etiqueta)

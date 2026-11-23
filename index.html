@@ -94,16 +94,15 @@
 
       <figure class="portada__visual">                                           <!-- una sola pieza visual, rectángulo 4:5 -->
         <div class="portada__marco" data-paralaje="-0.04">                        <!-- se desplaza un poco con el scroll -->
-          <!-- Foto de ejemplo (Unsplash). Para cambiarla, sustituye el archivo o la ruta del src -->
-          <img src="img/ejemplos/portada.webp" alt="Retrato editorial de una mujer con un pañuelo azul sobre fondo azul" width="1400" height="1867" fetchpriority="high"> <!-- fetchpriority: es la primera imagen, que cargue antes -->
+          <!-- Foto de portada. Para cambiarla, sustituye la ruta del src -->
+          <img src="img/portada-estudio.webp" alt="Mesa de trabajo de un estudio de diseño con ordenador, cuadernos, revistas y carteles de colores en la pared" width="768" height="960" fetchpriority="high"> <!-- fetchpriority: es la primera imagen, que cargue antes -->
         </div>
         <span class="portada__chapa etiqueta">Estudio creativo<br>independiente</span> <!-- etiqueta que muerde el borde -->
-        <figcaption class="etiqueta">Fig. 01 — Foto de ejemplo · Unsplash</figcaption> <!-- pie de foto -->
       </figure>
 
       <div class="portada__pie">                                                  <!-- textos pequeños de abajo -->
         <div class="portada__intro" data-revela>
-          <p>Somos <strong>ENTRE</strong>, un estudio creativo independiente formado por dos personas. Unimos estrategia, comunicación y diseño para crear marcas y proyectos con personalidad.</p>
+          <p><strong>ENTRE</strong> es un estudio creativo independiente formado por dos personas. Creamos marcas y proyectos con personalidad.</p>
           <a class="enlace-flecha" href="#proyectos">Ver proyectos <span aria-hidden="true">↘</span></a>
         </div>
         <ol class="portada__indice etiqueta" data-revela>                         <!-- índice de lo que hacemos -->
@@ -131,12 +130,12 @@
       </header>
 
       <p class="estudio__texto" id="texto-estudio"> <!-- JavaScript separa las palabras y las enciende al bajar -->
-        Somos un estudio creativo independiente. Nos movemos <span class="pastilla">entre</span> la estrategia, la comunicación y el diseño para dar forma a ideas que tengan algo que decir. <!-- "entre" siempre va dentro de una pastilla -->
+        Nos movemos <span class="pastilla">entre</span> la estrategia, la comunicación y el diseño para dar forma a ideas que tengan algo que decir. <!-- "entre" siempre va dentro de una pastilla -->
       </p>
 
       <div class="estudio__columnas">
         <p data-revela>Pensamos antes de diseñar, y diseñamos pensando en dónde va a vivir cada cosa: una marca, una campaña, una web o un cartel en la calle.</p>
-        <p data-revela>Somos dos. Quien te escucha el primer día es quien revisa el último archivo, así que nada se pierde por el camino.</p>
+        <p data-revela>Quien te escucha el primer día es quien revisa el último archivo, así que nada se pierde por el camino.</p>
       </div>
 
       <div class="partida" id="partida" aria-hidden="true">                       <!-- "EN [pastilla] TRE": la palabra se abre al hacer scroll -->
@@ -149,10 +148,9 @@
     <!-- ================= 3. PROYECTOS ================= -->
     <section class="proyectos seccion" id="proyectos" aria-labelledby="titulo-proyectos">
       <header class="proyectos__cabecera">
-        <h2 class="titulo-grande" id="titulo-proyectos" style="--c: var(--azul)" data-revela><span class="sin-corte">Proyectos<span class="bolita"></span></span><sup class="etiqueta">(06)</sup></h2> <!-- --c: color de la bolita -->
+        <h2 class="titulo-grande" id="titulo-proyectos" style="--c: var(--azul)" data-revela><span class="sin-corte">Proyectos<span class="bolita"></span></span><sup class="etiqueta">(04)</sup></h2> <!-- --c: color de la bolita -->
         <div class="proyectos__intro" data-revela>
           <p>Marcas, campañas, webs y piezas gráficas. Cada proyecto es distinto, así que cada uno se ve distinto.</p>
-          <p class="aviso etiqueta">Contenido de ejemplo — sustituir por proyectos reales</p> <!-- recordatorio visible -->
         </div>
       </header>
 
@@ -164,7 +162,7 @@
     <section class="servicios seccion" id="servicios" aria-labelledby="titulo-servicios">
       <header class="servicios__cabecera">
         <h2 class="titulo-grande" id="titulo-servicios" style="--c: var(--coral)" data-revela>Qué <span class="sin-corte">hacemos<span class="bolita"></span></span></h2>
-        <p data-revela>Cuatro áreas que se mezclan entre sí. Casi ningún proyecto se queda en una sola.</p>
+        <p data-revela>Cuatro áreas que se mezclan entre sí. Casi ningún proyecto se queda en una sola. También trabajamos con agencias como equipo externo de estrategia y diseño.</p>
       </header>
 
       <div class="servicios__cuerpo">
@@ -223,18 +221,17 @@
 
       <div class="equipo__cabecera">
         <h2 class="titulo-grande" id="titulo-equipo" style="--c: var(--azul)" data-revela>Dos <span class="sin-corte">miradas<span class="bolita"></span></span></h2>
-        <p class="equipo__texto" data-revela>Perfiles complementarios y una misma manera de entender la creatividad. Unimos estrategia, comunicación y diseño para mirar cada proyecto desde dos lados, y nos implicamos en todo el proceso: de la primera idea al resultado final.</p>
+        <p class="equipo__texto" data-revela>Perfiles complementarios y una misma manera de entender la creatividad. Miramos cada proyecto desde dos lados y nos implicamos en todo el proceso: de la primera idea al resultado final.</p>
       </div>
 
       <div class="equipo__personas">                                               <!-- dos retratos del mismo tamaño: mismo peso -->
         <article class="persona" style="--c: var(--azul)" data-revela>
           <div class="persona__foto">                                              <!-- retrato 4:5 -->
-            <img src="img/ejemplos/persona-1.webp" alt="Foto de ejemplo: retrato en blanco y negro" loading="lazy" width="1000" height="1250"> <!-- foto de ejemplo: cambiar por la vuestra -->
-            <span class="foto-ejemplo etiqueta">Foto de ejemplo</span>
+            <img src="img/equipo/rebeca.webp" alt="Retrato de Rebeca González" loading="lazy" width="800" height="1000">
           </div>
-          <h3 class="persona__nombre"><span class="bolita"></span>[Nombre Apellido]</h3> <!-- la bolita azul es "su" círculo del logo -->
-          <p class="persona__rol etiqueta">[Especialidad]</p>
-          <p class="persona__bio">[Bio breve: dos o tres líneas sobre tu recorrido y lo que más te gusta hacer dentro del estudio.]</p>
+          <h3 class="persona__nombre"><span class="bolita"></span>Rebeca González</h3> <!-- la bolita azul es "su" círculo del logo -->
+          <p class="persona__rol etiqueta">Estrategia y marca</p>
+          <p class="persona__bio">Publicista y Brand Strategist, especializada en Branding. Ha pasado por McCann, Wk Communication y ASG, donde pasó cinco años llevando la marca de festivales, eventos deportivos y marcas. Su especialidad es encontrar el camino que nadie había mirado y que funciona para ti. En ENTRE encuentra lo que hace única a tu marca y te ayuda a contarlo, del primer mensaje al último post.</p>
         </article>
 
         <div class="equipo__union" aria-hidden="true">                            <!-- en medio: el logo, lo que las une -->
@@ -243,12 +240,11 @@
 
         <article class="persona" style="--c: var(--coral)" data-revela>
           <div class="persona__foto">                                              <!-- retrato 4:5, mismo tamaño -->
-            <img src="img/ejemplos/persona-2.webp" alt="Foto de ejemplo: retrato en blanco y negro sobre fondo gris" loading="lazy" width="1000" height="1333"> <!-- foto de ejemplo: cambiar por la vuestra -->
-            <span class="foto-ejemplo etiqueta">Foto de ejemplo</span>
+            <img src="img/equipo/tania.webp" alt="Retrato de Tania de Azevedo" loading="lazy" width="800" height="1000">
           </div>
-          <h3 class="persona__nombre"><span class="bolita"></span>[Nombre Apellido]</h3> <!-- y la coral, la suya -->
-          <p class="persona__rol etiqueta">[Especialidad]</p>
-          <p class="persona__bio">[Bio breve: dos o tres líneas sobre tu recorrido y lo que más te gusta hacer dentro del estudio.]</p>
+          <h3 class="persona__nombre"><span class="bolita"></span>Tania de Azevedo</h3> <!-- y la coral, la suya -->
+          <p class="persona__rol etiqueta">Diseño y dirección de arte</p>
+          <p class="persona__bio">Diseñadora y directora de arte, especializada en identidad visual y diseño web. Durante cinco años dio forma a Open House Madrid, de su sistema gráfico a su web. Le interesa que las ideas se vean, se entiendan y funcionen en cualquier soporte. En ENTRE convierte la estrategia en una imagen con personalidad, del primer boceto a la última pantalla.</p>
         </article>
       </div>
     </section>
@@ -293,7 +289,7 @@
       <div class="contacto__texto">
         <p class="etiqueta contacto__previo" data-revela>(03) — Contacto</p>
         <h2 class="titulo-grande contacto__titulo" id="titulo-contacto" data-revela>¿Tienes una idea <span class="pastilla">entre</span> manos?</h2>
-        <p class="contacto__intro" data-revela>Cuéntanos qué tienes entre manos: una marca nueva, una web, una campaña o una idea a medio hacer. Todo empieza con una conversación.</p>
+        <p class="contacto__intro" data-revela>Cuéntanos en qué estás pensando: una marca nueva, una web, una campaña o una idea a medio hacer. Todo empieza con una conversación.</p>
         <a class="contacto__email" href="mailto:somosestudioentre@gmail.com" data-revela>somosestudioentre@gmail.com <span aria-hidden="true">↗</span></a> <!-- email del estudio -->
         <ul class="contacto__redes etiqueta" data-revela>                         <!-- redes (placeholders) -->
           <li><a href="https://www.instagram.com/somosestudioentre/" target="_blank" rel="noopener">Instagram ↗</a></li>
