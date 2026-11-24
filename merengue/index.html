@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">                                                     <!-- acentos y eñes bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">       <!-- se adapta al móvil -->
+  <meta name="robots" content="noindex">                                     <!-- marca inventada: que Google no la muestre como real -->
+  <title>Merengue · Dulces de toda la vida, para los labios</title>           <!-- título de la pestaña -->
+  <meta name="description" content="Proyecto conceptual de ENTRE: web de Merengue, bálsamos labiales con sabores de pastelería madrileña."> <!-- descripción -->
+  <link rel="preload" href="fuentes/fraunces.woff2" as="font" type="font/woff2" crossorigin> <!-- la letra de los titulares, cuanto antes -->
+  <link rel="stylesheet" href="estilos.css">                                 <!-- todo el diseño -->
+</head>
+<body>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="cabecera">
+    <a class="cabecera__logo" href="#inicio"><span class="logo" role="img" aria-label="Merengue"></span></a> <!-- logo -->
+    <nav class="cabecera__menu" aria-label="Principal">                      <!-- menú -->
+      <a href="#carta">Sabores</a>
+      <a href="#tubo">El tubo</a>
+      <a href="#merienda">La merienda</a>
+    </nav>
+    <a class="cabecera__nota" href="../proyecto.html?p=merengue">Proyecto conceptual de ENTRE <span aria-hidden="true">↗</span></a> <!-- aviso discreto -->
+  </header>
+
+  <main id="inicio">
+    <!-- ================= PORTADA (violeta) ================= -->
+    <section class="portada">
+      <p class="portada__ante">Bálsamo labial · Hecho en Madrid</p>
+      <h1 class="portada__titulo">                                             <!-- el claim, en la voz del logo -->
+        <span class="linea"><span>Los labios</span></span>
+        <span class="linea"><span>también merecen</span></span>
+        <span class="linea"><span><em id="postre">postre.</em></span></span>  <!-- "postre" cambia de color con cada sabor -->
+      </h1>
+      <div class="sello" aria-hidden="true">                                   <!-- sello de pastelería que gira -->
+        <svg viewBox="0 0 200 200"><defs><path id="circulo" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+          <text><textPath href="#circulo">dulces de toda la vida ✺ para los labios ✺ </textPath></text></svg>
+        <span class="sello__centro">desde<br>2026</span>
+      </div>
+    </section>
+
+    <div class="feston" style="--arriba: var(--violeta)"></div>               <!-- borde de blonda: violeta que muerde la foto -->
+    <figure class="foto foto--sangre" style="--r: 16 / 9; --tono: #D9CCE6" data-foto="merengue-portada"> <!-- foto principal -->
+      <img src="../img/proyectos/merengue-portada.webp" alt="Los tres bálsamos Merengue sobre una blonda, en el mostrador de una pastelería">
+    </figure>
+
+    <!-- ================= CINTA (frases de Instagram) ================= -->
+    <div class="cinta" aria-hidden="true">
+      <div class="cinta__pista">                                               <!-- dos veces para que el bucle no se corte -->
+        <span>Tu abuela ya lo sabía <i>✺</i> El trío de los domingos <i>✺</i> Lo juramos, está cremita <i>✺</i> No te manches <i>✺</i> </span>
+        <span>Tu abuela ya lo sabía <i>✺</i> El trío de los domingos <i>✺</i> Lo juramos, está cremita <i>✺</i> No te manches <i>✺</i> </span>
+      </div>
+    </div>
+
+    <!-- ================= MANIFIESTO ================= -->
+    <section class="manifiesto" data-aparece>
+      <p class="etiqueta">Dulces de toda la vida, para los labios</p>
+      <p class="manifiesto__texto">Mientras todas las marcas se ponen <s>nude</s>, nosotras nos fijamos en el escaparate de la pastelería de la esquina. <em>Violeta, rosquilla y bartolillo.</em> Sabores que ya conoces, ahora para llevarlos puestos.</p>
+    </section>
+
+    <!-- ================= LA CARTA: una franja de color por sabor ================= -->
+    <section class="carta" id="carta">
+      <article class="sabor" style="--fondo: #C9B4E4; --anterior: var(--papel)">
+        <div class="sabor__texto" data-aparece>
+          <p class="etiqueta">Nº 01 · Caramelo de violeta</p>
+          <h2 class="sabor__nombre">Violeta <em>de Domingo</em></h2>
+          <p class="sabor__frase">Dulce, discreta y muy de Madrid.</p>
+          <span class="precio">4,5 g</span>                                     <!-- etiqueta de pastelería -->
+        </div>
+        <figure class="foto sabor__foto" style="--r: 4 / 5; --tono: #B9A2D8" data-foto="merengue-violeta"><img src="../img/proyectos/merengue-violeta.webp" alt="Bálsamo Violeta de Domingo junto a caramelos de violeta"></figure>
+      </article>
+      <article class="sabor sabor--al-reves" style="--fondo: #F1E8D8; --anterior: #C9B4E4">
+        <div class="sabor__texto" data-aparece>
+          <p class="etiqueta">Nº 02 · Rosquilla de Santa Clara</p>
+          <h2 class="sabor__nombre">Santa <em>Clara</em></h2>
+          <p class="sabor__frase">El glaseado más fino de Madrid.</p>
+          <span class="precio">4,5 g</span>
+        </div>
+        <figure class="foto sabor__foto" style="--r: 4 / 5; --tono: #E6D9C2" data-foto="merengue-clara"><img src="../img/proyectos/merengue-clara.webp" alt="Bálsamo Santa Clara junto a rosquillas glaseadas"></figure>
+      </article>
+      <article class="sabor" style="--fondo: #F2C35B; --anterior: #F1E8D8">
+        <div class="sabor__texto" data-aparece>
+          <p class="etiqueta">Nº 03 · Bartolillo de crema</p>
+          <h2 class="sabor__nombre">Barto<em>lillo</em></h2>
+          <p class="sabor__frase">Lo juramos, está cremita.</p>
+          <span class="precio">4,5 g</span>
+        </div>
+        <figure class="foto sabor__foto" style="--r: 4 / 5; --tono: #E7B246" data-foto="merengue-bolsa"><img src="../img/proyectos/merengue-bolsa.webp" alt="Bálsamo Bartolillo amarillo junto a una bolsa de papel lila atada con cordel"></figure>
+      </article>
+    </section>
+
+    <!-- ================= EL TUBO ================= -->
+    <section class="tubo" id="tubo">
+      <div class="feston" style="--arriba: #F2C35B"></div>
+      <figure class="foto tubo__foto" style="--r: 1 / 1; --tono: #E6DCCB" data-foto="merengue-mano">
+        <img src="../img/proyectos/merengue-mano.webp" alt="Mano sosteniendo el bálsamo Violeta de Domingo, con su tapa de merengue">
+      </figure>
+      <div class="tubo__etiqueta" data-aparece>                                <!-- la etiqueta del tubo -->
+        <h2 class="titulo">Lo que pone <em>el tubo</em></h2>
+        <dl class="ficha">
+          <div><dt>Delante</dt><dd>Merengue · Violeta de Domingo · Bálsamo labial · 4,5 g</dd></div>
+          <div><dt>Detrás</dt><dd>Dulces de toda la vida, para los labios.</dd></div>
+          <div><dt>Ingredientes</dt><dd class="ficha__inci">Cera Alba, Butyrospermum Parkii Butter, Ricinus Communis Seed Oil, Simmondsia Chinensis Seed Oil, Theobroma Cacao Seed Butter, Cocos Nucifera Oil, Tocopherol, Aroma*</dd></div>
+          <div><dt>En cristiano</dt><dd>Cera de abejas, karité, ricino, jojoba, cacao, coco y vitamina E. *Aroma natural.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================= MODO DE USO ================= -->
+    <section class="uso" aria-label="Modo de uso">
+      <div class="feston" style="--arriba: var(--papel)"></div>
+      <p class="etiqueta">Modo de uso</p>
+      <p class="uso__frase" data-aparece>Aplicar cuando haga falta.</p>
+      <p class="uso__frase uso__frase--b" data-aparece><em>O cuando no.</em></p>
+    </section>
+
+    <!-- ================= LA MERIENDA (pop-up) ================= -->
+    <section class="merienda" id="merienda">
+      <div class="feston" style="--arriba: var(--tinta)"></div>
+      <div class="merienda__cartel" data-aparece>                             <!-- como el cartel del escaparate -->
+        <p class="etiqueta">Pop-up · 12, 13 y 14 de diciembre</p>
+        <h2 class="merienda__titulo">La Merienda <em>de Merengue</em></h2>
+        <p class="merienda__lugar">Confitería Hermanas Arrieta · Desde 1931 · Lavapiés</p>
+        <p class="merienda__lema">Se vende dulce para los labios. <span>Pasa, pruébalo y no te manches.</span></p>
+      </div>
+    </section>
+
+    <figure class="foto foto--sangre" style="--r: 1584 / 672; --tono: #E8E4DC" data-foto="merengue-bandeja"> <!-- la bandeja de los domingos, a todo el ancho -->
+      <img src="../img/proyectos/merengue-bandeja.webp" alt="Bandeja de pasteles de domingo con los tres bálsamos Merengue entre rosquillas, bartolillos y merengues">
+    </figure>
+  </main>
+
+  <!-- ================= PIE ================= -->
+  <footer class="pie">
+    <div class="feston feston--abajo" style="--arriba: var(--violeta)"></div>
+    <span class="logo pie__logo" role="img" aria-label="Merengue"></span>      <!-- el logo a todo el ancho -->
+    <div class="pie__fila">
+      <p>Los labios también merecen postre.</p>
+      <p>Violeta de Domingo · Santa Clara · Bartolillo</p>
+      <p>Proyecto conceptual de <a href="../">ENTRE</a>. La marca, los productos y la confitería son inventados.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>                                             <!-- huecos de foto y movimiento -->
+</body>
+</html>

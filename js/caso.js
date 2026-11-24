@@ -31,7 +31,6 @@ function conBolita(texto) {
 
 // Textos
 document.getElementById("caso-numero").textContent = String(posicion + 1).padStart(2, "0"); // "01", "02"…
-document.getElementById("caso-ejemplo").hidden = !proyecto.conceptual; // la pastilla "Proyecto conceptual" solo en autoencargos
 document.getElementById("caso-cliente").textContent = proyecto.cliente;      // cliente
 document.getElementById("caso-titulo").innerHTML = conBolita(proyecto.titulo); // nombre con su bolita
 document.getElementById("caso-resumen").textContent = proyecto.resumen;      // resumen
@@ -49,6 +48,19 @@ document.getElementById("caso-desarrollo").innerHTML = proyecto.etapas        //
   ? `<div class="caso__etapas">${proyecto.etapas.map((e) => `<article><strong>${e.fecha}</strong><h3>${e.titulo}</h3><p>${e.texto}</p></article>`).join("")}</div>
      <ul class="caso__aplicaciones">${proyecto.aplicaciones.map((a) => `<li>${a}</li>`).join("")}</ul>` // sí: etapas + dónde se aplicó
   : `<p class="caso__texto">${proyecto.desarrollo}</p>`;                       // no: un párrafo
+
+// La web del proyecto, dentro de un navegador dibujado (solo si el proyecto tiene web)
+if (proyecto.web) {
+  const cajaWeb = document.getElementById("caso-web");               // el hueco
+  cajaWeb.hidden = false;                                            // lo enseña
+  cajaWeb.innerHTML = `
+    <div class="caso__web-barra">                                    <!-- barra del navegador -->
+      <span class="caso__web-puntos" aria-hidden="true"><i></i><i></i><i></i></span> <!-- los tres botones -->
+      <span class="pastilla-interactivo">Interactivo</span>          <!-- avisa de que se puede tocar -->
+      <a class="enlace-flecha" href="${proyecto.web}" target="_blank" rel="noopener">Abrir la web <span aria-hidden="true">↗</span></a> <!-- a pantalla completa -->
+    </div>
+    <iframe src="${proyecto.web}" title="Web de ${proyecto.titulo}" loading="lazy"></iframe>`; // la web de verdad
+}
 
 // Fotos a todo el ancho dentro del relato (solo si el proyecto las tiene)
 [["caso-foto-idea", proyecto.fotoIdea], ["caso-foto-cierre", proyecto.fotoCierre]].forEach(([id, foto]) => {

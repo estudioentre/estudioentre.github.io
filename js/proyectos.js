@@ -8,7 +8,7 @@
 // ---------- 1. La lista de proyectos ----------
 // Cada { ... } es un proyecto. Campos:
 //   id, titulo, cliente, anio, categoria → datos de la ficha (id: sin espacios ni tildes, sale en la URL)
-//   conceptual → true si es un autoencargo: enseña la etiqueta "Conceptual"
+//   conceptual → true si es un autoencargo (sin pastilla: lo dice el campo cliente)
 //   credito    → nota opcional bajo la imagen (por ejemplo, la agencia donde se hizo)
 //   resumen    → la necesidad del cliente, en una frase
 //   servicios  → las etiquetas del proyecto
@@ -79,12 +79,22 @@ const TODOS_LOS_PROYECTOS = [
     conceptual: true,
     credito: "",
     resumen: "Lanzar un producto nuevo y que se hable de él.",
-    servicios: "Packaging · PR · Influencers · Pop-up",
+    servicios: "Web · PR · Influencers · Pop-up",
     partida: "Una marca madrileña de bálsamos labiales que quiere lanzarse en un mercado lleno de marcas que se parecen entre sí: tonos nude, frascos minimalistas y el mismo mensaje.",
     idea: "Dulces de toda la vida, para los labios. Sabores de pastelería castiza (violeta, rosquilla de Santa Clara y bartolillo) y un universo que mezcla cosmética y pastelería de barrio.",
-    desarrollo: "Naming de la gama y packaging inspirado en el papel y los cordeles de las pastelerías. Para el lanzamiento, un plan de prensa e influencers con una caja PR con forma de caja de pasteles, y un pop-up de fin de semana en una pastelería de toda la vida para que la gente los pruebe.",
+    desarrollo: "Naming de la gama y una web que se recorre como el mostrador de una pastelería, con el papel y los cordeles de toda la vida. Para el lanzamiento, un plan de prensa e influencers con una caja PR con forma de caja de pasteles, y un pop-up de fin de semana en una pastelería de toda la vida para que la gente los pruebe.",
     resultado: "Una marca que no se explica con ingredientes, sino con recuerdos: el bolso de la abuela y la bandeja de los domingos.",
-    maqueta: "cartel", fondo: "crema", imagen: null, alt: "", galeria: [], layout: "vertical",
+    maqueta: "cartel", fondo: "crema", layout: "vertical",
+    imagen: "img/proyectos/merengue-portada.webp",        // los tres bálsamos en el mostrador
+    alt: "Los tres bálsamos Merengue, lila, glaseado y amarillo, con tapa de merengue, sobre una blonda en una pastelería",
+    galeria: [                                            // fotos del producto
+      { imagen: "img/proyectos/merengue-violeta.webp", alt: "Bálsamo Violeta de Domingo sobre papel de seda lila con caramelos de violeta" },
+      { imagen: "img/proyectos/merengue-mano.webp", alt: "Mano sosteniendo el bálsamo lila con su tapa de merengue" },
+      { imagen: "img/proyectos/merengue-clara.webp", alt: "Bálsamo Santa Clara, nacarado, junto a dos rosquillas glaseadas" },
+      { imagen: "img/proyectos/merengue-bolsa.webp", alt: "Bálsamo Bartolillo amarillo junto a una bolsa de papel lila atada con cordel" },
+    ],
+    fotoIdea: { imagen: "img/proyectos/merengue-bandeja.webp", alt: "Bandeja de pasteles de domingo con los tres bálsamos entre rosquillas, bartolillos y merengues" }, // a todo el ancho, tras La idea
+    web: "merengue/",                                    // su web, hecha en código: sale navegable en la ficha
   },
   {
     id: "baja-voz",
@@ -217,7 +227,6 @@ function pintarVisual(p) {
 function tarjetaProyecto(p) {
   return `
     <a class="proyecto" href="proyecto.html?p=${p.id}" data-layout="${p.layout}" data-revela data-cursor="Ver proyecto">
-      ${p.conceptual ? '<span class="etiqueta-ejemplo">Conceptual</span>' : ""}     <!-- etiqueta que muerde el borde (solo en autoencargos) -->
       <div class="proyecto__visual">${pintarVisual(p)}</div>                     <!-- foto o cubierta -->
       <div class="proyecto__info">                                                <!-- datos debajo -->
         <span class="proyecto__num">${numeroDe(p)}</span>                         <!-- número -->
