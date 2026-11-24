@@ -33,12 +33,13 @@ const TODOS_LOS_PROYECTOS = [
     conceptual: false,
     credito: "Proyecto desarrollado en ASG Agencia",     // crédito obligatorio de este caso
     resumen: "Una identidad que evoluciona cada año.",
-    servicios: "Identidad · Campaña · Web · Rebranding",
+    servicios: "Estrategia · Identidad · Digital · Rebranding",
     partida: "Un festival que abre cada año, gratis, los edificios y estudios de Madrid. El logo ya existía: el reto era dar a cada edición su propio sistema gráfico sin perder la coherencia de la marca y, en el décimo aniversario, reforzar su personalidad.",
     idea: "Una puerta entreabierta. Una identidad que invita a entrar, igual que el festival invita a descubrir la ciudad desde dentro.",
     etapas: [                                            // el desarrollo, por etapas
       { fecha: "2021–2024", titulo: "Una identidad por edición", texto: "Cada año, un sistema gráfico a partir del lema y el programa, que evoluciona sin romper con el anterior." },
       { fecha: "2025", titulo: "Rebranding del décimo aniversario", texto: "Una retícula flexible y modular que ordena toda la comunicación, animada con código." },
+      { fecha: "2021–2025", titulo: "La marca, en todos los canales", texto: "La estrategia de cada edición, gestión de la web, gestión diaria con visitantes, creación y envío de newsletters, y el cuidado de que la marca se viera igual en cada soporte, del cartel a la pantalla." },
     ],
     aplicaciones: ["Campañas", "Redes", "Newsletters", "Señalética urbana", "Pantallas", "Publicaciones", "Merchandising", "Web", "Manual de marca"], // dónde vive la marca
     resultado: [                                         // cada dato: la cifra grande y su explicación
@@ -65,7 +66,7 @@ const TODOS_LOS_PROYECTOS = [
     fotoCierre: { imagen: "img/proyectos/ohm-presentacion.webp", alt: "Presentación del festival en un auditorio con una gran pantalla" },                  // a todo el ancho, antes del resultado
     autoria: [                                           // quién hizo qué
       { nombre: "Tania de Azevedo", rol: "Dirección de arte, diseño gráfico y diseño de interfaz y web" },
-      { nombre: "Rebeca González", rol: "Estrategia de marca, marketing y comunicación del festival" },
+      { nombre: "Rebeca González", rol: "Brand manager del festival: estrategia de marca, digital y cuidado de la marca en todos los canales" },
     ],
     layout: "grande",
   },
