@@ -1,0 +1,38 @@
+/* =========================================================
+   BAJA VOZ · el logo animado (diseño de ENTRE)
+   Papel, tinta y mucho aire. Todo en minúscula y en voz baja.
+   ========================================================= */
+
+@font-face { font-family: "Instrument Sans"; src: url("../fuentes/instrument-sans-latin.woff2") format("woff2"); font-weight: 400 700; font-display: swap; } /* textos pequeños */
+
+:root { --papel: #F5F3EE; --tinta: #111111; --ria: #6F8F7A; } /* papel, tinta y verde ría */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--papel); color: var(--tinta); font: 400 .85rem/1.5 "Instrument Sans", system-ui, sans-serif; transition: background-color .8s, color .8s; }
+:focus-visible { outline: 1.5px solid var(--ria); outline-offset: 4px; }
+
+/* La escena ocupa toda la pantalla, con el logo en el centro */
+.escena { display: grid; grid-template-rows: 1fr auto auto auto; justify-items: center; min-height: 100vh; padding: clamp(1rem, 3vw, 2rem); }
+
+.logo { align-self: center; width: min(88vw, 60rem); height: auto; overflow: visible; } /* el logo, grande y en el centro */
+.logo path { fill: currentColor; }
+
+.susurro { min-height: 1.5em; margin: 0 0 2.5rem; color: var(--ria); font-size: 1rem; letter-spacing: .02em; transition: opacity .5s; } /* lo que dice según el volumen */
+
+/* El volumen: una línea fina con un punto */
+.volumen { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; opacity: .75; }
+.volumen input { -webkit-appearance: none; appearance: none; width: min(60vw, 18rem); height: 1px; background: currentColor; cursor: pointer; }
+.volumen input::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--ria); border: 0; }
+.volumen input::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--ria); border: 0; }
+
+.pie { margin: 0; font-size: .75rem; opacity: .55; text-align: center; }
+.pie span { white-space: nowrap; }
+
+@media (max-height: 460px) {                                              /* en huecos bajitos: menos aire y sin pie */
+  .susurro { margin-bottom: 1rem; }
+  .volumen { margin-bottom: .5rem; }
+  .pie { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

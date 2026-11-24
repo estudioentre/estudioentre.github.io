@@ -39,7 +39,9 @@ document.getElementById("caso-anio").textContent = proyecto.anio;            // 
 document.getElementById("caso-servicios").textContent = proyecto.servicios;  // qué hicimos
 
 // Imagen principal (foto o cubierta tipográfica) y su pie
-document.getElementById("caso-visual").innerHTML = pintarVisual(proyecto);
+document.getElementById("caso-visual").innerHTML = proyecto.portadaInteractiva // ¿la portada es una pieza interactiva?
+  ? `<span class="pastilla-interactivo caso__pastilla-portada">Interactivo</span><iframe class="caso__portada-viva" src="${proyecto.portadaInteractiva}" title="${proyecto.titulo}, pieza interactiva"></iframe>` // sí: la pieza, en vivo
+  : pintarVisual(proyecto);                                          // no: foto o cubierta
 document.getElementById("caso-pie").textContent = proyecto.credito;  // crédito, si lo hay
 
 // Los textos del caso
@@ -70,11 +72,22 @@ if (proyecto.logo) {
   cajaLogo.innerHTML = `
     <h2 class="caso__rotulo"><span class="caso__num" aria-hidden="true"></span>El logo</h2> <!-- rótulo sin número: es parte del desarrollo -->
     <p class="caso__texto">${l.texto}</p>
-    <div class="caso__logos">                                        <!-- las dos versiones, lado a lado -->
-      <figure><img src="${l.imagen}" alt="Logo de ${proyecto.titulo}"></figure>
-      <figure class="caso__logos-negativo"><img src="${l.negativo}" alt="Logo de ${proyecto.titulo} en negativo"></figure>
-    </div>
-    <ul class="caso__franja">${l.colores.map((c) => `<li style="--m: ${c.hex}"><span>${c.nombre}</span>${c.hex}</li>`).join("")}</ul>`; // los colores de la franja
+    ${l.animacion                                                    // ¿el logo tiene animación?
+      ? `<div class="caso__web caso__web--logo">                       <!-- sí: el logo animado, navegable -->
+           <div class="caso__web-barra"><span class="caso__web-puntos" aria-hidden="true"><i></i><i></i><i></i></span><span class="pastilla-interactivo">Interactivo</span></div>
+           <iframe src="${l.animacion}" title="Logo animado de ${proyecto.titulo}" loading="lazy"></iframe>
+         </div>`
+      : `<div class="caso__logos">                                      <!-- no: las dos versiones, lado a lado -->
+           <figure><img src="${l.imagen}" alt="Logo de ${proyecto.titulo}"></figure>
+           <figure class="caso__logos-negativo" style="background: ${l.fondoNegativo || "#B5262B"}"><img src="${l.negativo}" alt="Logo de ${proyecto.titulo} en negativo"></figure>
+         </div>`}
+    <ul class="caso__franja">${l.colores.map((c) => `<li style="--m: ${c.hex}; --mt: ${textoSobre(c.hex)}"><span>${c.nombre}</span>${c.hex}</li>`).join("")}</ul>`; // los colores, de borde a borde
+}
+
+// Texto negro o crema según lo claro que sea el color de fondo
+function textoSobre(hex) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16)); // rojo, verde y azul
+  return (r * 299 + g * 587 + b * 114) / 1000 > 150 ? "#111111" : "#F4F0E8"; // brillo percibido
 }
 
 // Fotos a todo el ancho dentro del relato (solo si el proyecto las tiene)

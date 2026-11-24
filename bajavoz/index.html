@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">                                                     <!-- acentos y eñes bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">       <!-- se adapta al móvil -->
+  <meta name="robots" content="noindex">                                     <!-- es una pieza del caso: que Google no la muestre suelta -->
+  <title>baja voz · el logo</title>                                          <!-- título de la pestaña -->
+  <meta name="description" content="El logo animado de baja voz, un festival acústico en Bilbao.">
+  <link rel="stylesheet" href="estilos.css">                                 <!-- todo el diseño -->
+</head>
+<body>
+  <main class="escena">
+    <!-- El logo: cada letra es un trazo aparte para poder moverla -->
+    <svg class="logo" id="logo" role="img" aria-label="baja voz"></svg>
+    <p class="susurro" id="susurro" aria-live="polite">&nbsp;</p>             <!-- frases según el volumen -->
+
+    <!-- El volumen: más alto, las letras iguales; más bajo, cada una más pequeña -->
+    <label class="volumen">
+      <span>shhh</span>
+      <input type="range" id="volumen" min="0" max="100" value="0" aria-label="volumen">
+      <span>más alto</span>
+    </label>
+
+    <p class="pie">lo bueno se dice bajito · 18, 19 y 20 sept · bilbao · <span>diseño: entre</span></p>
+  </main>
+
+  <script src="letras.js"></script>                                          <!-- el dibujo de las letras -->
+  <script src="app.js"></script>                                             <!-- la animación -->
+</body>
+</html>

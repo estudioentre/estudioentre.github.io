@@ -8,7 +8,7 @@
 // ---------- 1. La lista de proyectos ----------
 // Cada { ... } es un proyecto. Campos:
 //   id, titulo, cliente, anio, categoria → datos de la ficha (id: sin espacios ni tildes, sale en la URL)
-//   conceptual → true si es un autoencargo (sin pastilla: lo dice el campo cliente)
+//   conceptual → true si es un autoencargo (no se muestra en la web)
 //   credito    → nota opcional bajo la imagen (por ejemplo, la agencia donde se hizo)
 //   resumen    → la necesidad del cliente, en una frase
 //   servicios  → las etiquetas del proyecto
@@ -73,7 +73,7 @@ const TODOS_LOS_PROYECTOS = [
   {
     id: "merengue",
     titulo: "Merengue",
-    cliente: "Proyecto conceptual",
+    cliente: "Merengue",
     anio: "2026",
     categoria: "Diseño gráfico y lanzamiento",
     conceptual: true,
@@ -99,7 +99,7 @@ const TODOS_LOS_PROYECTOS = [
   {
     id: "baja-voz",
     titulo: "Baja Voz",
-    cliente: "Proyecto conceptual",
+    cliente: "Baja Voz",
     anio: "2026",
     categoria: "Diseño y dirección de arte",
     conceptual: true,
@@ -110,12 +110,32 @@ const TODOS_LOS_PROYECTOS = [
     idea: "Un festival para escuchar, no para gritar. Si todos los festivales compiten por hacer más ruido, Baja Voz se diferencia bajando el volumen: textos en minúscula, mensajes que se leen casi en susurro y mucho espacio en blanco.",
     desarrollo: "La marca se vive en el evento: un sistema tipográfico donde la letra baja como baja el volumen, entradas, señalética para encontrar cada patio por el barrio, un mapa para el móvil y piezas animadas para anunciar cada concierto.",
     resultado: "Una campaña que destaca justo por no levantar la voz, y un sistema que funciona igual en una pantalla que en un portal.",
-    maqueta: "indice", fondo: "negro", imagen: null, alt: "", galeria: [], layout: "panoramico",
+    maqueta: "indice", fondo: "negro", layout: "panoramico",
+    portadaInteractiva: "bajavoz/",                       // en la ficha, la portada es el logo animado
+    imagen: "img/proyectos/bajavoz-portada.webp",         // en la tarjeta de la portada de ENTRE, el cartel
+    alt: "Cartel casi vacío de baja voz en un muro de piedra del Casco Viejo de Bilbao, con la frase «shhh. ya está aquí.»",
+    logo: {                                               // apartado del logo: cómo se hizo
+      imagen: "img/logos/bajavoz-logo.svg",
+      negativo: "img/logos/bajavoz-logo-blanco.svg", fondoNegativo: "#111111", // las dos versiones, estáticas
+      texto: "Un logotipo que hace lo que dice: cada letra es un poco más pequeña que la anterior, como una voz que se va apagando. Una cursiva serif fina, de las que se leen de cerca, siempre en minúscula y con mucho aire alrededor. Arriba, en la portada, puedes subirle el volumen y ver qué pasa.",
+      colores: [                                          // la paleta: papel, tinta y un solo acento
+        { nombre: "Papel", hex: "#F5F3EE" },
+        { nombre: "Tinta", hex: "#111111" },
+        { nombre: "Verde ría", hex: "#6F8F7A" },
+      ],
+    },
+    fotoIdea: { imagen: "img/proyectos/bajavoz-patio.webp", alt: "Concierto acústico en un patio interior de Bilbao, con el público sentado en silencio alrededor de un dúo de voz y guitarra" }, // a todo el ancho, tras La idea
+    galeria: [                                            // las piezas
+      { imagen: "img/proyectos/bajavoz-portada.webp", alt: "Cartel casi vacío de baja voz en un muro de piedra del Casco Viejo de Bilbao, con la frase «shhh. ya está aquí.»" },
+      { imagen: "img/proyectos/bajavoz-entradas.webp", alt: "Dos entradas de baja voz sobre una mesa de madera, junto a un móvil y un vaso de txakoli" },
+      { imagen: "img/proyectos/bajavoz-senal.webp", alt: "Señal de baja voz en el portal de un edificio antiguo: «el concierto es aquí. baja la voz.»" },
+    ],
+    fotoCierre: { imagen: "img/proyectos/bajavoz-cierre.webp", alt: "El patio vacío después del concierto, con las sillas plegables, la alfombra y las luces todavía encendidas" }, // a todo el ancho, antes del resultado
   },
   {
     id: "pinturas-tirso",
     titulo: "Pinturas Tirso",
-    cliente: "Proyecto conceptual",
+    cliente: "Pinturas Tirso",
     anio: "2026",
     categoria: "Campañas y comunicación",
     conceptual: true,
@@ -151,7 +171,7 @@ const TODOS_LOS_PROYECTOS = [
   {
     id: "donde-paco",
     titulo: "Donde Paco",
-    cliente: "Proyecto conceptual",
+    cliente: "Donde Paco",
     anio: "2026",
     categoria: "Estrategia y rebranding",
     conceptual: true,
@@ -167,7 +187,7 @@ const TODOS_LOS_PROYECTOS = [
   {
     id: "embrague",
     titulo: "Embrague",
-    cliente: "Proyecto conceptual",
+    cliente: "Embrague",
     anio: "2026",
     categoria: "Diseño y desarrollo web",
     conceptual: true,
@@ -200,7 +220,7 @@ function cabezaCubierta(p) {                                                   /
   return `<div class="cubierta__fila"><span>ENTRE / Nº ${numeroDe(p)}</span><span>${p.categoria}</span><span>${p.anio}</span></div>`;
 }
 function pieCubierta(p) {                                                      // fila de abajo: datos técnicos
-  return `<div class="cubierta__fila"><span>${p.conceptual ? "Proyecto conceptual" : `Cliente — ${p.titulo}`}</span><span>${p.servicios}</span><span>Ver caso →</span></div>`;
+  return `<div class="cubierta__fila"><span>Cliente — ${p.titulo}</span><span>${p.servicios}</span><span>Ver caso →</span></div>`;
 }
 
 const MAQUETAS = {

@@ -687,13 +687,21 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso__logos { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.6rem); margin-top: clamp(1.5rem, 3vw, 2.5rem); } /* las dos versiones del logo */
 .caso__logos figure { display: grid; place-items: center; margin: 0; aspect-ratio: 4 / 3; padding: 14%; background: #FFFFFF; } /* sobre blanco, para que se distinga del fondo crema */
 .caso__logos img { width: 100%; height: auto; }
-.caso__logos-negativo { background: #B5262B !important; }                   /* y en negativo, sobre el rojo */
-.caso__franja { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.8rem, 2vw, 1.6rem); margin: 0; padding: 0; list-style: none; font-size: .78rem; letter-spacing: .04em; } /* los colores de la franja */
-.caso__franja li { padding-top: 4.5rem; border-top: 0; background: linear-gradient(var(--m), var(--m)) top / 100% 3.6rem no-repeat; } /* una muestra de color y su nombre */
-.caso__franja span { display: block; font-weight: 600; font-size: .9rem; letter-spacing: -.01em; }
+.caso__portada-viva { display: block; width: 100%; height: 100%; border: 0; }  /* portada que es una pieza interactiva */
+.caso__pastilla-portada { position: absolute; top: 1rem; left: 1rem; z-index: 2; } /* su píldora, en la esquina */
+@media (max-width: 700px) { .caso__marco:has(.caso__portada-viva) { aspect-ratio: 4 / 5; } } /* en móvil, más alta para que quepa el volumen */
+.caso__marca .caso__web--logo { grid-column: 1 / -1; margin-block: clamp(1.5rem, 3vw, 2.5rem) 0; } /* el logo animado, a lo ancho */
+.caso__web--logo iframe { height: min(70vh, 40rem); }
+.caso__franja {                                                            /* los colores de la marca: una franja a todo el ancho */
+  grid-column: 1 / -1; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  margin: clamp(1.5rem, 3vw, 2.5rem) calc(var(--margen) * -1) 0; padding: 0; list-style: none; /* sale de los márgenes, de borde a borde */
+  font-size: .78rem; letter-spacing: .04em;
+}
+.caso__franja li { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .85rem var(--margen); background: var(--m); color: var(--mt); } /* cada color, una franja fina con su nombre y su código en una línea */
+.caso__franja span { font-weight: 600; font-size: .9rem; letter-spacing: -.01em; }
 @media (max-width: 700px) {
   .caso__logos { grid-template-columns: 1fr; }                               /* en móvil, un logo debajo del otro */
-  .caso__franja { grid-template-columns: 1fr 1fr; row-gap: 1.4rem; }          /* y los colores, de dos en dos */
+  .caso__franja { grid-auto-flow: row; grid-template-columns: 1fr; }        /* y los colores, uno debajo de otro */
 }
 .caso__idea {                                /* La idea: bloque de color a todo el ancho */
   margin-inline: calc(var(--margen) * -1);
