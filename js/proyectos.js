@@ -79,7 +79,19 @@ const TODOS_LOS_PROYECTOS = [
     conceptual: true,
     credito: "",
     resumen: "Lanzar un producto nuevo y que se hable de él.",
-    servicios: "Web · PR · Influencers · Pop-up",
+    servicios: "Branding · Web · PR · Pop-up",
+    logo: {                                               // apartado del logo: cómo se hizo
+      imagen: "img/logos/merengue-logo.svg",
+      negativo: "img/logos/merengue-logo-crema.svg", fondoNegativo: "#7F55B0", // crema sobre violeta
+      texto: "Una palabra que ya sabe a pastelería. El logotipo es una cursiva gorda y blandita, de curvas redondas como las de una manga pastelera, que se lee igual en un tubo de cuatro centímetros que en un escaparate. Va en violeta sobre papel de envolver, y cada sabor tiene su color: lila, glaseado y crema.",
+      colores: [                                          // la paleta de la marca
+        { nombre: "Violeta", hex: "#6B4796" },
+        { nombre: "Lila", hex: "#B79AD6" },
+        { nombre: "Glaseado", hex: "#F1E8D8" },
+        { nombre: "Crema", hex: "#F2C35B" },
+        { nombre: "Chocolate", hex: "#2E1C13" },
+      ],
+    },
     partida: "Una marca madrileña de bálsamos labiales que quiere lanzarse en un mercado lleno de marcas que se parecen entre sí: tonos nude, frascos minimalistas y el mismo mensaje.",
     idea: "Dulces de toda la vida, para los labios. Sabores de pastelería castiza (violeta, rosquilla de Santa Clara y bartolillo) y un universo que mezcla cosmética y pastelería de barrio.",
     desarrollo: "Naming de la gama y una web que se recorre como el mostrador de una pastelería, con el papel y los cordeles de toda la vida. Para el lanzamiento, un plan de prensa e influencers con una caja PR con forma de caja de pasteles, y un pop-up de fin de semana en una pastelería de toda la vida para que la gente los pruebe.",
