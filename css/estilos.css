@@ -682,6 +682,19 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   grid-column: 5 / 12; max-width: 40em;
   font-size: clamp(1.15rem, 1.65vw, 1.55rem); line-height: 1.35; letter-spacing: -.015em;
 }
+.caso__marca[hidden] { display: none; }
+.caso__marca .caso__num { width: 1.1rem; }                                  /* sin número: solo la bolita */
+.caso__logos { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.6rem); margin-top: clamp(1.5rem, 3vw, 2.5rem); } /* las dos versiones del logo */
+.caso__logos figure { display: grid; place-items: center; margin: 0; aspect-ratio: 4 / 3; padding: 14%; background: #FFFFFF; } /* sobre blanco, para que se distinga del fondo crema */
+.caso__logos img { width: 100%; height: auto; }
+.caso__logos-negativo { background: #B5262B !important; }                   /* y en negativo, sobre el rojo */
+.caso__franja { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.8rem, 2vw, 1.6rem); margin: 0; padding: 0; list-style: none; font-size: .78rem; letter-spacing: .04em; } /* los colores de la franja */
+.caso__franja li { padding-top: 4.5rem; border-top: 0; background: linear-gradient(var(--m), var(--m)) top / 100% 3.6rem no-repeat; } /* una muestra de color y su nombre */
+.caso__franja span { display: block; font-weight: 600; font-size: .9rem; letter-spacing: -.01em; }
+@media (max-width: 700px) {
+  .caso__logos { grid-template-columns: 1fr; }                               /* en móvil, un logo debajo del otro */
+  .caso__franja { grid-template-columns: 1fr 1fr; row-gap: 1.4rem; }          /* y los colores, de dos en dos */
+}
 .caso__idea {                                /* La idea: bloque de color a todo el ancho */
   margin-inline: calc(var(--margen) * -1);
   padding: clamp(3rem, 7vw, 6.5rem) var(--margen);

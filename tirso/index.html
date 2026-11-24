@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">                                                     <!-- acentos y eñes bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">       <!-- se adapta al móvil -->
+  <meta name="robots" content="noindex">                                     <!-- tienda inventada: que Google no la muestre como real -->
+  <title>Pinturas Tirso · Carta de colores</title>                           <!-- título de la pestaña -->
+  <meta name="description" content="Proyecto conceptual de ENTRE: la carta de colores de Pinturas Tirso, diez colores con nombre propio. Madrid no es beige.">
+  <link rel="stylesheet" href="estilos.css">                                 <!-- todo el diseño -->
+</head>
+<body>
+  <!-- La página entera toma el color elegido -->
+  <main class="carta" id="carta">
+
+    <!-- ================= CABECERA ================= -->
+    <header class="cabecera">
+      <span class="cabecera__logo" role="img" aria-label="Pinturas Tirso, desde 1958"></span> <!-- logo en negativo: toma el color del texto -->
+      <p class="cabecera__titulo">Carta de colores<br><span>10 colores con nombre propio</span></p>
+    </header>
+
+    <!-- ================= EL COLOR ELEGIDO ================= -->
+    <section class="muestra" aria-live="polite">                             <!-- lo que cambia al elegir -->
+      <p class="muestra__num" id="num">Nº 01</p>                              <!-- número en la carta -->
+      <h1 class="muestra__nombre" id="nombre">Amarillo Butano</h1>            <!-- nombre enorme, como un rótulo -->
+      <p class="muestra__frase" id="frase">El de la bombona que subía por la escalera.</p> <!-- su historia -->
+      <dl class="muestra__datos">                                             <!-- lo que pone el bote -->
+        <div><dt>Color</dt><dd id="hex">#F2A900</dd></div>
+        <div><dt>Acabado</dt><dd>Plástica mate · 750 ml</dd></div>
+        <div><dt>Hecho</dt><dd>Mezclada a mano en Madrid</dd></div>
+      </dl>
+    </section>
+
+    <!-- ================= LAS TIRAS DE COLOR ================= -->
+    <nav class="tiras" id="tiras" role="tablist" aria-label="Colores de la carta"></nav> <!-- las pinta app.js -->
+
+    <!-- ================= PIE ================= -->
+    <footer class="pie">
+      <p class="pie__lema">Madrid no es beige.</p>
+      <p class="pie__nota">Proyecto conceptual de <a href="../proyecto.html?p=pinturas-tirso" target="_top">ENTRE</a>. La tienda y sus colores son inventados.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>                                             <!-- la carta y su interacción -->
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* =========================================================
+   PINTURAS TIRSO · carta de colores (conceptual de ENTRE)
+   Rótulo de ultramarinos + carta de droguería: letra condensada
+   enorme, tiras de color como muestras de pintura.
+   ========================================================= */
+
+/* ---------- 1. Tipografías (las de ENTRE, que son las del logo) ---------- */
+@font-face { font-family: "Anton"; src: url("../fuentes/anton-latin.woff2") format("woff2"); font-display: swap; }                                        /* rótulo condensado */
+@font-face { font-family: "Instrument Sans"; src: url("../fuentes/instrument-sans-latin.woff2") format("woff2"); font-weight: 400 700; font-display: swap; } /* textos */
+
+/* ---------- 2. Variables (app.js cambia --fondo y --texto) ---------- */
+:root {
+  --fondo: #F2A900;       /* el color elegido */
+  --texto: #111111;       /* negro o blanco, según lo claro que sea el color */
+  --azulejo: #F2F0EA;     /* el blanco de la casa */
+  --margen: clamp(1rem, 3vw, 2.6rem);
+}
+
+/* ---------- 3. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--fondo); color: var(--texto); font: 500 1rem/1.5 "Instrument Sans", system-ui, sans-serif; transition: background-color .6s cubic-bezier(.3, .7, .2, 1), color .4s; overflow-x: hidden; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--texto); outline-offset: 3px; }
+
+/* La carta ocupa la pantalla justa: cabecera, color, tiras y pie */
+.carta { display: grid; grid-template-rows: auto 1fr auto auto; min-height: 100vh; }
+
+/* ---------- 4. Cabecera ---------- */
+.cabecera { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: var(--margen); padding-bottom: 0; }
+.cabecera__logo {                                                          /* logo en negativo: una sola tinta, la del texto (negro o blanco según el color) */
+  display: block; width: clamp(6rem, 10vw, 8.5rem); aspect-ratio: 534.2 / 360; background: currentColor;
+  -webkit-mask: url("../img/logos/tirso-logo.svg") center / contain no-repeat; mask: url("../img/logos/tirso-logo.svg") center / contain no-repeat;
+}
+.cabecera__titulo { margin: 0; text-align: right; font: 400 clamp(1.05rem, 1.7vw, 1.4rem)/1.15 "Anton", sans-serif; text-transform: uppercase; letter-spacing: .02em; }
+.cabecera__titulo span { font: 600 .75rem/1.6 "Instrument Sans", sans-serif; letter-spacing: .14em; opacity: .75; }
+
+/* ---------- 5. El color elegido ---------- */
+.muestra { align-self: center; padding: clamp(1.5rem, 4vw, 3rem) var(--margen); }
+.muestra__num { margin: 0 0 .6rem; font: 700 .8rem/1 "Instrument Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+.muestra__nombre { margin: 0; font: 400 clamp(2.8rem, 8vw, 8rem)/1.02 "Anton", sans-serif; text-transform: uppercase; letter-spacing: .01em; } /* el nombre, como un rótulo de tienda */
+.tachado { text-decoration: line-through; text-decoration-color: #B5262B; text-decoration-thickness: .09em; } /* BEIGE, tachado */
+.muestra__frase { max-width: 26em; margin: 1.2rem 0 1.8rem; font-size: clamp(1.05rem, 1.6vw, 1.4rem); font-weight: 500; line-height: 1.4; }
+.muestra__datos { display: flex; flex-wrap: wrap; gap: 1rem 2.4rem; margin: 0; padding-top: 1rem; border-top: 2px solid currentColor; max-width: 46rem; }
+.muestra__datos dt { font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.muestra__datos dd { margin: .2rem 0 0; font-weight: 600; }
+.cambia { animation: entra .55s cubic-bezier(.2, .8, .2, 1) both; }       /* el texto entra al cambiar de color */
+@keyframes entra { from { opacity: 0; transform: translateY(.35em); } }
+
+/* ---------- 6. Las tiras de color ---------- */
+.tiras { display: grid; grid-template-columns: repeat(11, 1fr); align-items: end; gap: 4px; height: clamp(11rem, 28vh, 15rem); padding: 0 var(--margen); }
+.tira {                                                                   /* una muestra de pintura */
+  position: relative; height: 80%; padding: .6rem .5rem; border: 0; border-radius: .3rem .3rem 0 0;
+  background: var(--c); color: var(--t); cursor: pointer; text-align: left; overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
+  transition: height .45s cubic-bezier(.3, 1.4, .5, 1);                    /* sube con un pequeño rebote */
+}
+.tira:hover { height: 90%; }
+.tira[aria-selected="true"] { height: 100%; box-shadow: inset 0 0 0 2px var(--texto); } /* la elegida, más alta y recuadrada */
+.tira__num { display: block; font: 700 .68rem/1 "Instrument Sans", sans-serif; letter-spacing: .1em; }
+.tira__nombre { position: absolute; left: .55rem; bottom: .6rem; writing-mode: vertical-rl; transform: rotate(180deg); font: 400 clamp(.78rem, 1.05vw, 1rem)/1 "Anton", sans-serif; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; } /* nombre de lado, como en la carta */
+
+/* La tira del beige: está, pero tachada */
+.tira--beige { --c: #D9CBB0; --t: #6B5E49; }
+.tira--beige .tira__nombre { text-decoration: line-through; text-decoration-thickness: 2px; }
+.tira--beige::after { content: "No"; position: absolute; top: .5rem; right: .4rem; padding: .15rem .35rem; background: #B5262B; color: #fff; font: 700 .62rem/1 "Instrument Sans", sans-serif; letter-spacing: .08em; text-transform: uppercase; rotate: 8deg; } /* sello rojo */
+
+/* ---------- 7. Pie ---------- */
+.pie { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem var(--margen); background: #111; color: var(--azulejo); }
+.pie p { margin: 0; }
+.pie__lema { font: 400 clamp(1.05rem, 1.7vw, 1.4rem)/1.15 "Anton", sans-serif; letter-spacing: .02em; text-transform: uppercase; }
+.pie__nota { font-size: .78rem; opacity: .75; text-align: right; }
+
+/* ---------- 8. Móvil ---------- */
+@media (max-width: 700px) {
+  .tiras { grid-template-columns: repeat(11, minmax(2.6rem, 1fr)); overflow-x: auto; height: 9rem; padding-bottom: 0; scrollbar-width: none; } /* las tiras se deslizan de lado */
+  .cabecera__titulo span { display: none; }                               /* en móvil, solo «Carta de colores» */
+  .pie { flex-direction: column; align-items: flex-start; }
+  .pie__nota { text-align: left; }
+}
+
+/* ---------- 9. Menos movimiento si la persona lo pide ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

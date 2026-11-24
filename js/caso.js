@@ -57,9 +57,24 @@ if (proyecto.web) {
     <div class="caso__web-barra">                                    <!-- barra del navegador -->
       <span class="caso__web-puntos" aria-hidden="true"><i></i><i></i><i></i></span> <!-- los tres botones -->
       <span class="pastilla-interactivo">Interactivo</span>          <!-- avisa de que se puede tocar -->
-      <a class="enlace-flecha" href="${proyecto.web}" target="_blank" rel="noopener">Abrir la web <span aria-hidden="true">↗</span></a> <!-- a pantalla completa -->
+      ${proyecto.webEnlace === false ? "" : `<a class="enlace-flecha" href="${proyecto.web}" target="_blank" rel="noopener">Abrir la web <span aria-hidden="true">↗</span></a>`} <!-- a pantalla completa (si se quiere) -->
     </div>
-    <iframe src="${proyecto.web}" title="Web de ${proyecto.titulo}" loading="lazy"></iframe>`; // la web de verdad
+    <iframe src="${proyecto.web}" title="Pieza interactiva de ${proyecto.titulo}" loading="lazy"></iframe>`; // la pieza de verdad
+}
+
+// El logo: cómo se hizo, con sus dos versiones y sus colores (solo si el proyecto lo tiene)
+if (proyecto.logo) {
+  const l = proyecto.logo;                                           // atajo
+  const cajaLogo = document.getElementById("caso-marca");            // el hueco
+  cajaLogo.hidden = false;                                           // lo enseña
+  cajaLogo.innerHTML = `
+    <h2 class="caso__rotulo"><span class="caso__num" aria-hidden="true"></span>El logo</h2> <!-- rótulo sin número: es parte del desarrollo -->
+    <p class="caso__texto">${l.texto}</p>
+    <div class="caso__logos">                                        <!-- las dos versiones, lado a lado -->
+      <figure><img src="${l.imagen}" alt="Logo de ${proyecto.titulo}"></figure>
+      <figure class="caso__logos-negativo"><img src="${l.negativo}" alt="Logo de ${proyecto.titulo} en negativo"></figure>
+    </div>
+    <ul class="caso__franja">${l.colores.map((c) => `<li style="--m: ${c.hex}"><span>${c.nombre}</span>${c.hex}</li>`).join("")}</ul>`; // los colores de la franja
 }
 
 // Fotos a todo el ancho dentro del relato (solo si el proyecto las tiene)

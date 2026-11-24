@@ -126,7 +126,27 @@ const TODOS_LOS_PROYECTOS = [
     idea: "Madrid no es beige. Si la ciudad tiene color, sus paredes también deberían tenerlo. Tirso deja de competir en precio y se convierte en la tienda que defiende el color.",
     desarrollo: "Una carta de colores con nombres castizos sacados de la calle: Amarillo Butano, Verde Quiosco, Rojo Ultramarinos, Azul Mono de Obra. Con ella, botes, escaparate, carteles tipográficos por el barrio y reels donde se ve cómo se mezcla cada color.",
     resultado: "Una tienda de barrio con un discurso propio, que vende algo que una gran superficie no puede copiar: criterio y carisma.",
-    maqueta: "revista", fondo: "crema", imagen: null, alt: "", galeria: [], layout: "ancho",
+    maqueta: "revista", fondo: "crema", layout: "ancho",
+    imagen: "img/proyectos/tirso-calle.webp",             // la calle: el color que ya tiene Madrid
+    alt: "Plaza de Madrid llena de color: frutería con toldo rojo, quiosco verde, bombona de butano, fachadas roja y amarilla y un hombre con mono azul",
+    logo: {                                               // apartado del logo: cómo se hizo
+      imagen: "img/logos/tirso-logo.svg",
+      negativo: "img/logos/tirso-logo-negativo.svg",
+      texto: "Tirso ya tenía un nombre que el barrio conocía, así que no había que inventar otro. El logotipo recupera la letra gorda y estrecha de los rótulos de ultramarinos y droguerías de toda la vida, la que se leía desde la otra acera. Debajo, una franja con los cuatro primeros colores de la carta y el «Pinturas · desde 1958» de siempre. Una marca nueva que parece que siempre estuvo ahí.",
+      colores: [                                          // los colores de la franja
+        { nombre: "Amarillo Butano", hex: "#F2A900" },
+        { nombre: "Verde Quiosco", hex: "#2E6B4F" },
+        { nombre: "Rojo Ultramarinos", hex: "#B5262B" },
+        { nombre: "Azul Mono de Obra", hex: "#2A4D8F" },
+      ],
+    },
+    galeria: [                                            // fotos de la campaña
+      { imagen: "img/proyectos/tirso-botes.webp", alt: "Cinco botes de Pinturas Tirso en amarillo, verde, rojo, azul y rosa sobre una estantería de madera" },
+      { imagen: "img/proyectos/tirso-mezcla.webp", alt: "Tintes amarillo y naranja cayendo en un bote de pintura blanca y mezclándose en espiral" },
+      { imagen: "img/proyectos/tirso-abanico.webp", alt: "Manos de un dependiente con bata azul abriendo la carta de los diez colores" },
+    ],
+    web: "tirso/", webEnlace: false,                      // la carta de colores, navegable en la ficha (sin enlace para abrirla aparte)
+    fotoCierre: { imagen: "img/proyectos/tirso-pared.webp", alt: "Salón con una pared recién pintada de Amarillo Butano, un rodillo y un bote de Tirso en el suelo" }, // a todo el ancho, antes del resultado
   },
   {
     id: "donde-paco",
