@@ -724,6 +724,10 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso__ancha[hidden] { display: none; }
 .caso__web { margin-block: clamp(3rem, 7vw, 6rem); border: 1.5px solid var(--negro); border-radius: 1rem; overflow: hidden; background: #fff; } /* la web del proyecto en un navegador */
 .caso__web[hidden] { display: none; }
+.caso__web.caso__redes { margin-top: calc(clamp(3rem, 7vw, 6rem) * -1 + 1.5rem); }                                            /* las redes, justo debajo de la web */
+.caso__web.caso__redes iframe { height: min(46rem, 92vh); background: #F6EFE4; }      /* alto para que quepan el carrusel y el reel */
+.caso__redes-titulo { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; } /* «Redes» */
+@media (max-width: 720px) { .caso__web.caso__redes iframe { height: 82rem; } }         /* en móvil van una debajo de otra */
 .caso__web-barra { display: flex; align-items: center; gap: 1rem; padding: .7rem 1rem; border-bottom: 1.5px solid var(--negro); background: var(--crema); } /* barra superior */
 .caso__web-puntos { display: flex; gap: .35rem; margin-right: auto; }    /* los tres botones, a la izquierda */
 .caso__web-puntos i { width: .7rem; aspect-ratio: 1; border-radius: 50%; background: var(--coral); } /* bolitas, en los colores de ENTRE */

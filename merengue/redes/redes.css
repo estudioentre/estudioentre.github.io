@@ -1,0 +1,115 @@
+/* =========================================================
+   MERENGUE · ejemplos de redes (diseño de ENTRE)
+   Un post de Instagram y un reel, con la voz de la marca:
+   titulares gordos y blanditos, colores de pastelería.
+   ========================================================= */
+
+/* ---------- 1. Tipografías (las de la web de Merengue) ---------- */
+@font-face { font-family: "Fraunces"; src: url("../fuentes/fraunces.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }                         /* titulares */
+@font-face { font-family: "Fraunces"; src: url("../fuentes/fraunces-italica.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; } /* su cursiva */
+@font-face { font-family: "Instrument Sans"; src: url("../../fuentes/instrument-sans-latin.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }   /* textos */
+
+/* ---------- 2. Colores ---------- */
+:root {
+  --papel: #F6EFE4;      /* fondo */
+  --tinta: #2E1C13;      /* chocolate */
+  --violeta: #6B4796;    /* el de la marca */
+  --lila: #C9B4E4;       /* Violeta de Domingo */
+  --glaseado: #F1E8D8;   /* Santa Clara */
+  --crema: #F2C35B;      /* Bartolillo */
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Instrument Sans", system-ui, sans-serif;
+  --gorda: "opsz" 144, "SOFT" 100, "WONK" 1;   /* la voz del logo */
+}
+
+/* ---------- 3. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--papel); color: var(--tinta); font: 400 .9rem/1.45 var(--sans); -webkit-font-smoothing: antialiased; }
+p { margin: 0; }
+em { font-style: italic; }
+
+/* El logo como máscara: toma el color del texto */
+.logo { display: block; aspect-ratio: 928.9 / 250; background: currentColor; -webkit-mask: url("../../img/logos/merengue-logo.svg") center / contain no-repeat; mask: url("../../img/logos/merengue-logo.svg") center / contain no-repeat; }
+
+/* ---------- 4. Las dos piezas, lado a lado ---------- */
+.redes { display: flex; justify-content: center; align-items: flex-start; gap: clamp(2rem, 6vw, 5rem); padding: clamp(1.5rem, 4vw, 3rem) 1rem; }
+.pieza { display: grid; gap: .8rem; justify-items: center; }
+.pieza__rotulo { font: 600 .72rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; opacity: .6; } /* «Carrusel», «Reel» */
+.pieza__nota { font-size: .75rem; opacity: .55; }
+
+/* ---------- 5. La publicación ---------- */
+.post { position: relative; width: min(340px, 86vw); background: #fff; border-radius: 14px; box-shadow: 0 24px 50px -28px rgba(46, 28, 19, .45); overflow: hidden; }
+.post__cabeza { display: flex; align-items: center; gap: .6rem; padding: .7rem .8rem; }
+.avatar { display: grid; place-items: center; width: 2rem; aspect-ratio: 1; border-radius: 50%; background: var(--violeta); color: var(--glaseado); flex: none; } /* foto de perfil: logo crema sobre violeta */
+.avatar .logo { width: 80%; }
+.post__cuenta { display: grid; line-height: 1.15; }
+.post__cuenta small { font-size: .7rem; opacity: .6; }
+.post__puntos { margin-left: auto; font-weight: 700; letter-spacing: .1em; }
+
+/* La foto del post, con su pegatina */
+.post__foto { position: relative; display: flex; align-items: flex-end; aspect-ratio: 4 / 5; padding: 1rem; overflow: hidden; }
+.post__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.post__foto .pegatina { align-self: flex-end; }                              /* la pegatina, abajo */
+.pegatina { position: relative; align-self: flex-start; max-width: 85%; padding: .7rem .9rem; background: var(--papel); border-radius: .5rem; font: 700 .72rem/1.35 var(--sans); rotate: -2deg; box-shadow: 0 10px 20px -12px rgba(46, 28, 19, .5); }
+.pegatina em { font: italic 500 .95rem/1.25 var(--serif); }
+
+/* Pie de la publicación */
+.post__pie { display: grid; gap: .35rem; padding: .7rem .9rem 1rem; }
+.post__acciones { display: flex; align-items: center; gap: .9rem; font-size: 1.15rem; }
+.guardar { margin-left: auto; }                 /* guardar, a la derecha */
+.post__likes, .post__texto { font-size: .8rem; }
+
+/* ---------- 6. El reel ---------- */
+.movil { position: relative; width: min(250px, 70vw); aspect-ratio: 9 / 19.5; border: 7px solid var(--tinta); border-radius: 28px; overflow: hidden; background: var(--papel); cursor: pointer; box-shadow: 0 24px 50px -28px rgba(46, 28, 19, .55); }
+.reel__barra { position: absolute; top: .7rem; left: .8rem; right: .8rem; z-index: 3; height: 3px; border-radius: 3px; background: rgba(255, 255, 255, .45); overflow: hidden; }
+.reel__barra i { display: block; height: 100%; width: 0; background: #fff; }   /* avanza con el vídeo (redes.js) */
+
+/* Cada escena ocupa la pantalla; solo se ve la activa */
+.escena { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: .6rem; padding: 1.6rem; opacity: 0; transition: opacity .35s; }
+.escena.activa { opacity: 1; }
+.escena--papel { background: var(--papel); }
+.escena--violeta { background: var(--violeta); color: var(--glaseado); }
+.escena--lila { background: var(--lila); }
+.escena--glaseado { background: var(--glaseado); }
+.escena--crema { background: var(--crema); }
+.escena--final { background: var(--violeta); color: var(--glaseado); align-items: center; text-align: center; }
+.escena__pequeno { font: 600 .8rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+.escena__lista { display: grid; font: 800 2.6rem/.95 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.04em; }
+.escena__lista s { text-decoration-color: var(--violeta); text-decoration-thickness: .08em; opacity: .85; }
+.escena__grande { font: 800 2.7rem/.9 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.045em; }
+.escena__logo { width: 82%; }
+.escena__lema { font: italic 500 1.2rem/1.2 var(--serif); }
+
+/* Escenas con foto de fondo: la foto, y encima un velo del color de la escena para que se lea el texto */
+.escena--foto { background-image: var(--foto); background-size: cover; background-position: center; }
+.escena--foto::before { content: ""; position: absolute; inset: 0; background: var(--velo); opacity: .72; } /* el velo */
+.escena--foto > * { position: relative; }                                    /* el texto, por encima del velo */
+.escena--lila { --velo: var(--lila); }
+.escena--crema { --velo: var(--crema); }
+.escena--glaseado { --velo: var(--glaseado); }
+
+/* Las letras entran de abajo cada vez que la escena se activa */
+.escena.activa > * { animation: entra .55s cubic-bezier(.2, .8, .2, 1) both; }
+.escena.activa > *:nth-child(2) { animation-delay: .12s; }
+@keyframes entra { from { opacity: 0; transform: translateY(.6em); } }
+
+/* Botones y pie del reel, por encima de las escenas */
+.movil::before { content: ""; position: absolute; inset: 72% 0 0; z-index: 2; background: linear-gradient(transparent, rgba(46, 28, 19, .35)); pointer-events: none; } /* sombra abajo para que se lean los textos blancos */
+.reel__lado { position: absolute; right: .7rem; bottom: 5.2rem; z-index: 3; display: grid; gap: .9rem; justify-items: center; color: #fff; font-size: 1.2rem; text-shadow: 0 1px 4px rgba(0, 0, 0, .35); }
+.reel__lado small { display: block; font: 600 .6rem/1 var(--sans); text-align: center; }
+.reel__pie { position: absolute; left: .8rem; right: 3rem; bottom: .9rem; z-index: 3; display: grid; gap: .35rem; color: #fff; font-size: .75rem; text-shadow: 0 1px 4px rgba(0, 0, 0, .35); }
+.reel__pie p { display: flex; align-items: center; gap: .45rem; }
+.avatar--mini { width: 1.5rem; }
+.seguir { padding: .15rem .5rem; border: 1px solid rgba(255, 255, 255, .8); border-radius: .4rem; font-size: .68rem; }
+.reel__audio { opacity: .9; }
+.movil.pausado::after { content: "❚❚"; position: absolute; inset: 0; z-index: 4; display: grid; place-items: center; color: #fff; font-size: 2rem; background: rgba(0, 0, 0, .25); } /* parado */
+
+/* ---------- 7. Móvil: una pieza debajo de otra ---------- */
+@media (max-width: 720px) {
+  .redes { flex-direction: column; align-items: center; }
+}
+
+/* ---------- 8. Menos movimiento si la persona lo pide ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

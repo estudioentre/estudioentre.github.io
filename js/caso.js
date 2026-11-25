@@ -74,6 +74,19 @@ if (proyecto.web) {
     <iframe src="${proyecto.web}" title="Pieza interactiva de ${proyecto.titulo}" loading="lazy"></iframe>`; // la pieza de verdad
 }
 
+// Ejemplos de redes (carrusel, reel…), también navegables (solo si el proyecto los tiene)
+if (proyecto.redes) {
+  const cajaRedes = document.getElementById("caso-redes");          // el hueco
+  cajaRedes.hidden = false;                                          // lo enseña
+  cajaRedes.innerHTML = `
+    <div class="caso__web-barra">                                    <!-- la misma barra que la web -->
+      <span class="caso__web-puntos" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="caso__redes-titulo">Redes</span>                  <!-- qué es -->
+      <span class="pastilla-interactivo">Interactivo</span>          <!-- avisa de que se puede tocar -->
+    </div>
+    <iframe src="${proyecto.redes}" title="Ejemplos de redes de ${proyecto.titulo}" loading="lazy"></iframe>`; // la pieza
+}
+
 // El logo: cómo se hizo, con sus dos versiones y sus colores (solo si el proyecto lo tiene)
 if (proyecto.logo) {
   const l = proyecto.logo;                                           // atajo

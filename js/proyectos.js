@@ -19,6 +19,7 @@
 //   resultado  → un texto o, si hay datos, una lista [ { cifra: "316", texto: "pantallas…" } ]
 //   maqueta    → cubierta mientras no haya imagen: "revista", "cartel" o "indice"
 //   fondo      → color de esa cubierta: "azul", "crema" o "negro"
+//   web, redes → opcional, piezas hechas en código que se ven navegables en la ficha
 //   imagen, alt → foto principal y su descripción (imagen: null = se ve la cubierta)
 //   galeria    → más imágenes del caso: [ { imagen: "ruta", alt: "descripción" } ]
 //   autoria    → opcional, quién hizo qué: [ { nombre: "...", rol: "..." } ]
@@ -108,6 +109,7 @@ const TODOS_LOS_PROYECTOS = [
     alt: "Los tres bálsamos Merengue, lila, glaseado y amarillo, con tapa de merengue, sobre una blonda en una pastelería",
     galeria: [],                                          // sin galería: la bolsa sale en su web, junto a «Lo que pone el tubo»
     web: "merengue/",                                    // su web, hecha en código: sale navegable en la ficha
+    redes: "merengue/redes/",                             // ejemplos de redes: un carrusel y un reel, navegables
   },
   {
     id: "baja-voz",

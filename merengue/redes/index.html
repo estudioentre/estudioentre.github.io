@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">                                                     <!-- acentos y eñes bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">       <!-- se adapta al móvil -->
+  <meta name="robots" content="noindex">                                     <!-- es una pieza del caso: que Google no la muestre suelta -->
+  <title>Merengue · Redes</title>                                            <!-- título de la pestaña -->
+  <link rel="stylesheet" href="redes.css">                                   <!-- todo el diseño -->
+</head>
+<body>
+  <main class="redes">
+
+    <!-- ================= 1. POST DE INSTAGRAM ================= -->
+    <section class="pieza" aria-label="Publicación de Instagram">
+      <p class="pieza__rotulo">Post</p>                                       <!-- qué es -->
+      <article class="post">
+        <header class="post__cabeza">                                          <!-- la cabecera de la publicación -->
+          <span class="avatar"><span class="logo"></span></span>               <!-- foto de perfil: el logo -->
+          <span class="post__cuenta"><b>merengue</b><small>Hecho en Madrid</small></span>
+          <span class="post__puntos" aria-hidden="true">···</span>
+        </header>
+
+        <div class="post__foto">                                             <!-- una sola foto: Nº 01, Violeta de Domingo -->
+          <img src="../../img/proyectos/merengue-violeta.webp" alt="Bálsamo Violeta de Domingo sobre papel de seda lila con caramelos de violeta">
+          <p class="pegatina">Nº 01 · Violeta de Domingo<br><em>Dulce, discreta y muy de Madrid.</em></p>
+        </div>
+
+        <footer class="post__pie">
+          <div class="post__acciones" aria-hidden="true">                      <!-- me gusta, comentar, compartir, guardar -->
+            <span>♡</span><span>◯</span><span>➤</span>
+            <span class="guardar">⌑</span>
+          </div>
+          <p class="post__likes">Les gusta a <b>1.204 personas</b></p>
+          <p class="post__texto"><b>merengue</b> Nº 01 · Violeta de Domingo. Dulce, discreta y muy de Madrid. Tu abuela ya lo sabía ✺</p>
+        </footer>
+      </article>
+    </section>
+
+    <!-- ================= 2. REEL ================= -->
+    <section class="pieza" aria-label="Reel">
+      <p class="pieza__rotulo">Reel · 9 s</p>                                <!-- qué es -->
+      <div class="movil" id="reel" role="img" aria-label="Reel: todas las marcas son nude; nosotras, violeta, rosquilla y bartolillo. A nadie le amarga un dulce."> <!-- el móvil con el reel -->
+        <div class="reel__barra"><i id="progreso"></i></div>                    <!-- barra de progreso arriba -->
+
+        <div class="escena escena--papel">                                     <!-- 1: el problema -->
+          <p class="escena__pequeno">Todas las marcas:</p>
+          <p class="escena__lista"><s>nude.</s><s>nude.</s><s>nude.</s></p>
+        </div>
+        <div class="escena escena--violeta"><p class="escena__grande">Nosotras:</p></div> <!-- 2: el giro -->
+        <div class="escena escena--lila escena--foto" style="--foto: url('../../img/proyectos/merengue-reel-violeta.webp')"><p class="escena__grande"><em>Violeta.</em></p></div> <!-- con caramelos de violeta de fondo --> <!-- 3-5: los sabores -->
+        <div class="escena escena--glaseado escena--foto" style="--foto: url('../../img/proyectos/merengue-reel-clara.webp')"><p class="escena__grande"><em>Rosquilla.</em></p></div> <!-- con rosquillas de Santa Clara de fondo -->
+        <div class="escena escena--crema escena--foto" style="--foto: url('../../img/proyectos/merengue-reel-bartolillo.webp')"><p class="escena__grande"><em>Bartolillo.</em></p></div> <!-- con bartolillos de fondo -->
+        <div class="escena escena--final">                                     <!-- 6: el cierre con el logo -->
+          <span class="logo escena__logo"></span>
+          <p class="escena__lema">A nadie le amarga un dulce.</p>
+        </div>
+
+        <div class="reel__lado" aria-hidden="true"><span>♡<small>3,1 mil</small></span><span>◯<small>86</small></span><span>➤</span></div> <!-- botones del reel -->
+        <div class="reel__pie" aria-hidden="true">
+          <p><span class="avatar avatar--mini"><span class="logo"></span></span><b>merengue</b><span class="seguir">Seguir</span></p>
+          <p class="reel__audio">♫ sonido original · merengue</p>
+        </div>
+      </div>
+      <p class="pieza__nota">Toca el móvil para pararlo</p>                    <!-- cómo se usa -->
+    </section>
+
+  </main>
+  <script src="redes.js"></script>                                           <!-- el reel -->
+</body>
+</html>
