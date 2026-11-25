@@ -186,6 +186,7 @@ const TODOS_LOS_PROYECTOS = [
     },
     galeria: [],                                          // sin galería: las piezas son el logo y la carta
     web: "tirso/", webEnlace: false,                      // la carta de colores, navegable en la ficha (sin enlace para abrirla aparte)
+    fotoCierre: { imagen: "img/proyectos/tirso-pared.webp", alt: "Salón con una pared recién pintada de Amarillo Butano, un rodillo en su bandeja y un bote de Tirso sobre la lona" }, // a todo el ancho, antes del resultado
   },
   {
     id: "donde-paco",
