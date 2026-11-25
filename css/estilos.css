@@ -687,6 +687,8 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso__logos { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.6rem); margin-top: clamp(1.5rem, 3vw, 2.5rem); } /* las dos versiones del logo */
 .caso__logos figure { display: grid; place-items: center; margin: 0; aspect-ratio: 4 / 3; padding: 14%; background: #FFFFFF; } /* sobre blanco, para que se distinga del fondo crema */
 .caso__logos img { width: 100%; height: auto; }
+.caso__construccion { grid-column: 1 / -1; margin: clamp(.8rem, 2vw, 1.6rem) 0 0; padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 4vw, 4rem); background: #FFFFFF; } /* la construcción del logo, a lo ancho y sobre blanco */
+.caso__construccion img { display: block; width: 100%; height: auto; }
 .caso__portada-viva { display: block; width: 100%; height: 100%; border: 0; }  /* portada que es una pieza interactiva */
 .caso__pastilla-portada { position: absolute; top: 1rem; left: 1rem; z-index: 2; } /* su píldora, en la esquina */
 @media (max-width: 700px) { .caso__marco:has(.caso__portada-viva) { aspect-ratio: 4 / 5; } } /* en móvil, más alta para que quepa el volumen */

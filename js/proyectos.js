@@ -84,7 +84,8 @@ const TODOS_LOS_PROYECTOS = [
     logo: {                                               // apartado del logo: cómo se hizo
       imagen: "img/logos/merengue-logo.svg",
       negativo: "img/logos/merengue-logo-crema.svg", fondoNegativo: "#7F55B0", // crema sobre violeta
-      texto: "Una palabra que ya sabe a pastelería. El logotipo es una cursiva gorda y blandita, de curvas redondas como las de una manga pastelera, que se lee igual en un tubo de cuatro centímetros que en un escaparate. Va en violeta sobre papel de envolver, y cada sabor tiene su color: lila, glaseado y crema.",
+      construccion: "img/logos/merengue-construccion.svg", // cómo está hecho: guías, el círculo de las «e» y la inclinación
+      texto: "Una palabra que ya sabe a pastelería. El logotipo es una cursiva gorda y blandita, de curvas redondas como las de una manga pastelera, que se lee igual en un tubo de cuatro centímetros que en un escaparate. Todas las letras viven entre la línea base y la altura x, sin ascendentes, para que la palabra sea un bloque compacto y blandito; solo la g baja, como el pico de la manga. Las tres e salen del mismo círculo y todo va inclinado al mismo ángulo, como cuando se escribe con manga pastelera. Va en violeta sobre papel de envolver, y cada sabor tiene su color: lila, glaseado y crema.",
       colores: [                                          // la paleta de la marca
         { nombre: "Violeta", hex: "#6B4796" },
         { nombre: "Lila", hex: "#B79AD6" },

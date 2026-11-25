@@ -91,6 +91,7 @@ if (proyecto.logo) {
            <figure><img src="${l.imagen}" alt="Logo de ${proyecto.titulo}"></figure>
            <figure class="caso__logos-negativo" style="background: ${l.fondoNegativo || "#B5262B"}"><img src="${l.negativo}" alt="Logo de ${proyecto.titulo} en negativo"></figure>
          </div>`}
+    ${l.construccion ? `<figure class="caso__construccion"><img src="${l.construccion}" alt="Construcción del logo de ${proyecto.titulo}: línea base, altura x, descendente, el mismo círculo en las tres e y una sola inclinación"></figure>` : ""} <!-- cómo está construido (si lo hay) -->
     <ul class="caso__franja">${l.colores.map((c) => `<li style="--m: ${c.hex}; --mt: ${textoSobre(c.hex)}"><span>${c.nombre}</span>${c.hex}</li>`).join("")}</ul>`; // los colores, de borde a borde
 }
 
