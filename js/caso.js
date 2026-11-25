@@ -108,6 +108,21 @@ if (proyecto.logo) {
     <ul class="caso__franja">${l.colores.map((c) => `<li style="--m: ${c.hex}; --mt: ${textoSobre(c.hex)}"><span>${c.nombre}</span>${c.hex}</li>`).join("")}</ul>`; // los colores, de borde a borde
 }
 
+// El lema: la frase en grande, cómo se completa y cómo habla la marca (solo si el proyecto lo tiene)
+if (proyecto.lema) {
+  const m = proyecto.lema;                                           // atajo
+  const cajaLema = document.getElementById("caso-lema");             // el hueco
+  cajaLema.hidden = false;                                           // lo enseña
+  cajaLema.innerHTML = `
+    <h2 class="caso__rotulo"><span class="caso__num" aria-hidden="true"></span>El lema</h2> <!-- sin número, como el logo -->
+    <p class="caso__texto">${m.texto}</p>
+    <div class="caso__lema">                                         <!-- la frase, enorme, con la palabra tachada -->
+      <p class="caso__lema-frase">${m.antes} <s>${m.tachada}</s>.</p>
+      <ul class="caso__lema-respuestas">${m.respuestas.map((r) => `<li style="--m: ${r.hex}; --mt: ${textoSobre(r.hex)}">${r.texto}</li>`).join("")}</ul> <!-- y cómo se completa -->
+    </div>
+    <div class="caso__reglas">${m.reglas.map((r, i) => `<article><span>${String(i + 1).padStart(2, "0")}</span><h3>${r.titulo}</h3><p>${r.texto}</p></article>`).join("")}</div>`; // cómo habla
+}
+
 // Texto negro o crema según lo claro que sea el color de fondo
 function textoSobre(hex) {
   const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16)); // rojo, verde y azul

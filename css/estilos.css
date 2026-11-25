@@ -694,6 +694,16 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 @media (max-width: 700px) { .caso__marco:has(.caso__portada-viva) { aspect-ratio: 4 / 5; } } /* en móvil, más alta para que quepa el volumen */
 .caso__marca .caso__web--logo { grid-column: 1 / -1; margin-block: clamp(1.5rem, 3vw, 2.5rem) 0; } /* el logo animado, a lo ancho */
 .caso__web--logo iframe { height: min(70vh, 40rem); }
+.caso__lema { grid-column: 1 / -1; margin: clamp(1.5rem, 3vw, 2.5rem) calc(var(--margen) * -1) 0; padding: clamp(2.5rem, 6vw, 5rem) var(--margen) 0; background: #F2F0EA; } /* el lema, a todo el ancho */
+.caso__lema-frase { font: 400 clamp(3.4rem, 11vw, 10rem)/.9 var(--display); text-transform: uppercase; letter-spacing: .005em; } /* la frase, como un rótulo */
+.caso__lema-frase s { text-decoration-color: #B5262B; text-decoration-thickness: .08em; color: #B9AB8F; } /* BEIGE, en beige y tachado en rojo */
+.caso__lema-respuestas { display: grid; grid-template-columns: repeat(4, 1fr); margin: clamp(2rem, 4vw, 3rem) calc(var(--margen) * -1) 0; padding: 0; list-style: none; } /* cómo se completa: una franja por color */
+.caso__lema-respuestas li { padding: clamp(1.2rem, 3vw, 2.2rem) var(--margen); background: var(--m); color: var(--mt); font: 400 clamp(1.1rem, 2vw, 2.1rem)/1 var(--display); text-transform: uppercase; }
+.caso__reglas { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.5rem, 3vw, 3rem); margin-top: clamp(2.5rem, 5vw, 4rem); } /* cómo habla la marca */
+.caso__reglas article { padding-top: 1rem; border-top: 1px solid var(--negro); }
+.caso__reglas span { display: block; margin-bottom: .8rem; font: 400 1.6rem/1 var(--display); }
+.caso__reglas h3 { margin-bottom: .5rem; font-size: clamp(1.05rem, 1.4vw, 1.3rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
+.caso__reglas p { max-width: 30ch; font-size: .95rem; line-height: 1.4; opacity: .8; }
 .caso__franja {                                                            /* los colores de la marca: una franja a todo el ancho */
   grid-column: 1 / -1; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
   margin: clamp(1.5rem, 3vw, 2.5rem) calc(var(--margen) * -1) 0; padding: 0; list-style: none; /* sale de los márgenes, de borde a borde */
@@ -703,6 +713,8 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso__franja span { font-weight: 600; font-size: .9rem; letter-spacing: -.01em; }
 @media (max-width: 700px) {
   .caso__logos { grid-template-columns: 1fr; }                               /* en móvil, un logo debajo del otro */
+  .caso__lema-respuestas { grid-template-columns: 1fr 1fr; }                /* en móvil, los colores de dos en dos */
+  .caso__reglas { grid-template-columns: 1fr; }                             /* y las reglas, una debajo de otra */
   .caso__franja { grid-auto-flow: row; grid-template-columns: 1fr; }        /* y los colores, uno debajo de otro */
 }
 .caso__idea {                                /* La idea: bloque de color a todo el ancho */

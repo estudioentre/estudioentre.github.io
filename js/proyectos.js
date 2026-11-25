@@ -13,6 +13,7 @@
 //   resumen    → la necesidad del cliente, en una frase
 //   servicios  → las etiquetas del proyecto
 //   partida, idea, desarrollo → textos del caso de estudio
+//   lema → opcional, apartado de branding: la frase, cómo se completa y cómo habla la marca
 //   estrategia → opcional, tres claves cortas [ { titulo, texto } ]; insight → opcional, una frase en grande encima
 //   etapas, aplicaciones → opcional, sustituyen al texto de desarrollo
 //   fotoIdea, fotoCierre  → opcional, imágenes a todo el ancho dentro del relato
@@ -173,6 +174,22 @@ const TODOS_LOS_PROYECTOS = [
     maqueta: "revista", fondo: "crema", layout: "ancho",
     imagen: "img/proyectos/tirso-calle.webp",             // la calle: el color que ya tiene Madrid
     alt: "Plaza de Madrid llena de color: frutería con toldo rojo, quiosco verde, bombona de butano, fachadas roja y amarilla y un hombre con mono azul",
+    lema: {                                               // apartado de branding: el lema como sistema
+      antes: "Madrid no es", tachada: "beige",            // la frase, con la palabra que se tacha
+      texto: "Más que un eslogan, es la postura de la marca: Tirso no compite en precio, defiende el color. La frase siempre se completa con un color de la carta, y el beige sale, pero tachado. Así cualquier pieza, del escaparate a un post, se reconoce aunque no lleve el logo.",
+      respuestas: [                                       // cómo se completa: un color de la carta
+        { texto: "Es Butano.", hex: "#F2A900" },
+        { texto: "Es Quiosco.", hex: "#2E6B4F" },
+        { texto: "Es Ultramarinos.", hex: "#B5262B" },
+        { texto: "Es Mono de Obra.", hex: "#2A4D8F" },
+      ],
+      reglas: [                                           // cómo habla la marca
+        { titulo: "Nombres de la calle", texto: "Los colores se llaman como las cosas del barrio, nunca como en un catálogo." },
+        { titulo: "Como el dependiente", texto: "Habla de tú y sin rodeos, como quien te atiende detrás del mostrador y te dice qué color le va a tu casa." },
+        { titulo: "El beige, tachado", texto: "Siempre aparece para que se entienda contra qué va la marca, pero nunca gana." },
+        { titulo: "Un color por mensaje", texto: "Cada pieza va de un solo color de la carta, a todo el fondo." },
+      ],
+    },
     logo: {                                               // apartado del logo: cómo se hizo
       imagen: "img/logos/tirso-logo.svg",
       negativo: "img/logos/tirso-logo-negativo.svg",
