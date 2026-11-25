@@ -49,7 +49,7 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
 .foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .foto.sin-foto img { display: none; }                                        /* la foto aún no existe */
 .foto.sin-foto::after { content: "Foto · " attr(data-foto); position: absolute; left: 1rem; bottom: .9rem; font: 600 .68rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; opacity: .45; } /* qué foto falta */
-.foto--sangre { width: 100%; max-height: 92vh; }
+.foto--sangre { width: 100%; max-height: 72vh; }
 
 /* ---------- 6. Cabecera ---------- */
 .cabecera { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 2.4rem; padding: .9rem var(--margen); background: var(--violeta); color: var(--papel); font-size: .88rem; }
@@ -63,7 +63,7 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
 /* ---------- 7. Portada ---------- */
 .portada { position: relative; padding: clamp(2.5rem, 6vw, 5rem) var(--margen) clamp(4rem, 8vw, 7rem); background: var(--violeta); color: var(--papel); }
 .portada__ante { margin: 0 0 1.4rem; font: 600 .78rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--malva); }
-.portada__titulo { margin: 0; font: 800 clamp(3.6rem, 12vw, 13rem)/.84 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.05em; } /* enorme y blandito */
+.portada__titulo { margin: 0; font: 800 clamp(3rem, 8.5vw, 8.5rem)/.84 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.05em; } /* grande y blandito, sin pasarse */
 .portada__titulo em { font-style: italic; color: var(--crema); transition: color .6s; }
 .linea { display: block; overflow: hidden; padding: 0 .04em .24em 0; margin-bottom: -.16em; } /* hueco abajo para que la «g» no se corte, sin separar más las líneas */
 .linea > span { display: inline-block; animation: subir 1.1s cubic-bezier(.2, .7, .1, 1) both; }
@@ -80,23 +80,23 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
 /* ---------- 8. Cinta ---------- */
 .cinta { overflow: hidden; padding: 1.1rem 0; background: var(--tinta); color: var(--papel); }
 .cinta__pista { display: flex; width: max-content; animation: avanzar 38s linear infinite; }
-.cinta span { font: italic 700 clamp(1.6rem, 3.4vw, 2.8rem)/1 var(--serif); font-variation-settings: var(--gorda); white-space: nowrap; }
+.cinta span { font: italic 700 clamp(1.2rem, 2.4vw, 2rem)/1 var(--serif); font-variation-settings: var(--gorda); white-space: nowrap; }
 .cinta i { font-style: normal; color: var(--crema); margin: 0 .5em; }
 @keyframes avanzar { to { transform: translateX(-50%); } }
 
 /* ---------- 9. Manifiesto ---------- */
-.manifiesto { display: grid; grid-template-columns: 1fr 2.6fr; gap: 2rem; padding: clamp(5rem, 11vw, 9rem) var(--margen); }
+.manifiesto { display: grid; grid-template-columns: 1fr 2.6fr; gap: 2rem; padding: clamp(3.5rem, 8vw, 6.5rem) var(--margen); }
 .manifiesto .etiqueta { padding-top: .9rem; color: var(--violeta); }
-.manifiesto__texto { margin: 0; max-width: 20em; font: 500 clamp(1.8rem, 3.6vw, 3.4rem)/1.08 var(--serif); font-variation-settings: "opsz" 72, "SOFT" 100; letter-spacing: -.025em; }
+.manifiesto__texto { margin: 0; max-width: 20em; font: 500 clamp(1.4rem, 2.5vw, 2.3rem)/1.15 var(--serif); font-variation-settings: "opsz" 72, "SOFT" 100; letter-spacing: -.025em; }
 .manifiesto__texto em { font-style: italic; color: var(--violeta); }
 .manifiesto__texto s { text-decoration-thickness: .08em; text-decoration-color: var(--violeta); opacity: .55; } /* "nude", tachado */
 
 /* ---------- 10. La carta: franjas de color ---------- */
 .carta { display: grid; grid-template-columns: repeat(3, 1fr); }               /* los tres sabores, uno al lado del otro, como en el mostrador */
-.sabor { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: clamp(26rem, 70vh, 42rem); padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1.4rem, 3vw, 2.8rem) clamp(2.5rem, 5vw, 4.5rem); background: var(--fondo); } /* cada sabor, una columna de su color con el texto abajo */
+.sabor { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: clamp(18rem, 48vh, 28rem); padding: clamp(3rem, 5vw, 4.5rem) clamp(1.2rem, 2.5vw, 2.4rem) clamp(2rem, 4vw, 3.2rem); background: var(--fondo); } /* cada sabor, una columna de su color con el texto abajo */
 .sabor::before { content: ""; position: absolute; top: 0; left: 0; right: 0; --t: clamp(12px, 1.6vw, 20px); height: var(--t); background: radial-gradient(circle at var(--t) 0, var(--anterior) calc(var(--t) - .5px), transparent var(--t)) 0 0 / calc(var(--t) * 2) var(--t) repeat-x; } /* festón del color de antes */
-.sabor__nombre { margin: 1.2rem 0 1rem; font: 800 clamp(2.8rem, 5.4vw, 5.6rem)/.86 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.05em; } /* el nombre, gordo, cabe en su columna */
-.sabor__frase { margin: 0 0 2rem; font: italic 500 clamp(1.2rem, 1.8vw, 1.6rem)/1.2 var(--serif); font-variation-settings: "opsz" 72, "SOFT" 100; }
+.sabor__nombre { margin: 1.2rem 0 1rem; font: 800 clamp(2.2rem, 3.8vw, 3.8rem)/.88 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.05em; } /* el nombre, gordo, cabe en su columna */
+.sabor__frase { margin: 0 0 1.6rem; font: italic 500 clamp(1.05rem, 1.5vw, 1.3rem)/1.25 var(--serif); font-variation-settings: "opsz" 72, "SOFT" 100; }
 .precio {                                                                     /* etiqueta de precio de pastelería, con su agujerito */
   display: inline-flex; align-self: flex-start; align-items: center; gap: .6rem; padding: .55rem 1rem .55rem .8rem; background: var(--papel);
   font: 700 .9rem/1 var(--sans); letter-spacing: .06em; clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%); padding-left: 1.6rem; rotate: -4deg;
@@ -105,27 +105,27 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
 .sabor__texto { display: flex; flex-direction: column; }                     /* para que la etiqueta no se estire */
 
 /* ---------- 11. El tubo ---------- */
-.tubo { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; padding: clamp(5rem, 10vw, 9rem) var(--margen); }
-.tubo__foto { position: sticky; top: 6rem; }
-.tubo__etiqueta .titulo { margin-bottom: 2.4rem; }
+.tubo { position: relative; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; max-width: 72rem; margin: 0 auto; padding: clamp(3.5rem, 8vw, 6.5rem) var(--margen); } /* la bolsa y la etiqueta, del mismo peso */
+.tubo__foto { max-width: 24rem; rotate: -2deg; box-shadow: 0 30px 60px -30px rgba(46, 28, 19, .45); } /* la bolsa, más pequeña y un poco torcida */
+.tubo__etiqueta .titulo { margin-bottom: 1.6rem; font-size: clamp(2rem, 3.6vw, 3.4rem); }
 .tubo__etiqueta .titulo em { color: var(--violeta); }
 .ficha { margin: 0; border-top: 2px solid var(--tinta); }
 .ficha > div { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 1.2rem 0; border-bottom: 1px solid var(--linea); }
 .ficha dt { font: 600 .72rem/1.6 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--violeta); }
-.ficha dd { margin: 0; font: 500 1.2rem/1.35 var(--serif); font-variation-settings: "opsz" 24, "SOFT" 100; }
+.ficha dd { margin: 0; font: 500 1.05rem/1.4 var(--serif); font-variation-settings: "opsz" 24, "SOFT" 100; }
 .ficha__inci { font: 500 .78rem/1.7 var(--sans) !important; letter-spacing: .06em; text-transform: uppercase; }
 
 /* ---------- 12. Modo de uso ---------- */
-.uso { position: relative; padding: clamp(6rem, 12vw, 11rem) var(--margen); background: var(--tinta); color: var(--papel); }
+.uso { position: relative; padding: clamp(4rem, 8vw, 7rem) var(--margen); background: var(--tinta); color: var(--papel); }
 .uso .etiqueta { margin-bottom: 2.4rem; color: var(--crema); }
-.uso__frase { margin: 0; font: 800 clamp(3rem, 9.4vw, 10rem)/.88 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.05em; }
+.uso__frase { margin: 0; font: 800 clamp(2.4rem, 6vw, 6rem)/.9 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.05em; }
 .uso__frase--b { text-align: right; color: var(--malva); }
 .uso__frase--b em { font-style: italic; }
 
 /* ---------- 14. La merienda ---------- */
-.merienda { position: relative; padding: clamp(5rem, 10vw, 8rem) var(--margen); }
-.merienda__cartel { max-width: 46rem; margin: 0 auto; padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem); /* el cartel del pop-up, centrado */ background: var(--crema); border-radius: 50% 50% 1rem 1rem / 22% 22% 1rem 1rem; text-align: center; } /* cartel con forma de toldo redondo */
-.merienda__titulo { margin: 1.2rem 0; font: 800 clamp(2.6rem, 5.4vw, 5.2rem)/.9 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.04em; }
+.merienda { position: relative; padding: clamp(3.5rem, 8vw, 6rem) var(--margen); }
+.merienda__cartel { max-width: 38rem; margin: 0 auto; padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem); /* el cartel del pop-up, centrado */ background: var(--crema); border-radius: 50% 50% 1rem 1rem / 22% 22% 1rem 1rem; text-align: center; } /* cartel con forma de toldo redondo */
+.merienda__titulo { margin: 1.2rem 0; font: 800 clamp(2.2rem, 4vw, 3.8rem)/.9 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.04em; }
 .merienda__titulo em { display: block; color: var(--violeta); }
 .merienda__lugar { margin: 0 0 1.6rem; font-weight: 600; }
 .merienda__lema { margin: 0; font: 500 1.4rem/1.2 var(--serif); font-variation-settings: "opsz" 72, "SOFT" 100; }
@@ -133,7 +133,7 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
 
 /* ---------- 15. Pie ---------- */
 .pie { position: relative; padding: clamp(3rem, 6vw, 5rem) var(--margen) 2rem; background: var(--violeta); color: var(--papel); }
-.pie__logo { width: 100%; height: auto; color: var(--malva); }
+.pie__logo { width: min(100%, 40rem); height: auto; color: var(--malva); } /* el logo, grande pero sin ocupar todo */
 .pie__fila { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: clamp(2rem, 4vw, 3.5rem); padding-top: 1.2rem; border-top: 1px solid rgba(246, 239, 228, .25); font-size: .85rem; }
 .pie__fila p { margin: 0; }
 .pie__fila p:last-child { text-align: right; opacity: .8; }
@@ -150,7 +150,7 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
   .sello { position: relative; right: auto; bottom: auto; margin: 2rem 0 0 auto; width: 7rem; }
   .manifiesto, .carta, .tubo { grid-template-columns: 1fr; }               /* en móvil, todo en una columna */
   .sabor { min-height: 0; }                                                 /* sin altura mínima: solo lo que ocupa el texto */
-  .tubo__foto { position: static; }
+  .tubo__foto { max-width: 18rem; margin-inline: auto; }                     /* en móvil, la bolsa centrada */
   .ficha > div { grid-template-columns: 1fr; gap: .3rem; }
   .pie__fila { grid-template-columns: 1fr; gap: 1rem; }
   .pie__fila p:last-child { text-align: left; }
