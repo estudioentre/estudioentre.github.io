@@ -107,7 +107,6 @@ const TODOS_LOS_PROYECTOS = [
     alt: "Los tres bálsamos Merengue, lila, glaseado y amarillo, con tapa de merengue, sobre una blonda en una pastelería",
     galeria: [                                            // fotos del producto
       { imagen: "img/proyectos/merengue-violeta.webp", alt: "Bálsamo Violeta de Domingo sobre papel de seda lila con caramelos de violeta" },
-      { imagen: "img/proyectos/merengue-mano.webp", alt: "Mano sosteniendo el bálsamo lila con su tapa de merengue" },
     ],
     fotoIdea: { imagen: "img/proyectos/merengue-bandeja.webp", alt: "Bandeja de pasteles de domingo con los tres bálsamos entre rosquillas, bartolillos y merengues" }, // a todo el ancho, tras La idea
     web: "merengue/",                                    // su web, hecha en código: sale navegable en la ficha
@@ -145,13 +144,11 @@ const TODOS_LOS_PROYECTOS = [
         { nombre: "Verde ría", hex: "#6F8F7A" },
       ],
     },
-    fotoIdea: { imagen: "img/proyectos/bajavoz-patio.webp", alt: "Concierto acústico en un patio interior de Bilbao, con el público sentado en silencio alrededor de un dúo de voz y guitarra" }, // a todo el ancho, tras La idea
+    fotoIdea: { imagen: "img/proyectos/bajavoz-cierre.webp", alt: "Patio interior de Bilbao de noche, preparado para el concierto: sillas plegables, una alfombra, una funda de guitarra y guirnaldas de luces" }, // a todo el ancho, tras La idea
     galeria: [                                            // las piezas
       { imagen: "img/proyectos/bajavoz-portada.webp", alt: "Cartel casi vacío de baja voz en un muro de piedra del Casco Viejo de Bilbao, con la frase «shhh. ya está aquí.»" },
       { imagen: "img/proyectos/bajavoz-entradas.webp", alt: "Dos entradas de baja voz con sus normas («llega en silencio. el móvil, en modo avión…») sobre una mesa de madera, junto a un vaso de txakoli" },
-      { imagen: "img/proyectos/bajavoz-senal.webp", alt: "Señal de baja voz en el portal de un edificio antiguo: «el concierto es aquí. baja la voz.»" },
     ],
-    fotoCierre: { imagen: "img/proyectos/bajavoz-cierre.webp", alt: "El mismo patio, ya vacío y de noche: sillas plegables, la alfombra, una funda de guitarra y las luces todavía encendidas" }, // a todo el ancho, antes del resultado
   },
   {
     id: "pinturas-tirso",
@@ -187,10 +184,7 @@ const TODOS_LOS_PROYECTOS = [
         { nombre: "Azul Mono de Obra", hex: "#2A4D8F" },
       ],
     },
-    galeria: [                                            // fotos de la campaña
-      { imagen: "img/proyectos/tirso-mezcla.webp", alt: "Tintes amarillo y naranja cayendo en un bote de pintura blanca y mezclándose en espiral" },
-      { imagen: "img/proyectos/tirso-abanico.webp", alt: "Manos de un dependiente con bata azul abriendo la carta de los diez colores" },
-    ],
+    galeria: [],                                          // sin galería: las piezas son el logo y la carta
     web: "tirso/", webEnlace: false,                      // la carta de colores, navegable en la ficha (sin enlace para abrirla aparte)
   },
   {

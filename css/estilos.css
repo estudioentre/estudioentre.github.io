@@ -738,16 +738,16 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso__estrategia article { padding-top: 1rem; border-top: 1px solid var(--negro); }                    /* raya encima, como las etapas */
 .caso__estrategia h3 { font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .7rem; } /* la clave, pequeña */
 .caso__estrategia p { max-width: 34ch; font-size: clamp(1rem, 1.2vw, 1.15rem); line-height: 1.4; }                                            /* el texto, corto */
-.caso__etapas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 3rem); }
+.caso__etapas { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 3rem); }
 .caso__etapas article { padding-top: 1rem; border-top: 1px solid var(--negro); }
-.caso__etapas strong { display: block; margin-bottom: 1.4rem; font-family: var(--display); font-weight: 400; font-size: clamp(2.4rem, 4.6vw, 4.6rem); line-height: 1; } /* la fecha, grande */
-.caso__etapas h3 { font-size: clamp(1.2rem, 1.7vw, 1.6rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.1; margin-bottom: .6rem; }
+.caso__etapas strong { display: block; margin-bottom: 1.4rem; font-family: var(--display); font-weight: 400; font-size: clamp(2.2rem, 3.6vw, 3.8rem); line-height: 1; white-space: nowrap; } /* la fecha, grande (cabe en su columna) */
+.caso__etapas h3 { font-size: clamp(1.15rem, 1.5vw, 1.45rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.1; margin-bottom: .6rem; }
 .caso__etapas p { max-width: 32ch; opacity: .8; }
-.caso__aplicaciones {                        /* dónde vive la marca: una línea limpia */
-  display: flex; flex-wrap: wrap; gap: .45rem 1.3rem; margin-top: clamp(2rem, 3.5vw, 3rem);
+.caso__aplicaciones {                        /* dónde vive la marca: tres columnas, alineadas con las etapas */
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 clamp(1.5rem, 3vw, 3rem); margin-top: clamp(2.5rem, 4vw, 3.5rem); padding: 0; list-style: none;
   font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
 }
-.caso__aplicaciones li { display: inline-flex; align-items: center; gap: .5rem; }
+.caso__aplicaciones li { display: flex; align-items: center; gap: .6rem; padding: .8rem 0; border-top: 1px solid var(--linea); } /* cada sitio, una línea fina */
 .caso__aplicaciones li::before { content: ""; width: .5em; height: .5em; border-radius: 50%; background: var(--c); } /* bolita del color del proyecto */
 .caso__cierre {                              /* Resultado: bloque oscuro a todo el ancho */
   margin-inline: calc(var(--margen) * -1);
@@ -766,7 +766,7 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
 .caso__creditos h2 { grid-column: 1 / 5; }
 .caso__cifras { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(2rem, 3.5vw, 3rem) var(--hueco); margin-top: 1rem; }
 .caso__cifras li { grid-column: span 2; padding-top: 1rem; border-top: 1px solid var(--linea); } /* tres arriba… */
-.caso__cifras li:nth-child(n+4) { grid-column: span 3; }  /* …y dos abajo */
+.caso__cifras li:nth-child(5) { grid-column: span 4; }  /* …y dos abajo: la última, más ancha, y todas alineadas con las de arriba */
 .caso__cifras strong {                       /* la cifra, enorme */
   display: block; margin-bottom: .6rem; white-space: nowrap;
   font-family: var(--display); font-weight: 400; font-size: clamp(3rem, 6.4vw, 6.5rem); line-height: 1;
@@ -872,10 +872,12 @@ body.menu-abierto { overflow: hidden; }      /* sin scroll de fondo con el menú
   .caso__meta { grid-template-columns: 1fr 1fr; }
   .caso__rotulo, .caso__texto, .caso__autoria, .caso__desarrollo, .caso__estrategia, .caso__insight, .caso__creditos h2 { grid-column: 1 / -1; }
   .caso__etapas, .caso__estrategia { grid-template-columns: 1fr; }
+  .caso__etapas { gap: 2rem; }                                          /* en móvil, una etapa bajo otra con aire */
+  .caso__aplicaciones { grid-template-columns: 1fr 1fr; }               /* y los sitios, en dos columnas */
   .caso__ancha { aspect-ratio: 4 / 3; }
   .caso__autoria { grid-template-columns: 1fr; }
   .caso__cifras { grid-template-columns: 1fr; }
-  .caso__cifras li, .caso__cifras li:nth-child(n+4) { grid-column: 1; }
+  .caso__cifras li, .caso__cifras li:nth-child(5) { grid-column: 1; }
   .caso__galeria > div:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
   .caso__marco { aspect-ratio: 4 / 3; }
   .pie__contacto { align-items: flex-start; }
