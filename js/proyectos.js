@@ -106,7 +106,8 @@ const TODOS_LOS_PROYECTOS = [
     imagen: "img/proyectos/merengue-portada.webp",        // los tres bálsamos en el mostrador
     alt: "Los tres bálsamos Merengue, lila, glaseado y amarillo, con tapa de merengue, sobre una blonda en una pastelería",
     galeria: [                                            // fotos del producto
-      { imagen: "img/proyectos/merengue-violeta.webp", alt: "Bálsamo Violeta de Domingo sobre papel de seda lila con caramelos de violeta" },
+      { imagen: "img/proyectos/merengue-clara.webp", alt: "Bálsamo Santa Clara, nacarado, entre dos rosquillas glaseadas" },
+      { imagen: "img/proyectos/merengue-bolsa.webp", alt: "Bolsa de papel lila con el logo de Merengue, atada con cordel rojo y blanco" }, // a la derecha
     ],
     fotoIdea: { imagen: "img/proyectos/merengue-bandeja.webp", alt: "Bandeja de pasteles de domingo con los tres bálsamos entre rosquillas, bartolillos y merengues" }, // a todo el ancho, tras La idea
     web: "merengue/",                                    // su web, hecha en código: sale navegable en la ficha
