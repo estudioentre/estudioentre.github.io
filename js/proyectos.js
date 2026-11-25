@@ -93,9 +93,9 @@ const TODOS_LOS_PROYECTOS = [
       ],
     },
     partida: "Una marca madrileña de bálsamos labiales que quiere lanzarse en un mercado lleno de marcas que se parecen entre sí: tonos nude, frascos minimalistas y el mismo mensaje.",
-    idea: "Dulces de toda la vida, para los labios. Sabores de pastelería castiza (violeta, rosquilla de Santa Clara y bartolillo) y un universo que mezcla cosmética y pastelería de barrio.",
-    desarrollo: "Naming de la gama y una web que se recorre como el mostrador de una pastelería, con el papel y los cordeles de toda la vida. Para el lanzamiento, un plan de prensa e influencers con una caja PR con forma de caja de pasteles, y un pop-up de fin de semana en una pastelería de toda la vida para que la gente los pruebe.",
-    resultado: "Una marca que no se explica con ingredientes, sino con recuerdos: el bolso de la abuela y la bandeja de los domingos.",
+    idea: "A nadie le amarga un dulce. Dulces de toda la vida, para los labios: sabores de pastelería castiza (violeta, rosquilla de Santa Clara y bartolillo) y un universo que mezcla cosmética y pastelería de barrio.",
+    desarrollo: "Naming de la gama y una web que se recorre como el mostrador de una pastelería, con el papel y los cordeles de toda la vida. Para el lanzamiento, un plan de prensa e influencers con una caja PR con forma de caja de pasteles, y un pop-up de fin de semana en una pastelería de toda la vida para que la gente los pruebe. Cada sabor tiene su frase: Violeta de Domingo, «Dulce, discreta y muy de Madrid»; Santa Clara, «El glaseado más fino de Madrid»; y Bartolillo, «Lo juramos, está cremita».",
+    resultado: "Una marca que no se explica con ingredientes, sino con antojos: a nadie le amarga un dulce, y menos si se lleva puesto.",
     maqueta: "cartel", fondo: "crema", layout: "vertical",
     imagen: "img/proyectos/merengue-portada.webp",        // los tres bálsamos en el mostrador
     alt: "Los tres bálsamos Merengue, lila, glaseado y amarillo, con tapa de merengue, sobre una blonda en una pastelería",
@@ -139,10 +139,10 @@ const TODOS_LOS_PROYECTOS = [
     fotoIdea: { imagen: "img/proyectos/bajavoz-patio.webp", alt: "Concierto acústico en un patio interior de Bilbao, con el público sentado en silencio alrededor de un dúo de voz y guitarra" }, // a todo el ancho, tras La idea
     galeria: [                                            // las piezas
       { imagen: "img/proyectos/bajavoz-portada.webp", alt: "Cartel casi vacío de baja voz en un muro de piedra del Casco Viejo de Bilbao, con la frase «shhh. ya está aquí.»" },
-      { imagen: "img/proyectos/bajavoz-entradas.webp", alt: "Dos entradas de baja voz sobre una mesa de madera, junto a un móvil y un vaso de txakoli" },
+      { imagen: "img/proyectos/bajavoz-entradas.webp", alt: "Dos entradas de baja voz con sus normas («llega en silencio. el móvil, en modo avión…») sobre una mesa de madera, junto a un vaso de txakoli" },
       { imagen: "img/proyectos/bajavoz-senal.webp", alt: "Señal de baja voz en el portal de un edificio antiguo: «el concierto es aquí. baja la voz.»" },
     ],
-    fotoCierre: { imagen: "img/proyectos/bajavoz-cierre.webp", alt: "El patio vacío después del concierto, con las sillas plegables, la alfombra y las luces todavía encendidas" }, // a todo el ancho, antes del resultado
+    fotoCierre: { imagen: "img/proyectos/bajavoz-cierre.webp", alt: "El mismo patio, ya vacío y de noche: sillas plegables, la alfombra, una funda de guitarra y las luces todavía encendidas" }, // a todo el ancho, antes del resultado
   },
   {
     id: "pinturas-tirso",

@@ -9,7 +9,7 @@ document.querySelectorAll(".foto img").forEach((img) => {
   img.addEventListener("error", marcar);                                   // o falla ahora
 });
 
-// 2. "postre." va cambiando de sabor: violeta, glaseado y crema
+// 2. "dulce." va cambiando de sabor: violeta, glaseado y crema
 const postre = document.getElementById("postre");                         // la palabra
 const colores = ["#F2C35B", "#D8C8EC", "#F6EFE4"];                         // crema, violeta suave y glaseado
 let turno = 0;                                                             // cuál toca
