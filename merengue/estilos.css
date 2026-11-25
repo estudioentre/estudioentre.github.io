@@ -148,7 +148,7 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
   .cabecera__nota { font-size: .72rem; }
   .cabecera__logo .logo { height: 1.9rem; }
   .sello { position: relative; right: auto; bottom: auto; margin: 2rem 0 0 auto; width: 7rem; }
-  .manifiesto, .carta, .tubo { grid-template-columns: 1fr; }               /* en móvil, un sabor debajo de otro */
+  .manifiesto, .carta, .tubo { grid-template-columns: 1fr; }               /* en móvil, todo en una columna */
   .sabor { min-height: 0; }                                                 /* sin altura mínima: solo lo que ocupa el texto */
   .tubo__foto { position: static; }
   .ficha > div { grid-template-columns: 1fr; gap: .3rem; }
