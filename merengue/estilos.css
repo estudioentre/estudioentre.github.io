@@ -94,7 +94,8 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
 /* ---------- 10. La carta: franjas de color ---------- */
 .sabor { position: relative; display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: clamp(2rem, 6vw, 6rem); padding: clamp(4.5rem, 9vw, 8rem) var(--margen); background: var(--fondo); }
 .sabor::before { content: ""; position: absolute; top: 0; left: 0; right: 0; --t: clamp(12px, 1.6vw, 20px); height: var(--t); background: radial-gradient(circle at var(--t) 0, var(--anterior) calc(var(--t) - .5px), transparent var(--t)) 0 0 / calc(var(--t) * 2) var(--t) repeat-x; } /* festón del color de antes */
-.sabor--al-reves .sabor__texto { order: 2; }                                 /* la foto cambia de lado */
+.sabor--al-reves .sabor__texto { order: 2; }
+.sabor--solo { grid-template-columns: 1fr; }                                  /* sabor sin foto: el texto solo, a lo ancho */                                 /* la foto cambia de lado */
 .sabor__nombre { margin: 1.2rem 0 1rem; font: 800 clamp(3.4rem, 9vw, 9rem)/.86 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.05em; }
 .sabor__frase { margin: 0 0 2rem; font: italic 500 clamp(1.3rem, 2.2vw, 1.9rem)/1.2 var(--serif); font-variation-settings: "opsz" 72, "SOFT" 100; }
 .precio {                                                                     /* etiqueta de precio de pastelería, con su agujerito */

@@ -93,6 +93,11 @@ const TODOS_LOS_PROYECTOS = [
       ],
     },
     partida: "Una marca madrileña de bálsamos labiales que quiere lanzarse en un mercado lleno de marcas que se parecen entre sí: tonos nude, frascos minimalistas y el mismo mensaje.",
+    estrategia: [                                         // la estrategia, en corto: para quién, qué vimos y dónde nos colocamos
+      { titulo: "Para quién", texto: "Mujeres de 20 a 40 años que compran cosmética por capricho y ya no distinguen un bálsamo nude de otro." },
+      { titulo: "Lo que vimos", texto: "En los labios todo sabe a vainilla o a nada. Nadie había pensado el sabor como un recuerdo: el de la pastelería del barrio." },
+      { titulo: "Dónde nos colocamos", texto: "Ni farmacia ni lujo: un capricho de pastelería de 4,5 g. Precio de antojo, tono cercano y con guasa, y lo castizo como algo que se presume." },
+    ],
     idea: "A nadie le amarga un dulce. Dulces de toda la vida, para los labios: sabores de pastelería castiza (violeta, rosquilla de Santa Clara y bartolillo) y un universo que mezcla cosmética y pastelería de barrio.",
     desarrollo: "Naming de la gama y una web que se recorre como el mostrador de una pastelería, con el papel y los cordeles de toda la vida. Para el lanzamiento, un plan de prensa e influencers con una caja PR con forma de caja de pasteles, y un pop-up de fin de semana en una pastelería de toda la vida para que la gente los pruebe. Cada sabor tiene su frase: Violeta de Domingo, «Dulce, discreta y muy de Madrid»; Santa Clara, «El glaseado más fino de Madrid»; y Bartolillo, «Lo juramos, está cremita».",
     resultado: "Una marca que no se explica con ingredientes, sino con antojos: a nadie le amarga un dulce, y menos si se lleva puesto.",
@@ -103,7 +108,6 @@ const TODOS_LOS_PROYECTOS = [
       { imagen: "img/proyectos/merengue-violeta.webp", alt: "Bálsamo Violeta de Domingo sobre papel de seda lila con caramelos de violeta" },
       { imagen: "img/proyectos/merengue-mano.webp", alt: "Mano sosteniendo el bálsamo lila con su tapa de merengue" },
       { imagen: "img/proyectos/merengue-clara.webp", alt: "Bálsamo Santa Clara, nacarado, junto a dos rosquillas glaseadas" },
-      { imagen: "img/proyectos/merengue-bolsa.webp", alt: "Bálsamo Bartolillo amarillo junto a una bolsa de papel lila atada con cordel" },
     ],
     fotoIdea: { imagen: "img/proyectos/merengue-bandeja.webp", alt: "Bandeja de pasteles de domingo con los tres bálsamos entre rosquillas, bartolillos y merengues" }, // a todo el ancho, tras La idea
     web: "merengue/",                                    // su web, hecha en código: sale navegable en la ficha
@@ -119,6 +123,11 @@ const TODOS_LOS_PROYECTOS = [
     resumen: "Que la experiencia del evento sea la marca.",
     servicios: "Dirección de arte · Evento · Señalética · Motion",
     partida: "Un festival de música acústica en patios, azoteas y portales de Bilbao, con aforos de 50 personas. Sin cabezas de cartel ni gran presupuesto, en una agenda llena de festivales enormes.",
+    estrategia: [                                         // la estrategia, en corto: para quién, qué vimos y dónde nos colocamos
+      { titulo: "Para quién", texto: "Gente de 25 a 45 años que va a los conciertos a escuchar, cansada de colas, de móviles en alto y de oír más al de al lado que al grupo." },
+      { titulo: "Lo que vimos", texto: "Un festival pequeño nunca va a ganar en tamaño. Pero en una ciudad llena de ruido, el silencio es escaso, y lo escaso se valora." },
+      { titulo: "Dónde nos colocamos", texto: "El aforo de 50 deja de ser un límite y pasa a ser lo que se ofrece. Se comunica poco y bajito, donde importa: el barrio, el boca a boca y la lista de correo." },
+    ],
     idea: "Un festival para escuchar, no para gritar. Si todos los festivales compiten por hacer más ruido, Baja Voz se diferencia bajando el volumen: textos en minúscula, mensajes que se leen casi en susurro y mucho espacio en blanco.",
     desarrollo: "La marca se vive en el evento: un sistema tipográfico donde la letra baja como baja el volumen, entradas, señalética para encontrar cada patio por el barrio, un mapa para el móvil y piezas animadas para anunciar cada concierto.",
     resultado: "Una campaña que destaca justo por no levantar la voz, y un sistema que funciona igual en una pantalla que en un portal.",
@@ -155,6 +164,11 @@ const TODOS_LOS_PROYECTOS = [
     resumen: "Hacerse notar frente a las grandes superficies.",
     servicios: "Insight · Campaña · Exterior · Naming",
     partida: "Una droguería de pinturas de Madrid abierta desde 1958. Cada vez vende más blanco roto, gris perla y beige, igual que las grandes superficies. Las casas, los locales y hasta las marcas se están volviendo todos del mismo color.",
+    estrategia: [                                         // la estrategia, en corto: para quién, qué vimos y dónde nos colocamos
+      { titulo: "Para quién", texto: "Vecinos que pintan su casa o su local, no quieren el mismo beige que todo el mundo y agradecen que alguien les aconseje." },
+      { titulo: "Lo que vimos", texto: "En precio y surtido, la gran superficie siempre gana. Lo que no tiene es criterio: nadie te dice qué color le va a tu salón." },
+      { titulo: "Dónde nos colocamos", texto: "Tirso no vende pintura, vende color con opinión. El rival no es la competencia, es el beige. Y la voz, la del dependiente de barrio que te habla claro." },
+    ],
     idea: "Madrid no es beige. Si la ciudad tiene color, sus paredes también deberían tenerlo. Tirso deja de competir en precio y se convierte en la tienda que defiende el color.",
     desarrollo: "Una carta de colores con nombres castizos sacados de la calle: Amarillo Butano, Verde Quiosco, Rojo Ultramarinos, Azul Mono de Obra. Con ella, botes, escaparate, carteles tipográficos por el barrio y reels donde se ve cómo se mezcla cada color.",
     resultado: "Una tienda de barrio con un discurso propio, que vende algo que una gran superficie no puede copiar: criterio y carisma.",
@@ -173,9 +187,9 @@ const TODOS_LOS_PROYECTOS = [
       ],
     },
     galeria: [                                            // fotos de la campaña
-      { imagen: "img/proyectos/tirso-botes.webp", alt: "Cinco botes de Pinturas Tirso en amarillo, verde, rojo, azul y rosa sobre una estantería de madera" },
       { imagen: "img/proyectos/tirso-mezcla.webp", alt: "Tintes amarillo y naranja cayendo en un bote de pintura blanca y mezclándose en espiral" },
       { imagen: "img/proyectos/tirso-abanico.webp", alt: "Manos de un dependiente con bata azul abriendo la carta de los diez colores" },
+      { imagen: "img/proyectos/tirso-botes.webp", alt: "Cinco botes de Pinturas Tirso en amarillo, verde, rojo, azul y rosa sobre un mostrador de madera" }, // apaisada: va tercera, en el hueco ancho
     ],
     web: "tirso/", webEnlace: false,                      // la carta de colores, navegable en la ficha (sin enlace para abrirla aparte)
     fotoCierre: { imagen: "img/proyectos/tirso-pared.webp", alt: "Salón con una pared recién pintada de Amarillo Butano, un rodillo y un bote de Tirso en el suelo" }, // a todo el ancho, antes del resultado

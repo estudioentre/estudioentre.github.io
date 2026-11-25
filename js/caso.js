@@ -51,6 +51,15 @@ document.getElementById("caso-desarrollo").innerHTML = proyecto.etapas        //
      <ul class="caso__aplicaciones">${proyecto.aplicaciones.map((a) => `<li>${a}</li>`).join("")}</ul>` // sí: etapas + dónde se aplicó
   : `<p class="caso__texto">${proyecto.desarrollo}</p>`;                       // no: un párrafo
 
+// La estrategia: tres claves cortas, en columnas (solo si el proyecto la tiene)
+if (proyecto.estrategia) {
+  const cajaEstrategia = document.getElementById("caso-estrategia");  // el hueco
+  cajaEstrategia.hidden = false;                                      // lo enseña
+  cajaEstrategia.innerHTML = `
+    <h2 class="caso__rotulo"><span class="caso__num" aria-hidden="true"></span>La estrategia</h2> <!-- sin número, como el logo -->
+    <div class="caso__estrategia">${proyecto.estrategia.map((e) => `<article><h3>${e.titulo}</h3><p>${e.texto}</p></article>`).join("")}</div>`; // cada clave, su columna
+}
+
 // La web del proyecto, dentro de un navegador dibujado (solo si el proyecto tiene web)
 if (proyecto.web) {
   const cajaWeb = document.getElementById("caso-web");               // el hueco
