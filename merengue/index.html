@@ -57,27 +57,25 @@
       <p class="manifiesto__texto">Mientras todas las marcas se ponen <s>nude</s>, nosotras nos fijamos en el escaparate de la pastelería de la esquina. <em>Violeta, rosquilla y bartolillo.</em> Sabores que ya conoces, ahora para llevarlos puestos.</p>
     </section>
 
-    <!-- ================= LA CARTA: una franja de color por sabor ================= -->
+    <!-- ================= LA CARTA: una columna de color por sabor ================= -->
     <section class="carta" id="carta">
-      <article class="sabor" style="--fondo: #C9B4E4; --anterior: var(--papel)">
+      <article class="sabor" style="--fondo: #C9B4E4; --anterior: var(--papel)"> <!-- cada sabor, una columna de su color -->
         <div class="sabor__texto" data-aparece>
           <p class="etiqueta">Nº 01 · Caramelo de violeta</p>
           <h2 class="sabor__nombre">Violeta <em>de Domingo</em></h2>
           <p class="sabor__frase">Dulce, discreta y muy de Madrid.</p>
           <span class="precio">4,5 g</span>                                     <!-- etiqueta de pastelería -->
         </div>
-        <figure class="foto sabor__foto" style="--r: 4 / 5; --tono: #B9A2D8" data-foto="merengue-violeta"><img src="../img/proyectos/merengue-violeta.webp" alt="Bálsamo Violeta de Domingo junto a caramelos de violeta"></figure>
       </article>
-      <article class="sabor sabor--al-reves" style="--fondo: #F1E8D8; --anterior: #C9B4E4">
+      <article class="sabor" style="--fondo: #F1E8D8; --anterior: var(--papel)">
         <div class="sabor__texto" data-aparece>
           <p class="etiqueta">Nº 02 · Rosquilla de Santa Clara</p>
           <h2 class="sabor__nombre">Santa <em>Clara</em></h2>
           <p class="sabor__frase">El glaseado más fino de Madrid.</p>
           <span class="precio">4,5 g</span>
         </div>
-        <figure class="foto sabor__foto" style="--r: 4 / 5; --tono: #E6D9C2" data-foto="merengue-clara"><img src="../img/proyectos/merengue-clara.webp" alt="Bálsamo Santa Clara junto a rosquillas glaseadas"></figure>
       </article>
-      <article class="sabor sabor--solo" style="--fondo: #F2C35B; --anterior: #F1E8D8"> <!-- sin foto: solo el texto -->
+      <article class="sabor" style="--fondo: #F2C35B; --anterior: var(--papel)">
         <div class="sabor__texto" data-aparece>
           <p class="etiqueta">Nº 03 · Bartolillo de crema</p>
           <h2 class="sabor__nombre">Barto<em>lillo</em></h2>
@@ -89,7 +87,6 @@
 
     <!-- ================= EL TUBO ================= -->
     <section class="tubo" id="tubo">
-      <div class="feston" style="--arriba: #F2C35B"></div>
       <figure class="foto tubo__foto" style="--r: 1 / 1; --tono: #E6DCCB" data-foto="merengue-mano">
         <img src="../img/proyectos/merengue-mano.webp" alt="Mano sosteniendo el bálsamo Violeta de Domingo, con su tapa de merengue">
       </figure>

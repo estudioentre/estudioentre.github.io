@@ -92,20 +92,17 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
 .manifiesto__texto s { text-decoration-thickness: .08em; text-decoration-color: var(--violeta); opacity: .55; } /* "nude", tachado */
 
 /* ---------- 10. La carta: franjas de color ---------- */
-.sabor { position: relative; display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: clamp(2rem, 6vw, 6rem); padding: clamp(4.5rem, 9vw, 8rem) var(--margen); background: var(--fondo); }
+.carta { display: grid; grid-template-columns: repeat(3, 1fr); }               /* los tres sabores, uno al lado del otro, como en el mostrador */
+.sabor { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: clamp(26rem, 70vh, 42rem); padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1.4rem, 3vw, 2.8rem) clamp(2.5rem, 5vw, 4.5rem); background: var(--fondo); } /* cada sabor, una columna de su color con el texto abajo */
 .sabor::before { content: ""; position: absolute; top: 0; left: 0; right: 0; --t: clamp(12px, 1.6vw, 20px); height: var(--t); background: radial-gradient(circle at var(--t) 0, var(--anterior) calc(var(--t) - .5px), transparent var(--t)) 0 0 / calc(var(--t) * 2) var(--t) repeat-x; } /* festón del color de antes */
-.sabor--al-reves .sabor__texto { order: 2; }
-.sabor--solo { grid-template-columns: 1fr; }                                  /* sabor sin foto: el texto solo, a lo ancho */                                 /* la foto cambia de lado */
-.sabor__nombre { margin: 1.2rem 0 1rem; font: 800 clamp(3.4rem, 9vw, 9rem)/.86 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.05em; }
-.sabor__frase { margin: 0 0 2rem; font: italic 500 clamp(1.3rem, 2.2vw, 1.9rem)/1.2 var(--serif); font-variation-settings: "opsz" 72, "SOFT" 100; }
+.sabor__nombre { margin: 1.2rem 0 1rem; font: 800 clamp(2.8rem, 5.4vw, 5.6rem)/.86 var(--serif); font-variation-settings: var(--gorda); letter-spacing: -.05em; } /* el nombre, gordo, cabe en su columna */
+.sabor__frase { margin: 0 0 2rem; font: italic 500 clamp(1.2rem, 1.8vw, 1.6rem)/1.2 var(--serif); font-variation-settings: "opsz" 72, "SOFT" 100; }
 .precio {                                                                     /* etiqueta de precio de pastelería, con su agujerito */
-  display: inline-flex; align-items: center; gap: .6rem; padding: .55rem 1rem .55rem .8rem; background: var(--papel);
+  display: inline-flex; align-self: flex-start; align-items: center; gap: .6rem; padding: .55rem 1rem .55rem .8rem; background: var(--papel);
   font: 700 .9rem/1 var(--sans); letter-spacing: .06em; clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%); padding-left: 1.6rem; rotate: -4deg;
 }
 .precio::before { content: ""; width: .45rem; aspect-ratio: 1; border-radius: 50%; background: var(--fondo); } /* el agujero del cordel */
-.sabor__foto { rotate: 2deg; box-shadow: 0 30px 60px -30px rgba(46, 28, 19, .45); transition: rotate .6s cubic-bezier(.3, 1.4, .5, 1); }
-.sabor--al-reves .sabor__foto { rotate: -2deg; }
-.sabor:hover .sabor__foto { rotate: 0deg; }
+.sabor__texto { display: flex; flex-direction: column; }                     /* para que la etiqueta no se estire */
 
 /* ---------- 11. El tubo ---------- */
 .tubo { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; padding: clamp(5rem, 10vw, 9rem) var(--margen); }
@@ -151,8 +148,8 @@ section > .feston { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
   .cabecera__nota { font-size: .72rem; }
   .cabecera__logo .logo { height: 1.9rem; }
   .sello { position: relative; right: auto; bottom: auto; margin: 2rem 0 0 auto; width: 7rem; }
-  .manifiesto, .sabor, .tubo { grid-template-columns: 1fr; }
-  .sabor--al-reves .sabor__texto { order: 0; }
+  .manifiesto, .carta, .tubo { grid-template-columns: 1fr; }               /* en móvil, un sabor debajo de otro */
+  .sabor { min-height: 0; }                                                 /* sin altura mínima: solo lo que ocupa el texto */
   .tubo__foto { position: static; }
   .ficha > div { grid-template-columns: 1fr; gap: .3rem; }
   .pie__fila { grid-template-columns: 1fr; gap: 1rem; }

@@ -57,6 +57,7 @@ if (proyecto.estrategia) {
   cajaEstrategia.hidden = false;                                      // lo enseña
   cajaEstrategia.innerHTML = `
     <h2 class="caso__rotulo"><span class="caso__num" aria-hidden="true"></span>La estrategia</h2> <!-- sin número, como el logo -->
+    ${proyecto.insight ? `<p class="caso__insight"><span class="etiqueta">El insight</span>${proyecto.insight}</p>` : ""} <!-- el insight, en grande (si lo hay) -->
     <div class="caso__estrategia">${proyecto.estrategia.map((e) => `<article><h3>${e.titulo}</h3><p>${e.texto}</p></article>`).join("")}</div>`; // cada clave, su columna
 }
 
