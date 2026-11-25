@@ -20,7 +20,7 @@
 //   resultado  → un texto o, si hay datos, una lista [ { cifra: "316", texto: "pantallas…" } ]
 //   maqueta    → cubierta mientras no haya imagen: "revista", "cartel" o "indice"
 //   fondo      → color de esa cubierta: "azul", "crema" o "negro"
-//   web, redes → opcional, piezas hechas en código que se ven navegables en la ficha
+//   web, redes → opcional, piezas hechas en código que se ven navegables en la ficha (redesTitulo: su nombre, «Redes» si no se pone)
 //   imagen, alt → foto principal y su descripción (imagen: null = se ve la cubierta)
 //   galeria    → más imágenes del caso: [ { imagen: "ruta", alt: "descripción" } ]
 //   autoria    → opcional, quién hizo qué: [ { nombre: "...", rol: "..." } ]
@@ -129,10 +129,11 @@ const TODOS_LOS_PROYECTOS = [
       { titulo: "Dónde nos colocamos", texto: "El aforo de 50 deja de ser un límite y pasa a ser lo que se ofrece. Se comunica poco y bajito, donde importa: el barrio, el boca a boca y la lista de correo." },
     ],
     idea: "Un festival para escuchar, no para gritar. Si todos los festivales compiten por hacer más ruido, Baja Voz se diferencia bajando el volumen: textos en minúscula, mensajes que se leen casi en susurro y mucho espacio en blanco.",
-    desarrollo: "La marca se vive en el evento: un sistema tipográfico donde la letra baja como baja el volumen, un logotipo animado, carteles, entradas con sus normas y señalética para encontrar cada patio por el barrio.",
+    desarrollo: "La marca se vive en el evento: un sistema tipográfico donde la letra baja como baja el volumen, un logotipo animado, carteles, entradas con sus normas, señalética para encontrar cada patio por el barrio y una newsletter que avisa del próximo concierto en voz baja.",
     resultado: "Una campaña que destaca justo por no levantar la voz, y un sistema que funciona igual en una pantalla que en un portal.",
     maqueta: "indice", fondo: "negro", layout: "panoramico",
     portadaInteractiva: "bajavoz/",                       // en la ficha, la portada es el logo animado
+    redes: "bajavoz/newsletter/", redesTitulo: "Newsletter", // la newsletter de la lista, navegable
     imagen: "img/proyectos/bajavoz-portada.webp",         // en la tarjeta de la portada de ENTRE, el cartel
     alt: "Cartel casi vacío de baja voz en un muro de piedra del Casco Viejo de Bilbao, con la frase «shhh. ya está aquí.»",
     logo: {                                               // apartado del logo: cómo se hizo

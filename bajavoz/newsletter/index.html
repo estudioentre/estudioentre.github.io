@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">                                                     <!-- acentos y eñes bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">       <!-- se adapta al móvil -->
+  <meta name="robots" content="noindex">                                     <!-- es una pieza del caso: que Google no la muestre suelta -->
+  <title>baja voz · la lista</title>                                         <!-- título de la pestaña -->
+  <link rel="stylesheet" href="newsletter.css">                              <!-- todo el diseño -->
+</head>
+<body>
+  <main class="bandeja">
+    <article class="correo" aria-label="Newsletter de baja voz">
+
+      <header class="correo__cabeza">                                         <!-- como se ve en el correo: quién, asunto y hora -->
+        <p class="correo__de"><b>baja voz</b> <span>la lista</span></p>
+        <p class="correo__hora">jue, 11:04</p>
+        <p class="correo__asunto">shhh. el próximo patio.</p>
+      </header>
+
+      <div class="correo__cuerpo">                                            <!-- el correo: cada párrafo, un poco más bajito -->
+        <img class="correo__logo" src="../../img/logos/bajavoz-logo.svg" alt="baja voz">
+        <p class="v1">hola,</p>
+        <p class="v2">el próximo concierto es el 18 de septiembre, a las 20:00.</p>
+        <p class="v3">un patio del casco viejo. la dirección te llega la víspera.</p>
+        <p class="v4">cincuenta sillas. una guitarra. nada más.</p>
+
+        <div class="silla">                                                   <!-- reservar silla: lo interactivo -->
+          <button class="silla__boton" id="reservar" type="button">reservar mi silla</button>
+          <p class="silla__cuenta" id="cuenta" aria-live="polite">quedan <b id="sillas">12</b> sillas</p>
+        </div>
+
+        <ul class="normas">                                                   <!-- la norma de la entrada -->
+          <li>el móvil, en modo avión.</li>
+        </ul>
+
+        <p class="v5">nos vemos. o mejor, nos oímos.</p>
+        <p class="v6">— baja voz</p>
+      </div>
+
+      <footer class="correo__pie">                                            <!-- el pie de siempre, en voz muy baja -->
+        <p>recibes esto porque te apuntaste a la lista de baja voz. si prefieres no saber nada más, <u>darte de baja</u>.</p>
+        <p>18, 19 y 20 sept · bilbao · diseño: entre</p>
+      </footer>
+    </article>
+  </main>
+  <script src="newsletter.js"></script>                                      <!-- la reserva de silla -->
+</body>
+</html>

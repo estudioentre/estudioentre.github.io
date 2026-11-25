@@ -81,10 +81,10 @@ if (proyecto.redes) {
   cajaRedes.innerHTML = `
     <div class="caso__web-barra">                                    <!-- la misma barra que la web -->
       <span class="caso__web-puntos" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span class="caso__redes-titulo">Redes</span>                  <!-- qué es -->
+      <span class="caso__redes-titulo">${proyecto.redesTitulo || "Redes"}</span>                  <!-- qué es -->
       <span class="pastilla-interactivo">Interactivo</span>          <!-- avisa de que se puede tocar -->
     </div>
-    <iframe src="${proyecto.redes}" title="Ejemplos de redes de ${proyecto.titulo}" loading="lazy"></iframe>`; // la pieza
+    <iframe src="${proyecto.redes}" title="${proyecto.redesTitulo || "Ejemplos de redes"} de ${proyecto.titulo}" loading="lazy"></iframe>`; // la pieza
 }
 
 // El logo: cómo se hizo, con sus dos versiones y sus colores (solo si el proyecto lo tiene)
